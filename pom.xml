@@ -2,9 +2,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.mycom</groupId> <!-- 프로젝트 groupId로 보통 도메인명 -->
-	<artifactId>myapp</artifactId><!-- 일반적으로 패키지명 -->
-	<name>springPro</name> <!-- 프로젝트이름 -->
+	<groupId>com.movie</groupId> <!-- 프로젝트 groupId로 보통 도메인명 -->
+	<artifactId>movir</artifactId><!-- 일반적으로 패키지명 -->
+	<name>project</name> <!-- 프로젝트이름 -->
 	<packaging>war</packaging> <!-- 배포방식 -->
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
