@@ -17,7 +17,7 @@ $(function(){
 </script>	
 </head>
 <body>
-	<h2>.jsp</h2>
+	<h2>header.jsp</h2>
 
 </body>
 </html>
