@@ -227,7 +227,7 @@ $(function(){
 								<div class="choice-way">
 									<div class="qr">
 										<div class="qr-codeimg">
-											<img src="../img.cgv.co.kr/R2014/images/common/img_qrcode.gif" alt="QR CODE" />
+											<img src="${contextPath}/resources/images/common/img_qrcode.gif" alt="QR CODE" />
 										</div>
                                         <div class="qr-desc">
                                             <p>QR코드를 스캔하고<br />앱 설치 페이지로 바로 이동하세요 </p>
@@ -262,7 +262,7 @@ $(function(){
             <!-- 서비스 메뉴 -->
             
             <div class="im-wrap"> <!-- Important wrap -->
-				<h2><img src="../img.cgv.co.kr/R2014/images/title/h2_cultureplex.png" alt="CULTUREPLEX" /></h2>
+				<h2><img src="${contextPath}/resources/images/title/h2_cultureplex.png" alt="CULTUREPLEX" /></h2>
 
 				<!-- 서브 메뉴 -->
 
