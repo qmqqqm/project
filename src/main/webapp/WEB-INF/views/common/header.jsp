@@ -16,7 +16,7 @@ $(function(){
 });
 </script>	
 </head>
-<body>
+<body class="">
 		 <form name="ssologinfrm" action="https://www.cgv.co.kr/user/login/login-sso.aspx" method="post">
         <input type="hidden" id="cjssoq" name="cjssoq" />
         <input type="hidden" name="returnURL" value="/default.aspx" />
@@ -210,7 +210,7 @@ $(function(){
 
 
 
-            <h1><a href="index.html"><img src="../img.cgv.co.kr/R2014/images/title/h1_cgv.png" alt="CGV" /></a></h1>
+            <h1><a href="index.html"><img src="${contextPath}/resources/images/title/h1_cgv.png" alt="CGV" /></a></h1>
 
             <div class="sect-service">
 				<h2>서비스 메뉴</h2>

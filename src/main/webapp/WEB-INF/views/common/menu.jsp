@@ -37,13 +37,6 @@ $(function(){
         var win = window.open('event/develop/1503_CLUB_Info.html', 'winSpecialClub', 'left=0,top=0,width=580,height=700,toolbar=no,scrollbars=yes');
         win.focus();
     }
-
-    //동성로타운
-//    function openDownTown() {
-//        var win = window.open('http://section.cgv.co.kr/event/dongsungroTown/serviceInfo.aspx', 'winDownTown', 'left=0,top=0,width=670,height=800,toolbar=no,scrollbars=yes');
-//        win.focus();
-//    }
-
     //노원타운
     function openNowonTown() {
         var win = window.open('http://section.cgv.co.kr/event/NowonTown/serviceInfo.aspx', 'winNowonTown', 'left=0,top=0,width=700,height=800,toolbar=no,scrollbars=yes');
@@ -180,7 +173,7 @@ $(function(){
                 
 				<div class="ad-partner">
                     <a href="http://section.cgv.co.kr/discount/Special/discount/EventDetail.aspx?Idx=11972&amp;pb=Y"  >
-                        <img src="../img.cgv.co.kr/WingBanner/2020/1015/16027565478490.png" alt="간편결제 차이" />
+                        <img src="${contextPath}/resources/images/WingBanner/2020/1015/16027565478490.png" alt="간편결제 차이" />
                     </a>					
 				</div>
                 

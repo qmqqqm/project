@@ -10,6 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
 <title></title>
  		<link rel="stylesheet" media="all" type="text/css" href="${contextPath}/resources/css/reset.css" />
     <link rel="stylesheet" media="all" type="text/css" href="${contextPath}/resources/css/layout.css" />
@@ -26,13 +27,15 @@
     <script type="text/javascript" src="${contextPath}/resources/js/jquery.plugin/jquery.tmpl.min.js"></script>
     <script type="text/javascript" src="${contextPath}/resources/js/jquery.plugin/jquery.validate.js"></script>
     <script type="text/javascript" src="${contextPath}/resources/js/jquery.plugin/jquery.paging.min.js"></script>
+    
+    
     <script type="text/javascript" src="${contextPath}/resources/js/jquery.ui/jquery-ui-1.10.4.custom.min.js"></script>
     <script type="text/javascript" src="${contextPath}/resources/js/jquery.utils.js"></script>
     <script type="text/javascript" src="${contextPath}/resources/js/app.utils.js"></script>
 		<script type="text/javascript" src="${contextPath}/resources/js/jquery.utils.pageing.js"></script>
     <script type="text/javascript" src="${contextPath}/resources/js/app.init.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<!--[if lte IE 9]><script type="text/javascript" src="https://img.cgv.co.kr/R2014/js/jquery.plugin/jquery.placeholder.js"></script><![endif]-->
+		
+
     <script type="text/javascript" src="${contextPath}/resources/js/jquery.plugin/jquery.dotdotdot.min.js"></script>
     <script type="text/javascript" src="${contextPath}/resources/js/silverlight_link.js"></script>
 		<script src="${contextPath}/resources/js/slick/slick.js" type="text/javascript" charset="utf-8"></script>
@@ -45,13 +48,11 @@
     <script type="text/javascript" src="${contextPath}/resources/js/icheck/login.timer.js"></script>
     <script src="${contextPath}/resources/js/icheck/icheck.min.js" type="text/javascript" charset="utf-8"></script>
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/js/icheck/iCheck.css" />
-
     <!-- 2020.05.07 감정지수/프리에그 프로젝트 추가 -->
     <link rel="stylesheet" media="all" type="text/css" href="${contextPath}/resources/css/preegg.css" />
-    <!-- 각페이지 Header Start--> 
-    
-    <!--/각페이지 Header End--> 
-    <script type="text/javascript">
+   
+   
+   <script type="text/javascript">
         //<![CDATA[
 
         _TRK_CP = "/홈";
@@ -154,12 +155,9 @@
         //]]>
     </script>
     <script type="text/javascript" src="https://nsso.cjone.com/findCookieSecured.jsp?cjssoq=JnpDIdPxV2I4b4b3slodbvAD1mmrEuB00b2g9A7I8YXnG3BnS%2bzJH0NyknJmxLwwh8sJ5rs7%2fTXc%2bN0b4%2bmSrzdHWGs5ek44Q05YbTErejd6M3pmbi9aSnAwaEdETGQxQlJLUEpCNVM0TVEwa3Q0YWJHbXROZUlsM1llWlMrMEk%3d"></script>
-<script>
-$(function(){
-});
-</script>	
 </head>
-<body>
+
+<body class="">
 <div id="container">
 		<div id="header">
 			<tiles:insertAttribute name="header"/>
