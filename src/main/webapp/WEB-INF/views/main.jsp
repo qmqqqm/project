@@ -80,7 +80,7 @@
 		<button type="button" class="btn-next">다음 페이지 이동</button>
 	</div>
 </div>
-<h3><img src="${contextPath}/resources/images/title/h3_movie_selection.gif" alt="MOVIE SELECTION" /></h3>
+<h3><img src="movie/resources/images/title/h3_movie_selection.gif" alt="MOVIE SELECTION" /></h3>
 <div class="cols-movie">
 	<div id="Selection_L" class="col-slider">
 		<!--2020.10.15 Adobe Flash 종료로 인한 광고태그에 태그 추가건(SR:3415857)-->
@@ -142,7 +142,7 @@
 	<div class="col-ad">
 		<div class="box-com">
 		    <div class="box-inner">
-                <a href="culture-event/popcorn-store/store-categoryd3a3.html?CategoryIdx=3" ><img src="${contextPath}/resources/Front/Main/2020/1130/16067181584930.jpg" alt="기프트카드" /></a>
+                <a href="culture-event/popcorn-store/store-categoryd3a3.html?CategoryIdx=3" ><img src="movie/resources/Front/Main/2020/1130/16067181584930.jpg" alt="기프트카드" /></a>
             </div>
 		</div>
 	</div>
@@ -217,8 +217,8 @@
 		</div>
 		<div class="down_app">
 			<p><img src="/movie/resources/images/popup/1606_iexp/pop_iexp_downtxt.jpg" alt="OS 업데이트가 어려운 경우 모바일앱을 이용하세요!!!" /></p>
-			<a class="btn" href="https://itunes.apple.com/kr/app/id370441190?mt=8" target="_blank"><img src="../img.cgv.co.kr/images/popup/1606_iexp/btn_down_ios.jpg" alt="Ios down" /></a>
-			<a class="btn" href="https://play.google.com/store/apps/details?id=com.cgv.android.movieapp" target="_blank"><img src="../img.cgv.co.kr/images/popup/1606_iexp/btn_down_android.jpg" alt="Android down" /></a>
+			<a class="btn" href="https://itunes.apple.com/kr/app/id370441190?mt=8" target="_blank"><img src="/movie/resources/images/popup/1606_iexp/btn_down_ios.jpg" alt="Ios down" /></a>
+			<a class="btn" href="https://play.google.com/store/apps/details?id=com.cgv.android.movieapp" target="_blank"><img src="/movie/resources/images/popup/1606_iexp/btn_down_android.jpg" alt="Android down" /></a>
 		</div>
 		<a class="btn_close">닫기</a>
 
@@ -239,13 +239,13 @@
 			<img src="/movie/resources/images/popup/1606_iexp/pop_iexp_headline1.jpg" alt="CGV 홈페이지는 Internet Explorer 9이상에서 최적의 서비스 이용이 가능합니다. IE9 이하 브라우저에서 이용 시 정상적인 서비스 이용이 어려울 수 있으며, 브라우저 업그레이드 하시기를 권장합니다." />
 		</div>
 		<ul class="down_browser">
-			<li><a href="http://windows.microsoft.com/ko-kr/windows/downloads" target="_blank"><img src="../img.cgv.co.kr/images/popup/1606_iexp/btn_down_ie.jpg" alt="Internet Explorer 다운받기" /></a></li>
-			<li><a href="https://www.google.com/chrome/browser/desktop/index.html" target="_blank"><img src="../img.cgv.co.kr/images/popup/1606_iexp/btn_down_chrome.jpg" alt="Chrome 다운받기" /></a></li>
+			<li><a href="http://windows.microsoft.com/ko-kr/windows/downloads" target="_blank"><img src="/movie/resources/images/popup/1606_iexp/btn_down_ie.jpg" alt="Internet Explorer 다운받기" /></a></li>
+			<li><a href="https://www.google.com/chrome/browser/desktop/index.html" target="_blank"><img src="/movie/resources/images/popup/1606_iexp/btn_down_chrome.jpg" alt="Chrome 다운받기" /></a></li>
 		</ul>
 		<div class="down_app">
 			<p><img src="/movie/resources/images/popup/1606_iexp/pop_iexp_downtxt.jpg" alt="OS 업데이트가 어려운 경우 모바일앱을 이용하세요!" /></p>
-			<a class="btn" href="https://itunes.apple.com/kr/app/id370441190?mt=8" target="_blank"><img src="../img.cgv.co.kr/images/popup/1606_iexp/btn_down_ios.jpg" alt="Ios down" /></a>
-			<a class="btn" href="https://play.google.com/store/apps/details?id=com.cgv.android.movieapp" target="_blank"><img src="../img.cgv.co.kr/images/popup/1606_iexp/btn_down_android.jpg" alt="Android down" /></a>
+			<a class="btn" href="https://itunes.apple.com/kr/app/id370441190?mt=8" target="_blank"><img src="/movie/resources/images/popup/1606_iexp/btn_down_ios.jpg" alt="Ios down" /></a>
+			<a class="btn" href="https://play.google.com/store/apps/details?id=com.cgv.android.movieapp" target="_blank"><img src="/movie/resources/images/popup/1606_iexp/btn_down_android.jpg" alt="Android down" /></a>
 		</div>
 		<a class="btn_close">닫기</a>
 </div>

@@ -52,7 +52,7 @@
 				<address>(04377)서울특별시 용산구 한강대로 23길 55, 아이파크몰 6층(한강로동)</address>
 				<p class="vl">
 					<span>대표이사 : 최병환</span><span>사업자등록번호 : 104-81-45690</span><span>통신판매업신고번호 : 2017-서울용산-0662</span>
-					<a href="javascript:void(0);" onclick="goFtc()" class="btn_goFtc"><img src="../img.cgv.co.kr/r2014/images/common/btn_reg.png" alt="사업자정보확인"/><a>					
+					<a href="javascript:void(0);" onclick="goFtc()" class="btn_goFtc"><img src="/movie/resources/images/common/btn_reg.png" alt="사업자정보확인"/><a>					
 				</p>
 				<p class="vl">
 					<span>호스팅사업자 : CJ올리브네트웍스</span><span>개인정보보호 책임자 : 이동현</span><span>대표이메일 : cjcgvmaster@cj.net</span><span>CGV고객센터 : 1544-1122</span>
@@ -110,7 +110,7 @@
 				<a href="arthouse/index.html"><img src="/movie/resources/images/common/btn/btn_person_arthouse.gif" alt="CGV arthouse" /></a>
 				<a href="theaters/special/index.html"><img src="/movie/resources/images/common/btn/btn_person_special.gif" alt="CGV SPECIAL" /></a>
 
-				<a href="user/mycgv/reserve/index.html" class="required-login" data-url="/user/mycgv/reserve/"><img src="${contextPath}/resources/images/common/btn/btn_person_ticket.gif" alt="CGV TICKET INFO" /></a>
+				<a href="user/mycgv/reserve/index.html" class="required-login" data-url="/user/mycgv/reserve/"><img src="movie/resources/images/common/btn/btn_person_ticket.gif" alt="CGV TICKET INFO" /></a>
 				<a href="discount/discountlist.html"><img src="/movie/resources/images/common/btn/btn_person_discount.gif" alt="CGV DISCOUNT INFO" /></a>
 			</div>
 		</div>
