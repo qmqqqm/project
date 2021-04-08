@@ -1,22 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-<%-- pageContext를 이용하여 request객체를 얻고 얻어진 request객체를 이용하여   contextPath를 얻어 변수에 저장
-<c:set var="변수명"       value="값" />  --%>        
-<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title></title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script>
-$(function(){
-});
-</script>	
-</head>
-<body class="">
+
+
 		 <form name="ssologinfrm" action="https://www.cgv.co.kr/user/login/login-sso.aspx" method="post">
         <input type="hidden" id="cjssoq" name="cjssoq" />
         <input type="hidden" name="returnURL" value="/default.aspx" />
@@ -210,7 +196,7 @@ $(function(){
 
 
 
-            <h1><a href="index.html"><img src="${contextPath}/resources/images/title/h1_cgv.png" alt="CGV" /></a></h1>
+            <h1><a href="index.html"><img src="/movie/resources/images/title/h1_cgv.png" alt="CGV" /></a></h1>
 
             <div class="sect-service">
 				<h2>서비스 메뉴</h2>
@@ -227,7 +213,7 @@ $(function(){
 								<div class="choice-way">
 									<div class="qr">
 										<div class="qr-codeimg">
-											<img src="${contextPath}/resources/images/common/img_qrcode.gif" alt="QR CODE" />
+											<img src="/movie/resources/images/common/img_qrcode.gif" alt="QR CODE" />
 										</div>
                                         <div class="qr-desc">
                                             <p>QR코드를 스캔하고<br />앱 설치 페이지로 바로 이동하세요 </p>
@@ -262,12 +248,11 @@ $(function(){
             <!-- 서비스 메뉴 -->
             
             <div class="im-wrap"> <!-- Important wrap -->
-				<h2><img src="${contextPath}/resources/images/title/h2_cultureplex.png" alt="CULTUREPLEX" /></h2>
+				<h2><img src="/movie/resources/images/title/h2_cultureplex.png" alt="CULTUREPLEX" /></h2>
 
 				<!-- 서브 메뉴 -->
 
-</body>
-</html>
+
 
 
 

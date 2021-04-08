@@ -1,22 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-<%-- pageContext를 이용하여 request객체를 얻고 얻어진 request객체를 이용하여   contextPath를 얻어 변수에 저장
-<c:set var="변수명"       value="값" />  --%>        
-<c:set var="contextPath" value="${pageContext.request.contextPath}" />
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title></title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script>
-$(function(){
-});
-</script>	
-</head>
-<body>
 <!-- 서브 메뉴 -->
 				
 
@@ -106,9 +89,9 @@ $(function(){
 								<i></i>
 								<div class="smenu">
 									<ul>
-										<li><a href="movies/index.html">무비차트</a></li>
-										<li><a href="movies/hd-trailer.html">HD 트레일러</a></li>
-										<li><a href="movies/finder.html">무비파인더</a></li>
+										<li><a href="movie/index.html">무비차트</a></li>
+										<li><a href="movie/hd-trailer.html">HD 트레일러</a></li>
+										<li><a href="movie/finder.html">무비파인더</a></li>
                                         <!--
                                         2019-12-03 평점 서비스 삭제 by 안지은
 										<li><a href="/movies/point/">평점</a></li>
@@ -173,7 +156,7 @@ $(function(){
                 
 				<div class="ad-partner">
                     <a href="http://section.cgv.co.kr/discount/Special/discount/EventDetail.aspx?Idx=11972&amp;pb=Y"  >
-                        <img src="${contextPath}/resources/images/WingBanner/2020/1015/16027565478490.png" alt="간편결제 차이" />
+                        <img src="/movie/resources/images/WingBanner/2020/1015/16027565478490.png" alt="간편결제 차이" />
                     </a>					
 				</div>
                 
@@ -190,8 +173,7 @@ $(function(){
 	 <div class="com_pop_wrap">
 		<div class="com_pop_fog"></div>
 	</div>
-</body>
-</html>
+
 
 
 
