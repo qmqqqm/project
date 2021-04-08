@@ -110,7 +110,7 @@
 				<a href="arthouse/index.html"><img src="/movie/resources/images/common/btn/btn_person_arthouse.gif" alt="CGV arthouse" /></a>
 				<a href="theaters/special/index.html"><img src="/movie/resources/images/common/btn/btn_person_special.gif" alt="CGV SPECIAL" /></a>
 
-				<a href="user/mycgv/reserve/index.html" class="required-login" data-url="/user/mycgv/reserve/"><img src="movie/resources/images/common/btn/btn_person_ticket.gif" alt="CGV TICKET INFO" /></a>
+				<a href="user/mycgv/reserve/index.html" class="required-login" data-url="/user/mycgv/reserve/"><img src="/movie/resources/images/common/btn/btn_person_ticket.gif" alt="CGV TICKET INFO" /></a>
 				<a href="discount/discountlist.html"><img src="/movie/resources/images/common/btn/btn_person_discount.gif" alt="CGV DISCOUNT INFO" /></a>
 			</div>
 		</div>
