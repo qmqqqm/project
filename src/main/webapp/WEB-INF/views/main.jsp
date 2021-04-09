@@ -142,7 +142,7 @@
 	<div class="col-ad">
 		<div class="box-com">
 		    <div class="box-inner">
-                <a href="culture-event/popcorn-store/store-categoryd3a3.html?CategoryIdx=3" ><img src="movie/resources/Front/Main/2020/1130/16067181584930.jpg" alt="기프트카드" /></a>
+                <a href="culture-event/popcorn-store/store-categoryd3a3.html?CategoryIdx=3" ><img src="/movie/resources/Front/Main/2020/1130/16067181584930.jpg" alt="기프트카드" /></a>
             </div>
 		</div>
 	</div>
