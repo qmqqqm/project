@@ -80,7 +80,7 @@
 		<button type="button" class="btn-next">다음 페이지 이동</button>
 	</div>
 </div>
-<h3><img src="movie/resources/images/title/h3_movie_selection.gif" alt="MOVIE SELECTION" /></h3>
+<h3><img src="/movie/resources/images/title/h3_movie_selection.gif" alt="MOVIE SELECTION" /></h3>
 <div class="cols-movie">
 	<div id="Selection_L" class="col-slider">
 		<!--2020.10.15 Adobe Flash 종료로 인한 광고태그에 태그 추가건(SR:3415857)-->
