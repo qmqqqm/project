@@ -12,44 +12,44 @@
 <meta charset="UTF-8">
 
 <title></title>
- 		<link rel="stylesheet" media="all" type="text/css" href="/movie/resources/css/reset.css" />
-    <link rel="stylesheet" media="all" type="text/css" href="/movie/resources/css/layout.css" />
-    <link rel="stylesheet" media="all" type="text/css" href="/movie/resources/css/module.css" />
-    <link rel="stylesheet" media="all" type="text/css" href="/movie/resources/css/common.css" />
-    <link rel="stylesheet" media="all" type="text/css" href="/movie/resources/css/content.css" />
-    <link rel="stylesheet" media="all" type="text/css" href="/movie/resources/css/eggupdate.css" />
-    <link rel="stylesheet" media="print" type="text/css" href="/movie/resources/css/print.css" /> 
-		<link rel="stylesheet" type="text/css" href="/movie/js/jquery.ui/smoothness/jquery-ui-1.10.4.custom.min.css" />
+ 		<link rel="stylesheet" media="all" type="text/css" href="${contextPath}/resources/css/reset.css" />
+    <link rel="stylesheet" media="all" type="text/css" href="${contextPath}/resources/css/layout.css" />
+    <link rel="stylesheet" media="all" type="text/css" href="${contextPath}/resources/css/module.css" />
+    <link rel="stylesheet" media="all" type="text/css" href="${contextPath}/resources/css/common.css" />
+    <link rel="stylesheet" media="all" type="text/css" href="${contextPath}/resources/css/content.css" />
+    <link rel="stylesheet" media="all" type="text/css" href="${contextPath}/resources/css/eggupdate.css" />
+    <link rel="stylesheet" media="print" type="text/css" href="${contextPath}/resources/css/print.css" /> 
+		<link rel="stylesheet" type="text/css" href="${contextPath}/resources/js/jquery.ui/smoothness/jquery-ui-1.10.4.custom.min.css" />
 
-    <script type="text/javascript" src="/movie/resources/js/extraTheaters.js"></script>
-    <script type="text/javascript" src="/movie/resources/js/app.config.js"></script>
-    <script type="text/javascript" src="/movie/resources/js/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" src="/movie/resources/js/jquery.plugin/jquery.tmpl.min.js"></script>
-    <script type="text/javascript" src="/movie/resources/js/jquery.plugin/jquery.validate.js"></script>
-    <script type="text/javascript" src="/movie/resources/js/jquery.plugin/jquery.paging.min.js"></script>
+    <script type="text/javascript" src="${contextPath}/resources/js/extraTheaters.js"></script>
+    <script type="text/javascript" src="${contextPath}/resources/js/app.config.js"></script>
+    <script type="text/javascript" src="${contextPath}/resources/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="${contextPath}/resources/js/jquery.plugin/jquery.tmpl.min.js"></script>
+    <script type="text/javascript" src="${contextPath}/resources/js/jquery.plugin/jquery.validate.js"></script>
+    <script type="text/javascript" src="${contextPath}/resources/js/jquery.plugin/jquery.paging.min.js"></script>
     
     
-    <script type="text/javascript" src="/movie/resources/js/jquery.ui/jquery-ui-1.10.4.custom.min.js"></script>
-    <script type="text/javascript" src="/movie/resources/js/jquery.utils.js"></script>
-    <script type="text/javascript" src="/movie/resources/js/app.utils.js"></script>
-		<script type="text/javascript" src="/movie/resources/js/jquery.utils.pageing.js"></script>
-    <script type="text/javascript" src="/movie/resources/js/app.init.js"></script>
+    <script type="text/javascript" src="${contextPath}/resources/js/jquery.ui/jquery-ui-1.10.4.custom.min.js"></script>
+    <script type="text/javascript" src="${contextPath}/resources/js/jquery.utils.js"></script>
+    <script type="text/javascript" src="${contextPath}/resources/js/app.utils.js"></script>
+		<script type="text/javascript" src="${contextPath}/resources/js/jquery.utils.pageing.js"></script>
+    <script type="text/javascript" src="${contextPath}/resources/js/app.init.js"></script>
 		
 
-    <script type="text/javascript" src="/movie/resources/js/jquery.plugin/jquery.dotdotdot.min.js"></script>
-    <script type="text/javascript" src="/movie/resources/js/silverlight_link.js"></script>
+    <script type="text/javascript" src="${contextPath}/resources/js/jquery.plugin/jquery.dotdotdot.min.js"></script>
+    <script type="text/javascript" src="${contextPath}/resources/js/silverlight_link.js"></script>
 		<script src="${contextPath}/resources/js/slick/slick.js" type="text/javascript" charset="utf-8"></script>
 
     
-    <link rel="stylesheet" media="all" type="text/css" href="/movie/resources/css/phototicket/phototicket.css" />
-    <link rel="stylesheet" media="all" type="text/css" href="/movie/resources/css/slick.css" />
-		<link rel="stylesheet" media="all" type="text/css" href="/movie/resources/css/slick-theme-custom.css" />
+    <link rel="stylesheet" media="all" type="text/css" href="${contextPath}/resources/css/phototicket/phototicket.css" />
+    <link rel="stylesheet" media="all" type="text/css" href="${contextPath}/resources/css/slick.css" />
+		<link rel="stylesheet" media="all" type="text/css" href="${contextPath}/resources/css/slick-theme-custom.css" />
 
     <script type="text/javascript" src="${contextPath}/resources/js/icheck/login.timer.js"></script>
     <script src="${contextPath}/resources/js/icheck/icheck.min.js" type="text/javascript" charset="utf-8"></script>
-    <link rel="stylesheet" type="text/css" href="/movie/resources/js/icheck/iCheck.css" />
+    <link rel="stylesheet" type="text/css" href="${contextPath}/resources/js/icheck/iCheck.css" />
     <!-- 2020.05.07 감정지수/프리에그 프로젝트 추가 -->
-    <link rel="stylesheet" media="all" type="text/css" href="/movie/resources/css/preegg.css" />
+    <link rel="stylesheet" media="all" type="text/css" href="${contextPath}/resources/css/preegg.css" />
    
    
    <script type="text/javascript">

@@ -207,7 +207,7 @@
 </li>
 </script>
 
-<script type="text/javascript" src="/movie/js/system/crypto.js"></script>
+<script type="text/javascript" src="${contextPath}/resources/js/system/crypto.js"></script>
 <script type="text/javascript">
     //<![CDATA[
     function closeBanner(){        

@@ -31,7 +31,7 @@
                 <div class="adextend" id="adExtend"></div>
             </div><!-- //.top_extend_ad_wrap -->
         </div>    
-    </div>    
+    </div> 
 	<!-- Header -->
 	<div id="header">
 		<div class="head">
