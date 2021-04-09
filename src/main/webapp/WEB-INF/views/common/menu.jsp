@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+</style>
 <!-- 서브 메뉴 -->			
 
 <script type="text/javascript">
@@ -82,7 +83,7 @@
     })(jQuery);
 </script>
 				<div class="lnb">
-					<h2>CGV 주메뉴</h2>
+					<!-- <h2>CGV 주메뉴</h2>
 					<ul id="gnb_list">
 						<li class="movie"><a href="movies/index.html">영화</a>
 							<div class="sub-wrap">
@@ -92,10 +93,10 @@
 										<li><a href="movie/index.html">무비차트</a></li>
 										<li><a href="movie/hd-trailer.html">HD 트레일러</a></li>
 										<li><a href="movie/finder.html">무비파인더</a></li>
-                                        <!--
+                                        
                                         2019-12-03 평점 서비스 삭제 by 안지은
 										<li><a href="/movies/point/">평점</a></li>
-                                        -->
+                                       
 										<li class="last"><a href="arthouse/index.html">CGV아트하우스</a></li>
 									</ul>
 								</div>
@@ -135,9 +136,9 @@
 									</ul>
 								</div>
 							</div>
-						</li>
-					</ul>
-				</div>
+						</li> -->
+				<!-- 	</ul>
+				</div> -->
 				<!-- /Local Navigation Bar -->
 
                 <!-- Integrated search(통합검색) -->
@@ -154,11 +155,11 @@
 				<!-- /Integrated search(통합검색) -->
                 <!-- Advertisement -->
                 
-				<div class="ad-partner">
+			<!-- 	<div class="ad-partner">
                     <a href="http://section.cgv.co.kr/discount/Special/discount/EventDetail.aspx?Idx=11972&amp;pb=Y"  >
                         <img src="/movie/resources/images/WingBanner/2020/1015/16027565478490.png" alt="간편결제 차이" />
                     </a>					
-				</div>
+				</div> -->
                 
 				<!-- /Advertisement -->
                 <!-- 서브 메뉴 -->
