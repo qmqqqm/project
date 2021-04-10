@@ -94,13 +94,13 @@
 <ul class="tab-menu">
 
 	<li class="on">
-        <a href="#" data-filter-type="08" title="현재 선택됨" >CGV스페셜</a>
+        <a href="#" data-filter-type="08" title="현재 선택됨" >늘봄극장스페셜</a>
     </li>
 	<li>
         <a href="#" data-filter-type="02" >영화/예매</a>
     </li>
 	<li>
-        <a href="#" data-filter-type="07" >CGV아트하우스</a>
+        <a href="#" data-filter-type="07" >늘봄극장아트하우스</a>
     </li>
 	<li>
         <a href="#" data-filter-type="03" >제휴/할인</a>

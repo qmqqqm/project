@@ -196,19 +196,19 @@
 
 
 
-            <h1><a href="index.html"><img src="/movie/resources/images/title/h1_cgv.png" alt="CGV" /></a></h1>
+            <h1><a href="./main.do"><img src="/movie/resources/images/title/h1_cgv.png" alt="CGV" /></a></h1>
 
             <div class="sect-service">
 				<h2>서비스 메뉴</h2>
                 <ul class="util">
 					<li>
                         <!-- 2019.09 수정 -->
-                        <a href="#" class="app" style="cursor:pointer" title="CGV앱 4.0 설치 새창" ><span>CGV앱 4.0 설치</span></a>
+                        <a href="#" class="app" style="cursor:pointer" title="CGV앱 4.0 설치 새창" ><span>늘봄극장앱 4.0 설치</span></a>
 						<!-- 앱 다운로드 레이어 팝업 2019.09 SMS 전송,하단 영역 제거 -->
 						<div class="app-downinfo v2">
 							<div class="inner">
 								<div class="tit-box">
-									<strong><em>CGV</em>앱에서<br />더 편리하게 이용하세요.</strong>
+									<strong><em>늘봄극장</em>앱에서<br />더 편리하게 이용하세요.</strong>
 								</div>
 								<div class="choice-way">
 									<div class="qr">
@@ -227,22 +227,22 @@
                     </li>
 					<li><a href="https://www.facebook.com/CJCGV" class="like" target="_blank" title="Facebook 좋아요! 새창" ><span>Facebook 좋아요!</span></a></li>
 				    <li><a href="https://www.instagram.com/cgv_korea/" class="insta" target="_blank" title="Instagram Follow" ><span>Instagram Follow</span></a></li>
-                	<li><a href="discount/index.html" class="frugal" ><span>알뜰한 영화관람법!</span></a></li> <!-- 할인카드 -->
+                	<li><a href="./WEB-INF/views/main/discount/index.html" class="frugal" ><span>알뜰한 영화관람법!</span></a></li> <!-- 할인카드 -->
 				</ul>
                 <ul class="gnb">
                 
-                    <li><a href="user/login/index2db8.html?returnURL=https%3a%2f%2fwww.cgv.co.kr%2fdefault.aspx" class="login" ><span>로그인</span></a></li>
-					<li><a href="user/join/index.html" class="join" ><span>회원가입</span></a></li>
+                    <li><a href="login.do" class="login" ><span>로그인</span></a></li>
+					<li><a href="join.do" class="join" ><span>회원가입</span></a></li>
                     
                 
 
-					<li><a href="user/mycgv/index.html" class="mycgv required-login" data-url="/user/mycgv/" ><span>MY CGV</span></a></li>
-					<li><a href="user/vip-lounge/index.html" class="vip" ><span>VIP LOUNGE</span></a></li>
-					<li><a href="user/memberShip/ClubService.html" title="새창" class="club specialclub"  ><span>CLUB 서비스</span></a></li>
+					<li><a href="mynb.do" class="mycgv required-login" data-url="/user/mycgv/" ><span>MY CGV</span></a></li>
+					<li><a href="./WEB-INF/views/main/user/vip-lounge/index.html" class="vip" ><span>VIP LOUNGE</span></a></li>
+					<li><a href="clubService.do" title="새창" class="club specialclub"  ><span>CLUB 서비스</span></a></li>
 					<!-- 2014.12.8 리뉴얼-->
-					<li><a href="support/default.html" class="customer" ><span>고객센터</span></a></li>
+					<li><a href="./support.do" class="customer" ><span>고객센터</span></a></li>
 				    <!-- 2014.12.8 리뉴얼-->
-					<li><a href="ticket/eng/newdefault.html" class="showtimes"   ><span>ENGLISH TICKETING</span></a></li>
+					<li><a href="./WEB-INF/views/main/ticket/eng/newdefault.html" class="showtimes"   ><span>ENGLISH TICKETING</span></a></li>
 				</ul>
            </div>
             <!-- 서비스 메뉴 -->
