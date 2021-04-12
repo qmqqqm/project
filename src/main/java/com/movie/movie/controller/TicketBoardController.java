@@ -12,7 +12,8 @@ import com.movie.movie.service.TicketBoardService;
 public class TicketBoardController {
 	@Autowired
 	private TicketBoardService ticketBoardService;
-	
+	@Autowired
+	private TicketBoardDTO ticketBoardDTO;
 	@RequestMapping("ticketBoardList.do")
 	public String ticketBoardList( ) {
 		ticketBoardService.ticketBoardList();

@@ -2,6 +2,8 @@ package com.movie.movie.dto;
 
 import java.util.Date;
 
+import org.springframework.stereotype.Component;
+@Component("ticketBoardDTO")
 public class TicketBoardDTO {
 private int ticketBoard_id;
 private String ticketBoard_group;
