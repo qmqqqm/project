@@ -47,9 +47,9 @@
         고객센터 메뉴</h2>
     <div class="snb">
         <ul>
-            <li class='on'><a href="support.do">고객센터 메인<i></i></a></li>
+            <li class=''><a href="support.do">고객센터 메인<i></i></a></li>
             <li class=''><a href="news/default.html">공지/뉴스<i></i></a></li>
-            <li class=''><a href="ticketBoardList.do" >예매문의<i></i></a></li>
+            <li class='on'><a href="ticketBoardList.do" >예매문의<i></i></a></li>
             <li class=''><a href="../user/login/index08fe.html">이벤트<i></i></a></li>
             <li class=''><a href="../user/login/indexf961.html">분실물 문의<i></i></a></li>
             <li class=''><a href="lease/default.html">자유게시판<i></i></a></li>            
