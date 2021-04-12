@@ -26,9 +26,9 @@
 		<put-attribute name="title" value="고객센터" />
 		<put-attribute name="body"  value="/WEB-INF/views/main/support/support.jsp" />
 	</definition>
-	<definition name="login"  extends="baseLayout">
+	<definition name="loginForm"  extends="baseLayout">
 		<put-attribute name="login" value="회원로그인" />
-		<put-attribute name="body"  value="/WEB-INF/views/main/user/login/login.jsp" />
+		<put-attribute name="body"  value="/WEB-INF/views/main/user/login/loginForm.jsp" />
 	</definition>
 	
 	<definition name="join"  extends="baseLayout">

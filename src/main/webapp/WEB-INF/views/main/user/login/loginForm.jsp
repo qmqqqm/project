@@ -52,7 +52,7 @@
         </ul>
         <div class="box-login">
             <h3 class="hidden">회원 로그인</h3>
-            <form id="form1" method="post" action="#" novalidate="novalidate" onsubmit="return false">
+            <form id="form1" method="post" action="login.do" novalidate="novalidate" >
             <fieldset>
                 <legend>회원 로그인</legend>
                 <p>아이디 비밀번호를 입력하신 후, 로그인 버튼을 클릭해 주세요.</p>
@@ -71,27 +71,9 @@
             </fieldset>
             </form>           
         </div>
-    </div>    
-    <div class="sect-loginguide">
-        <div class="box-useguide">
-            <strong>CJ ONE 회원이 아니신가요?</strong>
-            <span>회원가입하시고 다양한 혜택을 누리세요!</span>
-            <strong>
-                <a title="새창" target="_blank" href="https://www.cjone.com/cjmweb/join.do?coopco_cd=7010&amp;brnd_cd=1000" class="round red"><span>CJ ONE 회원가입하기</span></a>
-            </strong>
-            <em>
-                
-            </em>
-            <em>
-                <a href="http://www.cjone.com/cjmweb/about-cjone.do" class="round black" target="_blank"><span>CJ ONE 멤버십이란?</span></a>
-            </em>
-        </div>
-    </div>
-    <div class="sect-loginad"  style="background:#d2cbbe;">
-        <div>
-           <iframe src="https://ad.cgv.co.kr/NetInsight/html/CGV/CGV_201401/sub@Login_bigbanner" width="350" height="300" title="" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" name="Login_bigbanner" id="Login_bigbanner"></iframe>
-        </div>
-    </div>
+    </div>   
+    
+  
 </div>
 <!-- 실컨텐츠 끝 --> 
 
@@ -108,22 +90,7 @@
 <script type="text/javascript">
 //<![CDATA[
     (function ($) {
-        $(function () {
-
-
-            var $frm = $('#form1');
-            $frm.validate({
-                submitHandler: function (form) {
-                    var $loginFrm = $('#loginform');
-
-
-                    $loginFrm.find('#id').val(app.crypto.AESEncryptToBase64($frm.find('#txtUserId').val()));
-                    $loginFrm.find('#password').val(app.crypto.AESEncryptToBase64($frm.find('#txtPassword').val()));
-
-                    $loginFrm.submit();
-                    return false;
-                }
-            });
+        $(function () {         
 
 
 
