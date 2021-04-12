@@ -43,7 +43,10 @@
 		<put-attribute name="clubService" value="클럽서비스" />
 		<put-attribute name="body"  value="/WEB-INF/views/main/user/memberShip/clubService.jsp" />
 	</definition>
-	
+	<definition name="ticketBoardList"  extends="baseLayout">
+		<put-attribute name="ticketBoardList" value="예약 게시판" />
+		<put-attribute name="body"  value="/WEB-INF/views/main/support/ticketBorder/ticketBoardList.jsp" />
+	</definition>
 </tiles-definitions>
 
 
