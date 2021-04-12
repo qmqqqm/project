@@ -15,7 +15,7 @@
                             </li>
                         
                             <li  class="last">
-                                메인
+                                예약문의
                             </li>
                         
                         
