@@ -5,11 +5,18 @@
  
 <mapper namespace="ticketBoard">	
 	
-	<select id="login" parameterType="userDTO" resultType="userDTO">
-		SELECT 	member_id,member_Name,member_Birth,member_Gender,member_Hp,member_Point 
-		FROM 		MEMBER
-		WHERE		member_isshow = 'Y'
-						AND member_id=#{member_id} AND  member_pwd = #{member_pwd}
+	<select id="ticketBoardList" resultType="ticketBoardDTO">
+		SELECT 	ticketBoard_id,member_Id,ticketBoard_group,ticketBoard_title,
+		ticketBoard_regDate,ticketBoard_modiDate,ticketBoard_readcount,ticketBoard_content 
+		FROM 		ticketBoard
+		WHERE		ticketBoard_isshow = 'Y'						
+	</select>
+	<select id="ticketBoardDetail" parameterType="string" resultType="ticketBoardDTO">
+		SELECT 	ticketBoard_id,member_Id,ticketBoard_group,ticketBoard_title,
+		ticketBoard_regDate,ticketBoard_modiDate,ticketBoard_readcount,ticketBoard_content 
+		FROM 		ticketBoard
+		WHERE		ticketBoard_isshow = 'Y'	
+		and ticketBoard_id=#{ticketBoard_id}					
 	</select>
 </mapper> 
 

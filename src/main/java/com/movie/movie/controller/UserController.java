@@ -3,6 +3,7 @@ package com.movie.movie.controller;
 import javax.annotation.PreDestroy;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,6 +36,13 @@ public class UserController {
 		UserDTO user=userService.login(userDTO);
 		System.out.println(user);
 		model.addAttribute("user",user);
+		return "main";
+	}
+	@RequestMapping(value = "/logout.do")
+	public String logout(HttpServletRequest request, 
+			HttpServletResponse response)throws Exception {
+		HttpSession sesson =request.getSession();
+		sesson.invalidate();
 		return "main";
 	}
 	@RequestMapping(value = "/join.do")

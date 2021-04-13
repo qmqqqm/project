@@ -161,10 +161,7 @@
 <div id="container">
 		<div id="header">
 			<tiles:insertAttribute name="header"/>
-		</div>
-		<div id="menu">
-			<tiles:insertAttribute name="menu"/>
-		</div>
+		</div>		
 		<div id="content">
 			<tiles:insertAttribute name="body"/>
 		</div>

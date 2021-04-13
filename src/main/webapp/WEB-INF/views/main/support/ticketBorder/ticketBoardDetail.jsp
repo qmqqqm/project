@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <div id="contaniner" class=""><!-- 벽돌 배경이미지 사용 시 class="bg-bricks" 적용 / 배경이미지가 없을 경우 class 삭제  -->
 
         <!-- LineMap -->
@@ -51,59 +50,41 @@
     </div>
   
 </div>
-
-		<div class="col-detail">
+    
+ <div class="col-detail">
 			<div class="customer_top">
 				<h2 class="tit">예매문의</h2>
 				<p class="stit">늘봄극장 예매(예매,취소,상영시간)관련 게시판 입니다</p>
 			</div>
-			<div class="search_area">
-				<legend><label for="c_select">검색</label></legend>
-				<select name="selsearchfield" id="selsearchfield" class="c_select" style="width:100px;">
-					<option selected="selected" value="0">제목</option>
-					<option value="1">내용</option>
-				</select>
-				<label for="searchtext" class="hidden">검색어 입력</label>
-				<input id="searchtext" type="text" class="c_input" title="검색어 입력" placeholder="검색어를 입력해 주세요" style="width:185px;" value="" />
-				<button type="button" class="round inblack" title="검색하기" id="btn_search"><span>검색하기</span></button>
-			</div>
 			
-			
-			<div class="tbl_area">
-				<table cellspacing="0" cellpadding="0" class="tbl_notice_list">
-				<caption>목록</caption>
-				<colgroup>
-					<col style="width:70px;" />
-                    <col style="width:160px;" />
-					<col style="auto;" />
-					<col style="width:140px;" />
-					<col style="width:120px" />
-				</colgroup>
-				<thead>
-					<tr>
-					<th scope="col">번호</th>
-          <th scope="col">구분</th>
-					<th scope="col" class="tit">제목</th>
-					<th scope="col">등록일</th>
-					<th scope="col">조회수</th>
-					</tr>
-				</thead>
-				<tbody>
-              <c:forEach  var="list"  items="${ticketList}">
-					    <tr class="first">
-						    <td>${list.ticketBoard_id}</td>
-                <td>${list.ticketBoard_group}</td>
-						    <td class="txt"><a href="ticketBoardDetail.do?ticketBoard_id=${list.ticketBoard_id}">${list.ticketBoard_title}</a></td>
-						    <td>${list.ticketBoard_regDate}</td>
-						    <td class="num">${list.ticketBoard_content}</td>
-					    </tr>                
-					    </c:forEach>
-                    
-				</tbody>
-				</table>
+			<div class="board_view_area">
+				<ul class="top_title_faq">
+					<li class="title">${ticketDetail.ticketBoard_title}</li>
+					<li class="stit_area">
+						<span>등록일<em class="regist_day">${ticketDetail.ticketBoard_regDate}</em></span>
+						<span class="check_tit_area">조회수<em class="check_num">${ticketDetail.ticketBoard_readcount}</em></span>
+					</li>
+				</ul>
+				<div class="view_area">
+					<p> ${ticketDetail.ticketBoard_content}</p>
+				</div>
+				<div class="customer_btn"><button type="button" class="round inblack" id="btn_list"><span>목록으로</span></button></div>
+				<!-- 이전글,다음글 (s) -->
+				<div class="btm_sup_list">
+					<ul class="line_sup_next">
+						<li class="stit">이전글</li>
+						<li class="name"><a href='#' class="txt">이전 글이 없습니다.</a></li>
+                        
+					</ul>
+					<ul class="line_sup_prev">
+						<li class="stit">다음글</li>
+						<li class="name"><a href='/support/news/detail-view.aspx?idx=7824&type=1&page=1&searchtext=&searchfield=0' class="txt">하나멤버스 하나머니 사용 일시중단 안내(1/23(토) 02:00~05:00)</a></li>
+                        <li class="check_writ_area">등록일<span class="check_num">2021.01.22</span></li>
+					</ul>
+				</div>
+				<!-- 이전글,다음글 (e) -->
 			</div>
-			<?xml version="1.0" encoding="utf-8"?>
-
 		</div>
 	</div>
 	<!-- //Contents End -->
+</div>			  

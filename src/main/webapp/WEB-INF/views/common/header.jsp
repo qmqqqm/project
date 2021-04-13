@@ -2,16 +2,25 @@
     pageEncoding="UTF-8"%>
 
 
-
-		 <form name="ssologinfrm" action="https://www.cgv.co.kr/user/login/login-sso.aspx" method="post">
-        <input type="hidden" id="cjssoq" name="cjssoq" />
-        <input type="hidden" name="returnURL" value="/default.aspx" />
-    </form>
-
-
-<div class="skipnaiv">
-	<a href="#contents" id="skipHeader">메인 컨텐츠 바로가기</a>
-</div>
+<style>
+.mainmenu{
+		position: absolute;
+		top :70px;
+		left:300px; 
+		
+		font-weight:900;
+}
+.find{
+		position: absolute;
+		top :60px;
+		left:700px; 
+}
+span{
+		font-size:18px;
+		margin:20px;
+		z-index: 900;
+}
+</style>
 <div id="cgvwrap">
     <div class="cgv-ad-wrap" id="cgv_main_ad">
         <div id="TopBarWrapper" class="sect-head-ad">
@@ -23,6 +32,7 @@
             </div><!-- //.top_extend_ad_wrap -->
         </div>    
     </div> 
+    
 	<!-- Header -->
 	<div id="header">
 		<div class="head">
@@ -48,8 +58,13 @@
 
 				</ul>
                 <ul class="gnb">
-                
-                    <li><a href="loginForm.do" class="login" ><span>로그인</span></a></li>
+           
+						
+												
+							<li><a href="loginForm.do" class="login" ><span>로그인</span></a></li>
+						
+						
+                    
 					<li><a href="join.do" class="join" ><span>회원가입</span></a></li>
                     
                 
@@ -67,9 +82,37 @@
             
             <div class="im-wrap"> <!-- Important wrap -->
 				<h2><img src="/movie/resources/images/title/h2_cultureplex.png" alt="CULTUREPLEX" /></h2>
-
+				<div class="mainmenu">   
+				<span>영화</span> <span>극장</span> <a href="ticketForm.do"><span onclick="location='http://www.naver.com'">예매</span></a><span>이벤트&컬쳐</span>   
+				</div>
+				<div class="find">
+					
+					<fieldset>
+						<legend>통합검색</legend>
+						<input type="text" title="통합검색" id="" name="" minlength="2" maxlength="20" />
+                        <input type="hidden" id="header_ad_keyword" name="header_ad_keyword" />
+						<button type="button" class="" id="">검색</button>
+                        <!-- <iframe src="http://ad.cgv.co.kr/NetInsight/html/CGV/CGV_201401/main@Search_txt" width="0" height="0" title="" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen"></iframe> -->
+					</fieldset>
+					
+				</div>		
 				<!-- 서브 메뉴 -->
 
+
+
+
+
+
+
+
+
+
+
+
+
+	<!-- /Header -->
+	<!-- /Contaniner --> 
+	 
 
 
 

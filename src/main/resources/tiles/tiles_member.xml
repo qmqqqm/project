@@ -11,7 +11,7 @@
 	<definition name="baseLayout" template="/WEB-INF/views/common/layout.jsp">
 		<put-attribute name="title" value="" />
 		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp"/>
-		<put-attribute name="menu"   value="/WEB-INF/views/common/menu.jsp"/>
+		
 		<put-attribute name="body"   value=""/>
 		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp"/>
 	</definition>
@@ -47,6 +47,15 @@
 		<put-attribute name="ticketBoardList" value="예약 게시판" />
 		<put-attribute name="body"  value="/WEB-INF/views/main/support/ticketBorder/ticketBoardList.jsp" />
 	</definition>
+	<definition name="ticketBoardDetail"  extends="baseLayout">
+		<put-attribute name="ticketBoardDetail" value="예약문의 상세" />
+		<put-attribute name="body"  value="/WEB-INF/views/main/support/ticketBorder/ticketBoardDetail.jsp" />
+	</definition>
+	<definition name="ticketForm"  extends="baseLayout">
+		<put-attribute name="ticketForm" value="예약화면" />
+		<put-attribute name="body"  value="/WEB-INF/views/main/ticket/ticketForm.jsp" />
+	</definition>
+
 </tiles-definitions>
 
 
