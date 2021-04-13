@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="movie">
+
+	<select id="movieList" resultType="MovieDto">
+		<![CDATA[ 
+			SELECT 	movie_id, movie_title, movie_time, movie_Date, movie_endDate,  movie_foreman, movie_actor, movie_genre, movie_rating
+			FROM 		movie
+			where movie_isshow='y'
+			
+		]]>
+	</select>
+	
+	<select id="movieDetail" 
+				  parameterType="String"
+				  resultType="MovieDto">	
+		SELECT 	movie_id, movie_title, movie_time, movie_Date, movie_endDate,  movie_foreman, movie_actor, movie_genre, movie_rating
+			FROM 		movie
+		WHERE		movie_id =#{movie_id}
+	</select>
+	
+	<select id="movieInfo" resultType="MovieInfo" parameterType="String">
+		<![CDATA[ 
+			select movie_id, movieInfo_mainInfo, movieInfo_review, movieInfo_grade from movieInfo
+			where movieInfo_isshow='y' and movie_id =#{movie_id}
+			
+		]]>
+	</select>
+	
+	<update id="movieModify" parameterType="MovieDto">
+	<![CDATA[ 
+		update movie
+			 set movie_name=#{movie_title}, movie_timee=#{movie_time}, movie_foreman=#{movie_foreman} ,movie_actor=#{movie_actor},  movie_genre=#{movie_genre}, movie_rating=#{movie_rating}  
+			 where movie_no=#{movie_id}
+		]]>
+	</update>
+	
+	<update id="movieDelete" parameterType="String">
+	<![CDATA[ 
+		update movie
+			 set movie_isshow='N'
+			 where movie_no=#{movie_id}
+		]]>
+	</update>
+</mapper> 
+
+
+
+  

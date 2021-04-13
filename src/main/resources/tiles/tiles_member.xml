@@ -22,10 +22,21 @@
 		<put-attribute name="body"  value="/WEB-INF/views/main.jsp" />
 	</definition>
 	
-	<definition name="/member/memberList"  extends="baseLayout">
-		<put-attribute name="title" value="회원목록" />
-		<put-attribute name="body"  value="/WEB-INF/views/member/memberList.jsp" />
+	<definition name="movie/movieList"  extends="baseLayout">
+		<put-attribute name="title" value="무비차트" />
+		<put-attribute name="body"  value="/WEB-INF/views/movie/movieList.jsp" />
 	</definition>
+	
+	<definition name="movie/movieModifyForm" extends="baseLayout">
+		<put-attribute name="title" value="무비수정폼" />
+		<put-attribute name="body"  value="/WEB-INF/views/movie/movieModifyForm.jsp" />
+	</definition>
+	
+	<definition name="movie/movieDetail" extends="baseLayout">
+		<put-attribute name="title" value="무비상세보기" />
+		<put-attribute name="body"  value="/WEB-INF/views/movie/movieDetail.jsp" />
+	</definition>
+
 	
 </tiles-definitions>
 

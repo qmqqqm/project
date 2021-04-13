@@ -10,8 +10,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
-<title></title>
+<style>
+	#content{margin:0px auto;}
+</style>
+<title><tiles:insertAttribute name="title"/></title>
  		<link rel="stylesheet" media="all" type="text/css" href="/movie/resources/css/reset.css" />
     <link rel="stylesheet" media="all" type="text/css" href="/movie/resources/css/layout.css" />
     <link rel="stylesheet" media="all" type="text/css" href="/movie/resources/css/module.css" />
