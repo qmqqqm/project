@@ -10,85 +10,18 @@
  --> 
  
 <!-- member테이블 관련 DML작업을 하는 쿼리문 --> 
-<mapper namespace="member">
+<mapper namespace="theater">
 
-	<!--개인회원정보 조회 
-			컨트롤러에서 		HashMap<String,Object> memberMap = new HashMap<String,Object>();
-		memberMap.put("mno", mno);
-		memberMap.put("id", id); 로 받았다
-	
-	       다양한 type의  data의 개수가 1개	 => DTO이용	-->
-	<!-- <select id="memberDetail" 
-				  parameterType="hmap"
-				  resultType="MemberDTO">	
-		SELECT 	mno,id,pwd,name,email,joindate,isshow 
-		FROM 		MEMBER
-		WHERE		isshow = 'Y'
-						AND mno=#{mno} AND  id = #{id}
-	</select>			 
-
-	회원수 조회 
-	  실행하는 쿼리문의 결과가 2개이상이면 DTO 또는 Map으로                resultType을 지정한다
-	  실행하는 쿼리문의 결과가 1개이면      기본형(primitive type->Wrapper)로 resultType을 지정한다
-	  
-	    실행하는 쿼리문에 파라미터가 2개이상이면 DTO 또는 Map으로 parameterType을 지정한다
-		실행하는 쿼리문에 파라미터가 1개이면      기본형(primitive type)로 parameterType을 지정한다
-		#{변수명} -> DAO의 함수에서 호출(하면서 넘겨주는 )매개변수명
-		
-		There are many built-in type aliases for common Java types. They are all case insensitive, note the special handling of primitives due to the overloaded names.
-		https://mybatis.org/mybatis-3/configuration.html#typeAliases
-		여기에서는 원칙적으로 resultType="java.lang.Integer"라고 작성해야하지만
-		mybatis에서 내장된 alias를 이용하여 resultType="int" 작성하였다
-	
-	<select id="memberCount" resultType="int">
-		SELECT COUNT(*) as cnt
-		FROM   MEMBER	
-		WHERE	 isshow = 'Y'
-	</select>
-
-	회원삭제 
-	실행하는 쿼리문에 파라미터가 2개이상이면 DTO 또는 Map으로 parameterType을 지정한다
-		실행하는 쿼리문에 파라미터가 1개이면      기본형(primitive type)로 parameterType을 지정한다
-		#{변수명} -> DAO의 함수에서 호출(하면서 넘겨주는 )매개변수명
-	
-	<update id="deleteMember" parameterType="string">
-		UPDATE 	MEMBER
-		SET			isshow = 'N'
-		WHERE		id	   = #{id}
-	</update>
-
-	회원가입처리 -Map사용
-		실행하는 쿼리문에 파라미터가 2개이상이면 DTO 또는 Map으로 parameterType을 지정한다
-		실행하는 쿼리문에 파라미터가 1개이면      기본형(primitive type)로 parameterType을 지정한다
-	
-	<insert id="joinMemberMap"  parameterType="hMap">
-		insert into member(mno, id, pwd, name, email, joinDate, isShow)
-		values(seq_mno.nextval, #{id}, #{pwd}, #{name}, #{email}, SYSDATE, 'Y')
-	</insert>
-
-
-	회원가입처리 -DTO사용
-		실행하는 쿼리문에 파라미터가 2개이상이면 DTO 또는 Map으로 parameterType을 지정한다
-		실행하는 쿼리문에 파라미터가 1개이면      기본형(primitive type)로 parameterType을 지정한다
-	
-	<insert id="joinMember"  parameterType="MemberDTO">
-		insert into member(mno, id, pwd, name, email, joinDate, isShow)
-		values(seq_mno.nextval, #{id}, #{pwd}, #{name}, #{email}, SYSDATE, 'Y')
-	</insert>
-
-	회원목록조회 
-			 다양한 type의  data의 개수가 여러개   => collection, DTO이용
-	
-	<select id="getMemberList" resultType="MemberDTO">
-		<![CDATA[ 
-			SELECT 	mno,id,pwd,name,email,joindate,isshow 
-			FROM 		MEMBER
-			WHERE		isshow = 'Y'
-		]]>
+	<select id="theaters" resultType="TheaterDTO">
+		SELECT 	theater_id,theater_name,theater_location,theater_address,theater_phone,theater_isshow
+		FROM 	theater
+		WHERE	theater_isshow = 'y'
 	</select>
 	
-	 -->
-	
+	<select id="location" resultType="java.lang.String">
+		SELECT distinct theater_location
+		FROM 	theater
+	</select>
 </mapper> 
 
 
