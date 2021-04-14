@@ -17,6 +17,11 @@
 	}
 	li{
 		display:inline;
+		margin-right:10px;
+	}
+	button{
+		border:none;
+		background:white;
 	}
 </style>
 <script src="https://code.jquery.com/jquery-2.2.1.js"></script>
@@ -27,11 +32,40 @@
 			$("#location_name").empty();
 			<c:forEach  var="theaters"  items="${theaters}">
 				if ($(this).text() == "${theaters.theater_location}") { 
-					var str = "<li><button type='button'>" + "${theaters.theater_name}" + "</button></li>";
+					var str = "<li><button type='button' name='th_name'>" + "${theaters.theater_name}" + "</button></li>";
 			    	$("#location_name").append(str);
+					
+					} 
+			</c:forEach>
+		});
+		
+		$(document).on("click","button[name='th_name']",function(){
+			$("#th_inform").empty();
+			var theater = $(this).text();
+			<c:forEach  var="theaters"  items="${theaters}">
+				if (theater == "${theaters.theater_name}") { 
+			    	var inform = "${theaters.theater_address}" +"<br>" + 
+			    	 			 "${theaters.theater_phone}" +"<br>";
+			    	$("#th_inform").append(inform);
+
+			    	$.ajax({
+			             
+			            type : "get",
+			            url : "./theaterInform.do",
+			            data : {"id" :"1"},
+			            error : function(){
+			                alert('통신실패!!');
+			            },
+			            success : function(data){
+			                alert("정보가져오기 성공했습니다~" + data) ;
+			                location.reload();
+			            }
+			             
+			        }); 
 				} 
 			</c:forEach>
-		})
+			
+		});
 		
 	
 	});
@@ -53,5 +87,12 @@
 	</ul>
 <hr>
 
+<h1>Theater</h1>
+
+<hr>
+
+<img src=""/>
+<div id="th_inform">
+</div>
 </body>
 </html>
