@@ -23,9 +23,15 @@
 	
 	<select id="movieInfo" resultType="MovieInfo" parameterType="String">
 		<![CDATA[ 
-			select movie_id, movieInfo_mainInfo, movieInfo_review, movieInfo_grade from movieInfo
+			select movie_id, movieInfo_mainInfo from movieInfo
 			where movieInfo_isshow='y' and movie_id =#{movie_id}
 			
+		]]>
+	</select>
+	
+	<select id="review" resultType="Review" parameterType="String">
+		<![CDATA[ 
+		select review_id,review_review,review_grade,member_id from review where movie_id=#{movie_id}
 		]]>
 	</select>
 	

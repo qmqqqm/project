@@ -6,5 +6,6 @@
 	<typeAliases>
 		<typeAlias type="com.movie.movie.dto.MovieDto" alias="MovieDto"/> 
 		<typeAlias type="com.movie.movie.dto.MovieInfoDto" alias="MovieInfo"/> 
+		<typeAlias type="com.movie.movie.dto.ReviewDto" alias="Review"/> 
 	</typeAliases>
 </configuration>	
