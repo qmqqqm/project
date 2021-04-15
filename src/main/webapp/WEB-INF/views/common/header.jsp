@@ -12,7 +12,7 @@
 }
 .find{
 		position: absolute;
-		top :60px;
+		top :62px;
 		left:700px; 
 }
 span{
