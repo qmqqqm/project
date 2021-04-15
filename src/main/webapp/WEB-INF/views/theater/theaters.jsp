@@ -24,7 +24,8 @@
 		background:white;
 	}
 </style>
-<script src="https://code.jquery.com/jquery-2.2.1.js"></script>
+<script src="jquery-3.5.1.min.js"  type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"  type="text/javascript"></script>
 <script>
 	$(function (){
 		
@@ -37,7 +38,7 @@
 					
 					} 
 			</c:forEach>
-		});
+		}); //$(".location").click()
 		
 		$(document).on("click","button[name='th_name']",function(){
 			$("#th_inform").empty();
@@ -46,28 +47,49 @@
 				if (theater == "${theaters.theater_name}") { 
 			    	var inform = "${theaters.theater_address}" +"<br>" + 
 			    	 			 "${theaters.theater_phone}" +"<br>";
+			    	
 			    	$("#th_inform").append(inform);
-
 			    	$.ajax({
 			             
 			            type : "get",
 			            url : "./theaterInform.do",
-			            data : {"id" :"1"},
+			            data : {"id" :"${theaters.theater_id}"},
+			            dataType:"json",
 			            error : function(){
-			                alert('통신실패!!');
-			            },
+			            	alert("에러!");
+			                alert("error:"+error);
+
+			                 },
 			            success : function(data){
-			                alert("정보가져오기 성공했습니다~" + data) ;
-			                location.reload();
+			            	
+			               var i = data.totSangygDTO;
+			               var s = i.totSangyg_id + "관/";
+			               	s += i.totSangyg_seats + "석<br>";
+			                $("#th_inform").append(s);
 			            }
 			             
-			        }); 
+			        })
+			    	
 				} 
 			</c:forEach>
 			
-		});
+			//영화관 이미지와 관련된 코드
+			
+			//상영시간표 날짜 계산하기
+			var today = new Date();
+			var date ="<button type='button'>-</button>";
+			for(var i = 0; i < 7; i++)
+			{
+				var day = today.getDate()+i;
+				date += "<li><button type='button' name='days'>" + day + "</button></li>";
+			}
+			 date += "<button type='button'>+</button>";
+			 $("#calendar").append(date);
+			
+			
+		});//$(document).on("click","button[name='th_name']",function())
 		
-	
+		
 	});
 </script>
 </head>
@@ -85,14 +107,25 @@
 	<hr>
 	<ul id = "location_name">
 	</ul>
-<hr>
-
-<h1>Theater</h1>
-
-<hr>
-
-<img src=""/>
-<div id="th_inform">
-</div>
+	
+	<hr>
+	<h1>Theater</h1>
+	<hr>
+	
+	
+	<div id="th_inform">
+		<img src=""/>
+	</div>
+	
+	<hr>
+	
+	<h1>상영시간표</h1>
+	
+	<hr>
+	
+	<ul id="calendar">
+	
+	</ul>
+	
 </body>
 </html>

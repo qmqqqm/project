@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -44,26 +45,23 @@ public class TheaterControllerImpl implements TheaterController{
 		
 		return mv;
 	}
+	
+	  @Override
+	  @RequestMapping("/theaterInform.do")
+	  public @ResponseBody Map<String, Object> theaterInform(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	 
+	  //1.파라미터 받기 
+	  int theater_id = Integer.parseInt(request.getParameter("id"));
 
-	@Override
-	@ResponseBody
-	@RequestMapping("/theaterInform.do")
-	public Map theaterInform(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
-		//1.파라미터 받기
-		int theater_id = Integer.parseInt(request.getParameter("id"));
-		System.out.println(theater_id);
-		
-		Map<String, Object> theaterInform = new HashMap<String, Object>();
-		
-		//2.비즈니스 수행
-		//2-1. 총 좌석수 및 상영관 수 가져오기 (from sangyg)
-		TotalSangygDTO total = theaterService.totalSangyg(theater_id);
-		System.out.println(total.toString());
-		
-		theaterInform.put("total", total);
-		
-		return theaterInform;
-	}
-
+	  //2.비즈니스 수행
+	  //2-1. 총 좌석수 및 상영관 수 가져오기 (from sangyg) 
+	  TotalSangygDTO total = theaterService.totalSangyg(theater_id);
+	  
+	  //3.
+	  Map<String, Object> theaterinform = new HashMap<String,Object>();
+	  theaterinform.put("totSangygDTO", total);
+	 
+	  return theaterinform; 
+	  }
+	 
 }
