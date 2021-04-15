@@ -28,9 +28,9 @@ public class UserController {
 		return "loginForm";
 	}
 	@RequestMapping(value = "/login.do")
-	public String login(Model model,@RequestParam("txtUserId") String member_id,@RequestParam("txtPassword") String member_pwd,  HttpServletRequest request, 
+	public String login(Model model,@RequestParam("txtUserId") String member_userid,@RequestParam("txtPassword") String member_pwd,  HttpServletRequest request, 
 			HttpServletResponse response) throws Exception {
-		userDTO.setMember_id(member_id);
+		userDTO.setMember_userid(member_userid);
 		userDTO.setMember_pwd(member_pwd);
 		System.out.println(userDTO);
 		UserDTO user=userService.login(userDTO);

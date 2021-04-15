@@ -14,8 +14,8 @@ public class TicketDAO {
 	@Autowired
 	SqlSession sqlSession;
 	public ArrayList ticketForm() {
-		ArrayList movieList=(ArrayList) sqlSession.selectList("ticket. ");
-		
+		ArrayList movieList=(ArrayList) sqlSession.selectList("ticket.ticketForm");
+		System.out.println(movieList);
 		return movieList;
 	}
 

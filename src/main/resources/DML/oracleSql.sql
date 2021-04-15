@@ -1,3 +1,16 @@
+--회원
+create table member(
+	member_id NUMBER CONSTRAINT member_member_id_pk PRIMARY KEY,        ---회원 번호
+	member_name VARCHAR2(10)  NOT NULL,			        					---회원 이름
+	member_jumin NUMBER NOT NULL,				       					 ---주민 번호
+	member_userid VARCHAR2(30) NOT NULL, 			        					---아이디
+	member_pwd VARCHAR2(30) NOT NULL, 			        					---비밀번호
+	member_email VARCHAR2(30) NOT NULL,			        					---이메일
+	member_tel NUMBER(20) NOT NULL,				        					---번호
+	member_admin NUMBER default 0 NOT NULL,
+	member_isShow char(1) default 'Y'
+);
+
 -- 영화
 drop table movie;
 CREATE TABLE movie (
@@ -90,17 +103,20 @@ drop sequence theater_seq;
 drop sequence sangyg_seq;
 drop sequence times_seq;
 drop sequence ticket_seq;
-
+drop sequence member_seq;
 CREATE SEQUENCE movie_seq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE movieInformation_seq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE theater_seq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE sangyg_seq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE times_seq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE ticket_seq INCREMENT BY 1 START WITH 1;
-
+CREATE SEQUENCE member_seq INCREMENT BY 1 START WITH 1;
 select*from tab;
 
 -------- 자료입력
+
+--멤버
+insert into member values(member_seq.nextval,'전명재',770714,'wjsaudwo','111','wjsaudowo@naver.com',01059597924,0,'Y');
 --극장정보입력
 insert into theater values(theater_seq.nextval,'늘봄강남','서울','서울특별시 강남구 역삼동 814-6 스타플렉스','1544-1122','y');
 insert into theater values(theater_seq.nextval,'늘봄강변','서울','서울특별시 광진구 구의동 546-4 테크노마트 10층','1544-1122','y');
@@ -314,7 +330,7 @@ insert into movieInfo(movie_id, movieInfo_mainInfo, movieInfo_image, movieInfo_i
 기억이 뒤섞여 갈수록 지금 이 현실과 사랑하는 딸,
 그리고 나 자신까지 모든 것이 점점 더 의심스러워진다.','0','y','믿고보는 배우들!',5); 
 
-commit;
+
 
 
 
@@ -342,8 +358,8 @@ from times ti,sangyg sa,theater th,movieInfo mi,movie mo
 where mo.movie_id=mi.movie_id and mo.movie_id=ti.movie_id 
 and ti.theater_id=th.theater_id and ti.theater_id=sa.theater_id ;
 
-
-
+select movie_title from movie ;
+commit;
 
 
 

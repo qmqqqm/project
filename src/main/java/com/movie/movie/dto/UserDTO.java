@@ -6,100 +6,111 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 @Component("userDTO")
 public class UserDTO {
-	private int member_no; 		//회원번호	
-	private	String member_id;		//회원id
-	private	String member_pwd;		//비번 
-	private	String member_name;	//회원명 
-	private Date member_birth ; /* 생년월일 */
-	private String member_gender ; /* 성별 */
-	private String member_hp ; /* 휴대전화번호 */
-	private int member_point ; /* 포인트 */
-	private String member_isshow ;/* 삭제여부 */
-	private int member_grade ;/* 회원상태 */
+	private int member_id ; 		//회원번호	
+	private	String member_name ;	
+	private	int member_jumin ;		
+	private String member_userid  ; 
+	private String member_pwd  ; 
+	private String member_email  ; 
+	private int member_tel  ; 
+	private int member_admin  ;
+	private String member_isShow  ;
 	
 	public UserDTO() {}
-	
-	public UserDTO(int member_no, String member_id, String member_pwd, String member_name, Date member_birth,
-			String member_gender, String member_hp, int member_point, String member_isshow, int member_grade) {
-		this.member_no = member_no;
+
+	public UserDTO(int member_id, String member_name, int member_jumin, String member_userid, String member_pwd,
+			String member_email, int member_tel, int member_admin, String member_isShow) {
+		super();
 		this.member_id = member_id;
-		this.member_pwd = member_pwd;
 		this.member_name = member_name;
-		this.member_birth = member_birth;
-		this.member_gender = member_gender;
-		this.member_hp = member_hp;
-		this.member_point = member_point;
-		this.member_isshow = member_isshow;
-		this.member_grade = member_grade;
+		this.member_jumin = member_jumin;
+		this.member_userid = member_userid;
+		this.member_pwd = member_pwd;
+		this.member_email = member_email;
+		this.member_tel = member_tel;
+		this.member_admin = member_admin;
+		this.member_isShow = member_isShow;
 	}
-	public int getMember_no() {
-		return member_no;
-	}
-	public void setMember_no(int member_no) {
-		this.member_no = member_no;
-	}
-	public String getMember_id() {
+
+	public int getMember_id() {
 		return member_id;
 	}
-	public void setMember_id(String member_id) {
+
+	public void setMember_id(int member_id) {
 		this.member_id = member_id;
 	}
-	public String getMember_pwd() {
-		return member_pwd;
-	}
-	public void setMember_pwd(String member_pwd) {
-		this.member_pwd = member_pwd;
-	}
+
 	public String getMember_name() {
 		return member_name;
 	}
+
 	public void setMember_name(String member_name) {
 		this.member_name = member_name;
 	}
-	public Date getMember_birth() {
-		return member_birth;
+
+	public int getMember_jumin() {
+		return member_jumin;
 	}
-	public void setMember_birth(Date member_birth) {
-		this.member_birth = member_birth;
+
+	public void setMember_jumin(int member_jumin) {
+		this.member_jumin = member_jumin;
 	}
-	public String getMember_gender() {
-		return member_gender;
+
+	public String getMember_userid() {
+		return member_userid;
 	}
-	public void setMember_gender(String member_gender) {
-		this.member_gender = member_gender;
+
+	public void setMember_userid(String member_userid) {
+		this.member_userid = member_userid;
 	}
-	public String getMember_hp() {
-		return member_hp;
+
+	public String getMember_pwd() {
+		return member_pwd;
 	}
-	public void setMember_hp(String member_hp) {
-		this.member_hp = member_hp;
+
+	public void setMember_pwd(String member_pwd) {
+		this.member_pwd = member_pwd;
 	}
-	public int getMember_point() {
-		return member_point;
+
+	public String getMember_email() {
+		return member_email;
 	}
-	public void setMember_point(int member_point) {
-		this.member_point = member_point;
+
+	public void setMember_email(String member_email) {
+		this.member_email = member_email;
 	}
-	public String getMember_isshow() {
-		return member_isshow;
+
+	public int getMember_tel() {
+		return member_tel;
 	}
-	public void setMember_isshow(String member_isshow) {
-		this.member_isshow = member_isshow;
+
+	public void setMember_tel(int member_tel) {
+		this.member_tel = member_tel;
 	}
-	public int getMember_grade() {
-		return member_grade;
+
+	public int getMember_admin() {
+		return member_admin;
 	}
-	public void setMember_grade(int member_grade) {
-		this.member_grade = member_grade;
+
+	public void setMember_admin(int member_admin) {
+		this.member_admin = member_admin;
 	}
+
+	public String getMember_isShow() {
+		return member_isShow;
+	}
+
+	public void setMember_isShow(String member_isShow) {
+		this.member_isShow = member_isShow;
+	}
+
 	@Override
 	public String toString() {
-		return "UserDTO [member_no=" + member_no + ", member_id=" + member_id + ", member_pwd=" + member_pwd
-				+ ", member_name=" + member_name + ", member_birth=" + member_birth + ", member_gender=" + member_gender
-				+ ", member_hp=" + member_hp + ", member_point=" + member_point + ", member_isshow=" + member_isshow
-				+ ", member_grade=" + member_grade + "]";
+		return "UserDTO [member_id=" + member_id + ", member_name=" + member_name + ", member_jumin=" + member_jumin
+				+ ", member_userid=" + member_userid + ", member_pwd=" + member_pwd + ", member_email=" + member_email
+				+ ", member_tel=" + member_tel + ", member_admin=" + member_admin + ", member_isShow=" + member_isShow
+				+ "]";
 	}
-	
 	
 	
 	

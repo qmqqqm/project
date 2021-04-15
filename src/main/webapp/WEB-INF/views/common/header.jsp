@@ -74,8 +74,7 @@ span{
 					<li><a href="clubService.do" title="새창" class="club specialclub"  ><span>CLUB 서비스</span></a></li>
 					<!-- 2014.12.8 리뉴얼-->
 					<li><a href="./support.do" class="customer" ><span>고객센터</span></a></li>
-				    <!-- 2014.12.8 리뉴얼-->
-					<li><a href="./WEB-INF/views/main/ticket/eng/newdefault.html" class="showtimes"   ><span>ENGLISH TICKETING</span></a></li>
+				   
 				</ul>
            </div>
             <!-- 서비스 메뉴 -->

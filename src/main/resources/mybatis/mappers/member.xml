@@ -89,10 +89,10 @@
 	
 	 -->
 	<select id="login" parameterType="userDTO" resultType="userDTO">
-		SELECT 	member_id,member_Name,member_Birth,member_Gender,member_Hp,member_Point 
+		SELECT 	member_id,member_Name,member_jumin ,member_userid ,member_email ,member_tel  
 		FROM 		MEMBER
 		WHERE		member_isshow = 'Y'
-						AND member_id=#{member_id} AND  member_pwd = #{member_pwd}
+						AND member_userid=#{member_userid} AND  member_pwd = #{member_pwd}
 	</select>
 </mapper> 
 
