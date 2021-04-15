@@ -1,20 +1,21 @@
-package com.movie.movie.service;
+package com.movie.movie.dao;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
-import com.movie.movie.dao.TicketDAO;
 import com.movie.movie.dto.TicketDTO;
-@Service
-public class TicketService {
+@Repository
+public class TicketDAO {
 	@Autowired
-	TicketDAO ticketDAO;
+	SqlSession sqlSession;
 	public ArrayList ticketForm() {
-		ArrayList  movieList=ticketDAO.ticketForm();		
+		ArrayList movieList=(ArrayList) sqlSession.selectList("ticket. ");
+		
 		return movieList;
 	}
 

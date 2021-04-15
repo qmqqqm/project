@@ -100,6 +100,7 @@ float: left;
         
         <div class="movie">
         <div class="title">영화</div>
+        
         </div>
         <div class="theaters">
         <div class="title">극장</div>
