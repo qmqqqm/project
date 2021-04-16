@@ -18,5 +18,9 @@ public class TicketDAO {
 		System.out.println(movieList);
 		return movieList;
 	}
+	public Object theaters() {
+		ArrayList theaters=(ArrayList)sqlSession.selectList("ticket.theaters");
+		return theaters;
+	}
 
 }

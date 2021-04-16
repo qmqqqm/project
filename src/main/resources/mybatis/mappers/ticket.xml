@@ -4,9 +4,13 @@
    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
 <mapper namespace="ticket">
-<select id="ticketForm" resultType="ticketDTO">
-select movie_id, movie_title from movie      
 
+<select id="ticketForm" resultType="ticketDTO">
+select movie_id, movie_title from movie   
+</select>
+
+<select id="theaters" resultType="ticketDTO">
+select distinct theater_location from theater
 </select>
 
 
