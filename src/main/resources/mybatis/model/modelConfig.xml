@@ -10,6 +10,7 @@ https://mybatis.org/mybatis-3/configuration.html#typeAliases-->
 		<typeAlias type="java.util.HashMap" alias="hmap"/>
 		<typeAlias type="com.movie.movie.dto.UserDTO" alias="userDTO"/> 
 		<typeAlias type="com.movie.movie.dto.TicketBoardDTO" alias="ticketBoardDTO"/> 
+		<typeAlias type="com.movie.movie.dto.TicketDTO" alias="ticketDTO"/> 
 		</typeAliases>
 <!-- 		<typeAlias type="" alias=""/>
 		<typeAlias type="" alias=""/>
