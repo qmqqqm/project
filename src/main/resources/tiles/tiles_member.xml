@@ -4,39 +4,22 @@
 "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 
 <tiles-definitions>
-	<!--  <definition name="baseLayout">부분은 공통레이아웃의 view이름을 뜻한다  
-	   template="/WEB-INF/views/common/layout.jsp"은
-	     전체 레이아웃을 정하는 jsp문서의 위치를 뜻한다
-	-->
-	<definition name="baseLayout" template="/WEB-INF/views/common/layout.jsp">
-		<put-attribute name="title" value="" />
-		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp"/>
-		<put-attribute name="menu"   value="/WEB-INF/views/common/menu.jsp"/>
-		<put-attribute name="body"   value=""/>
-		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp"/>
+	<definition name="loginForm"  extends="baseLayout">
+		<put-attribute name="login" value="회원로그인" />
+		<put-attribute name="body"  value="/WEB-INF/views/main/user/login/loginForm.jsp" />
 	</definition>
 	
-	<!-- extends="baseLayout"속성은  기본적인 레이아웃은 "baseLayout"을 상속받는다라는 뜻   -->
-	<definition name="main" extends="baseLayout">
-		<put-attribute name="title" value="main페이지" />
-		<put-attribute name="body"  value="/WEB-INF/views/main.jsp" />
+	<definition name="join"  extends="baseLayout">
+		<put-attribute name="join" value="회원가입" />
+		<put-attribute name="body"  value="/WEB-INF/views/main/user/join/join.jsp" />
 	</definition>
 	
-	<definition name="/member/memberList"  extends="baseLayout">
-		<put-attribute name="title" value="회원목록" />
-		<put-attribute name="body"  value="/WEB-INF/views/member/memberList.jsp" />
+	<definition name="mynb"  extends="baseLayout">
+		<put-attribute name="mynb" value="나의 늘봄" />
+		<put-attribute name="body"  value="/WEB-INF/views/main/user/mycgv/mynb.jsp" />
 	</definition>
-	
+	<definition name="clubService"  extends="baseLayout">
+		<put-attribute name="clubService" value="클럽서비스" />
+		<put-attribute name="body"  value="/WEB-INF/views/main/user/memberShip/clubService.jsp" />
+	</definition>
 </tiles-definitions>
-
-
-
-<!-- 
-put-attribute
-The "put-attribute" element describes an attribute of a 
- definition. It allows to specify the tiles attribute name 
- and its value. The tiles value can be specified as an 
- xml attribute, or in the body of the <put-attribute> 
- tag.
-
- -->

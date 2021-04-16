@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="ticketBoard">	
+	
+	<select id="ticketBoardList" resultType="ticketBoardDTO">
+		SELECT 	ticketBoard_id,member_Id,ticketBoard_group,ticketBoard_title,
+		ticketBoard_regDate,ticketBoard_modiDate,ticketBoard_readcount,ticketBoard_content 
+		FROM 		ticketBoard
+		WHERE		ticketBoard_isshow = 'Y'						
+	</select>
+	<select id="ticketBoardDetail" parameterType="string" resultType="ticketBoardDTO">
+		SELECT 	ticketBoard_id,member_Id,ticketBoard_group,ticketBoard_title,
+		ticketBoard_regDate,ticketBoard_modiDate,ticketBoard_readcount,ticketBoard_content 
+		FROM 		ticketBoard
+		WHERE		ticketBoard_isshow = 'Y'	
+		and ticketBoard_id=#{ticketBoard_id}					
+	</select>
+</mapper> 
+
+
+
+  
