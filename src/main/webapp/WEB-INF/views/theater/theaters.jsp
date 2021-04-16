@@ -28,6 +28,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"  type="text/javascript"></script>
 <script>
 	$(function (){
+		var id = "";
 		
 		$(".location").click(function(){
 			$("#location_name").empty();
@@ -49,6 +50,9 @@
 			    	 			 "${theaters.theater_phone}" +"<br>";
 			    	
 			    	$("#th_inform").append(inform);
+			    	
+			    	id = ${theaters.theater_id};
+			    	
 			    	$.ajax({
 			             
 			            type : "get",
@@ -76,6 +80,7 @@
 			//영화관 이미지와 관련된 코드
 			
 			//상영시간표 날짜 계산하기
+			$("#calendar").empty();
 			var today = new Date();
 			var date ="<button type='button'>-</button>";
 			for(var i = 0; i < 7; i++)
@@ -83,9 +88,31 @@
 				var day = today.getDate()+i;
 				date += "<li><button type='button' name='days'>" + day + "</button></li>";
 			}
-			 date += "<button type='button'>+</button>";
-			 $("#calendar").append(date);
+			date += "<button type='button'>+</button>";
+			$("#calendar").append(date);
 			
+			//시간을 누르면 상영t시간표
+			$.ajax({
+	             
+	            type : "get",
+	            url : "./theaterTimes.do",
+	            data : {"id" :id, "time": day},
+	            dataType:"json",
+	            error : function(){
+	            	alert("에러!");
+	                alert("error:"+error);
+
+	                 },
+	            success : function(data){
+	            	
+	               var i = data.totSangygDTO;
+	               var s = i.totSangyg_id + "관/";
+	               	s += i.totSangyg_seats + "석<br>";
+	                $("#th_inform").append(s);
+	            }
+	             
+	        })
+	    	
 			
 		});//$(document).on("click","button[name='th_name']",function())
 		
