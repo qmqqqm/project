@@ -9,5 +9,8 @@ https://mybatis.org/mybatis-3/configuration.html#typeAliases-->
 	<typeAliases>
 		<typeAlias type="com.movie.movie.theater.dto.TheaterDTO" alias="TheaterDTO"/>
 		<typeAlias type="com.movie.movie.theater.dto.TotalSangygDTO" alias="TotalSangygDTO"/>
+		<typeAlias type="com.movie.movie.theater.dto.TimesDTO" alias="TimesDTO"/>
+		<typeAlias type="com.movie.movie.theater.dto.MovieDTO" alias="MovieDTO"/>
+		<typeAlias type="com.movie.movie.theater.dto.SangygDTO" alias="SangygDTO"/>
 	</typeAliases>
 </configuration>	

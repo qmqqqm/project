@@ -6,7 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.movie.movie.theater.dao.TheaterDAO;
+import com.movie.movie.theater.dto.MovieDTO;
+import com.movie.movie.theater.dto.SangygDTO;
 import com.movie.movie.theater.dto.TheaterDTO;
+import com.movie.movie.theater.dto.TimesDTO;
 import com.movie.movie.theater.dto.TotalSangygDTO;
 
 @Service("theaterService")
@@ -33,6 +36,27 @@ public class TheaterServiceImpl implements TheaterService{
 	public TotalSangygDTO totalSangyg(int theater_id) throws Exception {
 		TotalSangygDTO total = theaterDAO.getTotal(theater_id); 
 		return total;
+	}
+
+	@Override
+	public List<TimesDTO> getTimes(int theater_id, String day) throws Exception {
+		List<TimesDTO> times = theaterDAO.getTimes(theater_id,day);
+		return  times;
+	}
+
+	@Override
+	public List<MovieDTO> movieInform(List id_list) throws Exception {
+		System.out.println("movieInform service진입");
+		List<MovieDTO> movieList = theaterDAO.getMovie(id_list);
+		return movieList;
+	}
+
+	@Override
+	public List<SangygDTO> sangygInform(List sangygList, int theater_id) throws Exception {
+		System.out.println("sangygInform service진입");
+		List<SangygDTO> sangygInform = theaterDAO.getSangyg(sangygList, theater_id);
+		return sangygInform;
+	
 	}
 
 }

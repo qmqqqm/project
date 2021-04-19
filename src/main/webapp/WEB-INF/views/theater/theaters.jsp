@@ -62,17 +62,18 @@
 			            error : function(){
 			            	alert("에러!");
 			                alert("error:"+error);
-
+	
 			                 },
 			            success : function(data){
 			            	
 			               var i = data.totSangygDTO;
+			   
 			               var s = i.totSangyg_id + "관/";
 			               	s += i.totSangyg_seats + "석<br>";
 			                $("#th_inform").append(s);
 			            }
 			             
-			        })
+			        });
 			    	
 				} 
 			</c:forEach>
@@ -90,34 +91,75 @@
 			}
 			date += "<button type='button'>+</button>";
 			$("#calendar").append(date);
-			
-			//시간을 누르면 상영t시간표
-			$.ajax({
-	             
-	            type : "get",
-	            url : "./theaterTimes.do",
-	            data : {"id" :id, "time": day},
-	            dataType:"json",
-	            error : function(){
-	            	alert("에러!");
-	                alert("error:"+error);
-
-	                 },
-	            success : function(data){
-	            	
-	               var i = data.totSangygDTO;
-	               var s = i.totSangyg_id + "관/";
-	               	s += i.totSangyg_seats + "석<br>";
-	                $("#th_inform").append(s);
-	            }
-	             
-	        })
-	    	
-			
-		});//$(document).on("click","button[name='th_name']",function())
 		
+			//시간을 누르면 상영t시간표
+			$(document).on("click","button[name='days']",function(){	
+				var day = $(this).text();
+				
+				var movie_list=null;
+				$.ajax({
+		            type : "get",
+		            url : "./theaterTimes.do",
+		            data : {"id" :id, "day": day},
+		            dataType:"json",
+		            error : function(){
+		            	alert("에러!");
+		           },
+		            success : function(data){
+		            	alert("성공!");
+		            	
+		            	var time = data.times;
+		      			var movie = data.movieInform;
+		      			var sangyg = data.sangygInform;
+		      			
+		      			
+		      			var movieInform = "";
+		      			var sangygInfrom ="";
+		      			
+		      			for(i = 0; i < movie.length; i++){
+		      				alert(i);
+		      				
+		      				//영화 정보 가져오기
+		      				movieInform = movie[i].movie_rating + " ";
+		      				movieInform += "<a href=''>"+ movie[i].movie_title + "</a> ";
+		      				movieInform += "[상영중]" + movie[i].movie_genre + " / ";
+		      				movieInform += movie[i].movie_time + " / ";
+		      				movieInform += movie[i].movie_Date + " 개봉 <br>";
+		      				
+		      				$("#mainTimes").append(movieInform);
+		      			
+		      				
+		      				//상영관 별로 
+		      				sangygInform = "**";
+		      				
+		      				for(j = 0; j < time.length; j++){
+		      					if(movie[i].movie_id == time[j].movie_id){
+		      						var imsi = new Array();
+		      						imsi.push(time[j].sangyg_id);
+		      						
+		      					}
+		      				}
+		      				
+		      				
+		      				for(i = 0; i< count; i++){
+		      					
+		      				}
+		      					
+		      				
+		      				
+		      				
+		      			}
+		            	
+		            
+		            }
+				  });
+				
+				
+		});   	
 		
 	});
+		
+});
 </script>
 </head>
 <body>
@@ -153,6 +195,8 @@
 	<ul id="calendar">
 	
 	</ul>
+	<div id="mainTimes">
 	
+	</div>
 </body>
 </html>

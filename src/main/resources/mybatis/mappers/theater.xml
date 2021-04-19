@@ -28,4 +28,23 @@
    	from sangyg 
    	where theater_id=#{theater_id}
    </select>
+   
+   <select id="times" resultType="TimesDTO" parameterType="hashMap">
+   select  sangyg_id,theater_id, times_id,times_seat,times_time,times_isshow,movie_id
+   from times 
+   where theater_id = #{theater_id} and substr(to_char(times_time, 'YYYYMMDDHH24MI'),7,2)=#{day}
+   </select>
+   
+   <select id="movieInform" resultType="MovieDTO" parameterType="java.lang.Integer">
+   select movie_id ,movie_title,movie_time,to_char(movie_Date, 'YYYY-MM-DD') movie_Date,
+   to_char(movie_endDate,'YYYY-MM-DD') movie_endDate,movie_foreman ,movie_actor,movie_genre,movie_rating, movie_isshow    
+	from movie
+	where movie_id=#{movie_id}
+   </select>
+   
+   <select id="sangygInform" resultType="SangygDTO" parameterType="hashMap">
+   select SANGYG_ID,THEATER_ID, SANGYG_NAME,SANGYG_ISSHOW,SANGYG_SEATS
+   from sangyg
+   where sangyg_id=#{sangyg_id} and theater_id=#{theater_id}
+   </select>
 </mapper> 
