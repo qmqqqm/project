@@ -118,12 +118,12 @@ float: left;
         <div class="theaters">
        <div class="title">지역</div>
        <div class="local">
-       <c:forEach items="${movieList.theaters}" var="theaters">
+       <c:forEach items="${movieList.location}" var="theaters">
 			 ${theaters.theater_location}<br>
 			</c:forEach>
 			 </div>
 			 <div class="localsub">
-			 	<c:forEach items="${movieList.sang}" var="theaters">
+			 	<c:forEach items="${movieList.theater}" var="theaters">
 				 ${theaters.theater_name}<br>
 			</c:forEach>
 			 </div>
@@ -169,7 +169,7 @@ float: left;
         <div class="day">
         <div class="title">날짜</div>
         <c:forEach items="${movieList.nal}" var="theaters">
-				 ${theaters.times_time}<br>
+				 ${theaters}<br>
 			</c:forEach>
         </div>
         <div class="time">

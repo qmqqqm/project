@@ -18,13 +18,13 @@ public class TicketDAO {
 		System.out.println(movieList);
 		return movieList;
 	}
-	public Object theaters() {
-		ArrayList theaters=(ArrayList)sqlSession.selectList("ticket.theaters");
-		return theaters;
+	public Object location() {
+		ArrayList location=(ArrayList)sqlSession.selectList("ticket.location");
+		return location;
 	}
-	public Object sang() {
-		ArrayList sang=(ArrayList)sqlSession.selectList("ticket.sang");
-		return sang;
+	public Object theater() {
+		ArrayList theater=(ArrayList)sqlSession.selectList("ticket.theater");
+		return theater;
 	}
 	public Object nal() {
 		ArrayList nal=(ArrayList)sqlSession.selectList("ticket.nal");

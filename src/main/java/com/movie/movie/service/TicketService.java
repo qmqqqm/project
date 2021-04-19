@@ -17,9 +17,9 @@ public class TicketService {
 	public Map ticketForm() {
 		Map  movieList = new HashMap();		
 		movieList.put("movies", ticketDAO.ticketForm());
-		movieList.put("theaters",ticketDAO.theaters());
-		movieList.put("sang",ticketDAO.sang());
-		//movieList.put("nal",ticketDAO.nal());
+		movieList.put("location",ticketDAO.location());
+		movieList.put("theater",ticketDAO.theater());
+		movieList.put("nal",ticketDAO.nal());
 		return movieList;
 	}
 
