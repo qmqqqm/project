@@ -16,6 +16,14 @@ float: left;
 border:1px solid black;
 margin:10px 1px;
 }
+.local{
+float: left;
+width:40%;
+}
+.localsub{
+width:55%;
+float: left;
+}
 .day{
 width:10%;
 height:500px;
@@ -109,9 +117,16 @@ float: left;
         
         <div class="theaters">
        <div class="title">지역</div>
+       <div class="local">
        <c:forEach items="${movieList.theaters}" var="theaters">
 			 ${theaters.theater_location}<br>
 			</c:forEach>
+			 </div>
+			 <div class="localsub">
+			 	<c:forEach items="${movieList.sang}" var="theaters">
+				 ${theaters.theater_name}<br>
+			</c:forEach>
+			 </div>
 		</div>
 		
 	<%-- 내용 들어 가는 곳 --%>
@@ -153,6 +168,9 @@ float: left;
         </div>--%>
         <div class="day">
         <div class="title">날짜</div>
+        <c:forEach items="${movieList.nal}" var="theaters">
+				 ${theaters.times_time}<br>
+			</c:forEach>
         </div>
         <div class="time">
         <div class="title">시간</div>

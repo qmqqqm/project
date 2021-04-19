@@ -10,6 +10,7 @@ public class TicketDTO {
 	private int theater_id;
 	private String theater_name;
 	private String theater_location;
+	private Date times_time;
 	private Date TICKET_DATE;
 	private Date TICKET_TIME;
 	private int TICKET_PRICE;

@@ -12,6 +12,12 @@ select movie_id, movie_title from movie
 <select id="theaters" resultType="ticketDTO">
 select distinct theater_location from theater
 </select>
+<select id="sang" resultType="ticketDTO">
+select theater_name from theater where theater_location='서울' 
+</select>
 
+<select id="nal" resultType="String">
+select times_time from times
+</select>
 
 </mapper>	

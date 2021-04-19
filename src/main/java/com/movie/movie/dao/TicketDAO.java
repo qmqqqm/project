@@ -22,5 +22,13 @@ public class TicketDAO {
 		ArrayList theaters=(ArrayList)sqlSession.selectList("ticket.theaters");
 		return theaters;
 	}
+	public Object sang() {
+		ArrayList sang=(ArrayList)sqlSession.selectList("ticket.sang");
+		return sang;
+	}
+	public Object nal() {
+		ArrayList nal=(ArrayList)sqlSession.selectList("ticket.nal");
+		return nal;
+	}
 
 }
