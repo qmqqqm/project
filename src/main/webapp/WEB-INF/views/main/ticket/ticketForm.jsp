@@ -202,7 +202,7 @@ float: left;
          		극장선택
         </div>
          <div class="bottombarpay">
-         		좌석선택 > 결제
+         	<a href="ticketPeople.do">좌석선택 > 결제 </a>
         </div>
         </div>
 	<!-- /Contaniner -->
