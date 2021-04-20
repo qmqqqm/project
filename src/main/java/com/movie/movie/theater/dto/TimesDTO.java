@@ -2,12 +2,17 @@ package com.movie.movie.theater.dto;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class TimesDTO {
 	private int sangyg_id;      
 	private int theater_id;   
 	private int times_id; 
 	private int times_seat; 
+	
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss")
 	private Date times_time;  
+	
 	private String times_isshow;   
 	private int movie_id;
 	
