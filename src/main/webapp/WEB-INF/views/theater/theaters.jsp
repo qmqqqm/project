@@ -124,9 +124,9 @@ $(function (){
       				movieInform = movie[i].movie_rating + " ";
       				movieInform += "<a href=''>"+ movie[i].movie_title + "</a> ";
       				movieInform += "[상영중] " + movie[i].movie_genre + " / ";
-      				movieInform += movie[i].movie_time + " / ";
+      				movieInform += movie[i].movie_time + "분  / ";
       				movieInform += movie[i].movie_Date + " 개봉 <br>";
-      				$("#mainTimes").append(movieInform);
+      				$("#mainTimes").append("<hr>" + movieInform);
       				
       				var timeid_list = new Array();//같은영화의 times_id를 저장해두는 list
   					var sangygid_set = new Set();//같은영화의 sangyg_id 저장해두는 set
@@ -160,6 +160,7 @@ $(function (){
   						}
   						timeInform += "<br>";
   						$("#mainTimes").append(timeInform);
+  						
 					}	
       				
       			}//for(i = 0; i < movie.length; i++)
