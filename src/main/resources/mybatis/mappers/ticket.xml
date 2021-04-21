@@ -19,5 +19,8 @@ select theater_name from theater where theater_location='서울'
 <select id="nal" resultType="String">
 select times_time from times
 </select>
+<select id="ticketpeople" resultType="_int">
+select sangyg_seats from sangyg where sangyg_id=1 and theater_id=1
+</select>
 
 </mapper>	

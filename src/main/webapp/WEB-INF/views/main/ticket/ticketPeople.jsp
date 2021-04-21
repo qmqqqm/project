@@ -2,27 +2,41 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <style>
-.movie{
-width:26%;
+.people{
+width:100%;
 height:500px;
-float: left;
+
 border:1px solid black;
-margin:10px 1px;
+
 } 
-.theaters{
-width:26%;
-height:500px;
+.box,.box1, .box2, .box3, .box4, .box5, .box6, .box7, .box8, .box9, .box10{
+	display:inline-block;
+	width:18px;
+	height:16px;
+	border:1px solid black;
+	margin: 2px 5px;
+	text-align: center;
+	font-size: 13px;
+	padding-top: 3px;
+	font-weight: 900;
+}
+.selectpeople{
+width:5%;
 float: left;
+
+}
+.title_peo{
+display:inline-block;
+font-size: 13px;
+margin:5px 5px;
+
+}
+.screen{
+display:inline-block;
+width:65%;
+margin 0 auto;
 border:1px solid black;
-margin:10px 1px;
-}
-.local{
-float: left;
-width:40%;
-}
-.localsub{
-width:55%;
-float: left;
+text-align: center;
 }
 .day{
 width:10%;
@@ -80,6 +94,8 @@ padding:0 10px;
 float: left;
 }
 </style>
+
+
 <div id="contaniner">
 
         <!-- LineMap -->
@@ -106,103 +122,74 @@ float: left;
 		<!-- Contents Area -->
 		<div id="contents" style="height:1px;padding:0;"></div>
         
-        <div class="movie">
-        <div class="title">영화</div>
-        <c:forEach items="${movieList.movies}" var="movie">
+        <div class="people">
+        <div class="title">인원/ 좌석</div>
+        <div class="people">
+        <div class="selectpeople"><span class="title_peo" >일반</span> <br><span class="title_peo" >청소년</span> </div>
+        <div><span class="box">1</span><span class="box">2</span><span class="box">3</span><span class="box">4</span><span class="box">5</span><span class="box">6</span><span class="box">7</span><span class="box">8</span><br>
+        <span class="box">1</span><span class="box">2</span><span class="box">3</span><span class="box">4</span><span class="box">5</span><span class="box">6</span><span class="box">7</span><span class="box">8</span>
+        </div>
+        <div>
         
-        ${movie.movie_title}<br/>
-        </c:forEach>
-        
+        <span class="screen">SCREEN</span><br>
+       <!--  상영관 시크수를 받아 좌석 출력  -->
+        <script>
+		stat=${stats};
+		rows= stat/10;
+		
+		for(i=65;i<65+rows;i++){
+		
+			document.write("<span class='title_peo'>"+String.fromCharCode(i)+"</span>");
+			for(j=1;j<=10;j++){
+				document.write("<span class='box"+j+"' onclick='select(this)'>"+j+"</span>")
+			}
+			document.write("<br>")
+		}
+		function select(num){
+		 var chk=1
+			 
+			if(chk==1){ 
+			num.style.background="red";
+		 	i++
+			}else{
+				num.style.background="";
+				i++
+			} 
+		}
+		//document.write("<span class='box"+i+"'>"+i+"</span>")
+		</script>
+        </div>
+        </div>
         </div>
         
-        <div class="theaters">
+<!--         <div class="theaters">
        <div class="title">지역</div>
        <div class="local">
-       <c:forEach items="${movieList.location}" var="theaters">
-			 ${theaters.theater_location}<br>
-			</c:forEach>
+
 			 </div>
 			 <div class="localsub">
-			 	<c:forEach items="${movieList.theater}" var="theaters">
-				 ${theaters.theater_name}<br>
-			</c:forEach>
+	
 			 </div>
 		</div>
 		
-	<%-- 내용 들어 가는 곳 --%>
-<%--	<div >
-		
-			
-	
-		 <div class="tab_container">
-			<div class="tab_content" id="tab1">
-				<h4>책소개</h4>
-				jstl의 함수 replace를 이용하여  br태그로 치환후 출력
-				<p>${fn:replace(goods.goods_intro,crcn,br) }</p>
-				<c:forEach var="image" items="${imageList }">
-					<img 
-						src="${contextPath}/download.do?goods_id=${goods.goods_id}&fileName=${image.fileName}">
-				</c:forEach>
-			</div>
-			<div class="tab_content" id="tab2">
-				<h4>저자소개</h4>
-				<p>
-				<div class="writer">저자 : ${goods.goods_writer}</div>
-				 <p>${fn:replace(goods.goods_writer_intro,crcn,br) }</p> 
-				
-			</div>
-			<div class="tab_content" id="tab3">
-				<h4>책목차</h4>
-				<p>${fn:replace(goods.goods_contents_order,crcn,br) }</p> 
-			</div>
-			<div class="tab_content" id="tab4">
-				<h4>출판사서평</h4>
-				 <p>${fn:replace(goods.goods_publisher_comment,crcn,br) }</p> 
-			</div>
-			<div class="tab_content" id="tab5">
-				<h4>추천사</h4>
-				<p>${fn:replace(goods_recommendation,crcn,br) }</p>
-			</div>
-		</div>
-	</div> 
-        </div>--%>
+
         <div class="day">
-        <div class="title">날짜</div>
-        <c:forEach items="${movieList.nal}" var="theaters">
-				 ${theaters}<br>
-			</c:forEach>
+  
         </div>
         <div class="time">
         <div class="title">시간</div>
         </div>
-	</div>
+	</div> -->
         <div class="bottombar">
         <div class="bottombarmovie">
         	영화선택
         </div>
          <div class="bottombarselect">
-         <!-- <table>
-         <tr>
-         <td>극장</td>
-         <td></td>
-         </tr>
-         <tr>
-         <td>일시</td>
-         <td></td>
-         </tr>
-         <tr>
-         <td>상영관</td>
-         <td></td>
-         </tr>
-         <tr>
-         <td>인원</td>
-         <td></td>
-         </tr>
-         </table> -->
+        
          		극장선택
         </div>
          <div class="bottombarpay">
-         	<a href="ticketPeople.do">좌석선택 > 결제 </a>
+         		좌석선택 > 결제
         </div>
         </div>
 	<!-- /Contaniner -->

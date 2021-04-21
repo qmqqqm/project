@@ -81,7 +81,7 @@ span{
             <div class="im-wrap"> <!-- Important wrap -->
 				<h2><img src="/movie/resources/images/title/h2_cultureplex.png" alt="CULTUREPLEX" /></h2>
 				<div class="mainmenu">   
-				<span>영화</span> <span>극장</span> <a href="ticketForm.do"><span onclick="location='http://www.naver.com'">예매</span></a><span>이벤트&컬쳐</span>   
+				<span>영화</span> <span>극장</span> <a href="ticketForm.do"><span >예매</span></a><a href="giftShop.do"><span>기프트샵</span></a>   
 				</div>
 				<div class="find">
 					
