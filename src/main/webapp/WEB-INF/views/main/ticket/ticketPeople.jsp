@@ -141,9 +141,20 @@ float: left;
 		
 			document.write("<span class='title_peo'>"+String.fromCharCode(i)+"</span>");
 			for(j=1;j<=10;j++){
-				document.write("<span class='box"+j+"'>"+j+"</span>")
+				document.write("<span class='box"+j+"' onclick='select(this)'>"+j+"</span>")
 			}
 			document.write("<br>")
+		}
+		function select(num){
+		 var chk=1
+			 
+			if(chk==1){ 
+			num.style.background="red";
+		 	i++
+			}else{
+				num.style.background="";
+				i++
+			} 
 		}
 		//document.write("<span class='box"+i+"'>"+i+"</span>")
 		</script>
