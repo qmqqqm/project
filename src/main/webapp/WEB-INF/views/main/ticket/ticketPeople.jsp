@@ -9,7 +9,7 @@ height:500px;
 border:1px solid black;
 
 } 
-.box{
+.box,.box1, .box2, .box3, .box4, .box5, .box6, .box7, .box8, .box9, .box10{
 	display:inline-block;
 	width:18px;
 	height:16px;
@@ -94,6 +94,8 @@ padding:0 10px;
 float: left;
 }
 </style>
+
+
 <div id="contaniner">
 
         <!-- LineMap -->
@@ -129,8 +131,22 @@ float: left;
         </div>
         <div>
         
-        <span class="screen">SCREEN</span>
-        좌석수${stats}
+        <span class="screen">SCREEN</span><br>
+       <!--  상영관 시크수를 받아 좌석 출력  -->
+        <script>
+		stat=${stats};
+		rows= stat/10;
+		
+		for(i=65;i<=65+rows;i++){
+		
+			document.write("<span class='title_peo'>"+String.fromCharCode(i)+"</span>");
+			for(j=1;j<=10;j++){
+				document.write("<span class='box"+j+"'>"+j+"</span>")
+			}
+			document.write("<br>")
+		}
+		//document.write("<span class='box"+i+"'>"+i+"</span>")
+		</script>
         </div>
         </div>
         </div>
