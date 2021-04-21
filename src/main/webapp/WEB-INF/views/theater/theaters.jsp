@@ -26,6 +26,18 @@
 	.timeBtn{
 		border:1px solid blue;
 	}
+	.bookmark{
+		display: inline-block;
+		width: 200px;
+		height: 100px;
+		border: 1px solid black;
+		overflow: auto;
+	}
+	.mini{
+	position: relative;
+	left: 185px;
+	}
+
 </style>
 <script src="jquery-3.5.1.min.js"  type="text/javascript"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"  type="text/javascript"></script>
@@ -33,15 +45,15 @@
 <script>
 $(function (){
 	var id = "";
+	var ischk="";
 	
 	//지역을 누르면 지역별 영화관 생성
-	$(".location").click(function(){
+	$(".location").on("click",function (){
 		$("#location_name").empty();
 		<c:forEach  var="theaters"  items="${theaters}">
 			if ($(this).text() == "${theaters.theater_location}") { 
 				var str = "<li><button type='button' name='th_name'>" + "${theaters.theater_name}" + "</button></li>";
 		    	$("#location_name").append(str);
-				
 				} 
 		</c:forEach>
 	}); //$(".location").click()
@@ -137,7 +149,7 @@ $(function (){
       					}	
       				}
   					
-  					//상영관 별로 정보 저장  
+  					//상영관 별로 정보 저장
   					for (var value of sangygid_set) {
   						//상영관 정보 저장하기
   						var sangygInform = "";
@@ -168,17 +180,59 @@ $(function (){
 		  })//ajax
 	});//날짜를 누르면 해당 영화관, 날짜에 맞는 상영시간표 나오는 function   	
 		
+	//플러스 버튼 클릭시 즐겨찾기 추가 팝업창나옴
+	$("#reg").click(function(){
+		//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~세션확인
+		window.open("./theaterpopup.do","pop","width=1000,height=600,left=600");
+	})
+	
+	//즐겨찾기된 것을 누르면 해당 위치까지 클릭됨
+	$(".bookmark").on("click",function (){
+		var mark = $(this).text();
+		//값을 뽑아서 
+		//해당 값을 가져온 값과 확인해서 영화관 번호 알아내기
+		<c:forEach  var="theaters"  items="${theaters}">
+			if(mark == "${theaters.theater_name}"){
+				var cliloc = "${theaters.theater_location}"
+			}
+		</c:forEach>
+		for(j=0;$(".location").length;j++){
+			if($(".location").eq(j).text()==cliloc){
+				var locid = "#lo"+j
+				$(locid).trigger("click");
+				break;
+			}
+		}
+		for(i=0;$("button[name='th_name']").length;i++){
+			if($("button[name='th_name']").eq(i).text()==mark){
+				$("button[name='th_name']").eq(i).trigger("click");
+				break;
+			}
+		}
+	})
+	
+	
 });//전체 function
 </script>
 </head>
 <body>
 <hr>
+<div>
+   <span style="vertical-align: center; position: relative; bottom: 50px">자주가는 CGV</span> 
+   <span class="bookmark"><span class="mini">1</span></span>
+   <span class="bookmark"><span class="mini">2</span></span>
+   <span class="bookmark"><span class="mini">3</span></span>
+   <span class="bookmark"><span class="mini">4</span></span>
+   <span class="bookmark"><span class="mini">5</span></span>
+   <button style="width: 50px; height: 50px; bottom:50px; position: relative; background: gray;" id="reg">+</button>
+   </div>
 
 	
 	<hr>
 	<ul>
-		<c:forEach  var="location"  items="${location}">
-		<li><button type="button" class="location">${location}</button></li>
+		<c:forEach  var="location"  items="${location}" varStatus="i">
+		<li><button type="button" id="lo${i.index}" class="location">${location}</button></li>
 		</c:forEach>
 	</ul>
 	

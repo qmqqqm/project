@@ -10,18 +10,23 @@ import org.springframework.web.servlet.ModelAndView;
 import com.movie.movie.theater.dto.TotalSangygDTO;
 
 public interface TheaterController {
-	//¿µÈ­°ü
+	//ï¿½ï¿½È­ï¿½ï¿½
 	public ModelAndView showTheater(HttpServletRequest request, HttpServletResponse response) throws Exception;
-	//¿µÈ­ »ó¼¼Á¤º¸
+	//ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public  Map<String, Object> theaterInform(HttpServletRequest request, HttpServletResponse response) throws Exception;
 	
-	//¿µÈ­ »ó¿µ½Ã°£Ç¥ 
+	//ï¿½ï¿½È­ ï¿½ó¿µ½Ã°ï¿½Ç¥ 
 	public  Map<String, Object> theaterTimes(HttpServletRequest request, HttpServletResponse response) throws Exception;
 	
+	//íŒì—…ì°½ì—¬ëŠ” ì»¨íŠ¸ë¡¤ëŸ¬
+	public  ModelAndView popUp(HttpServletRequest request, HttpServletResponse response) throws Exception;
+	
+	//íŒì—…ì°½ì—ì„œ ì‚¬ìš©í•˜ëŠ” ì•„ì‘ìŠ¤(ê·¹ì¥ì •ë³´ ë°›ì•„ì˜´)
+	public Map<String, Object> ajxPopUp(HttpServletRequest request, HttpServletResponse response) throws Exception;
 	
 	
 	/*
-	 * //¿µÈ­Á¤º¸ °¡Á®¿À±â public Map<String, Object> movieInform(HttpServletRequest
+	 * //ï¿½ï¿½È­ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ public Map<String, Object> movieInform(HttpServletRequest
 	 * request, HttpServletResponse response) throws Exception;
 	 */
 }

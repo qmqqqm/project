@@ -34,15 +34,15 @@ public class TheaterDAOImpl implements TheaterDAO {
 		return location;
 	}
 
-	//¿µÈ­°ü »ó¼¼
+	//ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½
 	@Override
 	public TotalSangygDTO getTotal(int theater_id) throws Exception {
-		System.out.println("dao¿¡¼­"+theater_id);
+		System.out.println("daoï¿½ï¿½ï¿½ï¿½"+theater_id);
 		TotalSangygDTO total = sqlSession.selectOne("theaters.totalSangyg", theater_id); 
 		System.out.println(total);
 		return total;
 	}
-	//»ó¿µ½Ã°£Ç¥
+	//ï¿½ó¿µ½Ã°ï¿½Ç¥
 	@Override
 	public List<TimesDTO> getTimes(int theater_id, String day) throws Exception {
 		System.out.println("getTimes dao");
@@ -81,6 +81,12 @@ public class TheaterDAOImpl implements TheaterDAO {
 		}
 		System.out.println(sangygInform);
 		return sangygInform;
+	}
+
+	@Override
+	public List<String> theNumber(String theater_location) throws Exception {
+		List<String> theList = sqlSession.selectList("theaters.theNumber", theater_location);
+		return theList;
 	}
 
 }

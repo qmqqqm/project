@@ -10,22 +10,26 @@ import com.movie.movie.theater.dto.TotalSangygDTO;
 
 public interface TheaterService {
 
-	//¿µÈ­°ü ¸®½ºÆ®
+	//ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 	public List<TheaterDTO> showTheater() throws Exception;
 
 	public List<String> getLocation() throws Exception;
 
-	//¿µÈ­°ü »ó¼¼ Á¤º¸
+	//ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public TotalSangygDTO totalSangyg(int theater_id) throws Exception;
 
-	//»ó¿µ½Ã°£Ç¥
+	//ï¿½ó¿µ½Ã°ï¿½Ç¥
 	public List<TimesDTO> getTimes(int theater_id, String day) throws Exception;
 
-	//¿µÈ­°ü Á¤º¸
+	//ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public List<MovieDTO> movieInform(List id_list) throws Exception;
 
-	//»ó¿µ°ü Á¤º¸
+	//ï¿½ó¿µ°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public List<SangygDTO> sangygInform(List sangygList, int theater_id)throws Exception;
+	
+	
+	//ìœ„ì¹˜ë¥¼ í†µí•´ ê·¹ìž¥ë²ˆí˜¸ ë°›ì•„ì˜¤ê¸°
+	public List<String> theNumber(String theater_location)throws Exception;
 
 
 }

@@ -32,8 +32,8 @@ public class TheaterControllerImpl implements TheaterController{
 	@RequestMapping("/theater.do")
 	public ModelAndView showTheater(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		//1.ÆÄ¶ó¹ÌÅÍ
-		//2.ºñÁî´Ï½º¼öÇà
+		//1.ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½
+		//2.ï¿½ï¿½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ï¿½ï¿½
 		List<String> location = theaterService.getLocation();
 		
 		List<TheaterDTO> theaters =  theaterService.showTheater();
@@ -54,11 +54,11 @@ public class TheaterControllerImpl implements TheaterController{
 	  @RequestMapping("/theaterInform.do")
 	  public @ResponseBody Map<String, Object> theaterInform(HttpServletRequest request, HttpServletResponse response) throws Exception {
 	 
-	  //1.ÆÄ¶ó¹ÌÅÍ ¹Ş±â 
+	  //1.ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ ï¿½Ş±ï¿½ 
 	  int theater_id = Integer.parseInt(request.getParameter("id"));
 
-	  //2.ºñÁî´Ï½º ¼öÇà
-	  //2-1. ÃÑ ÁÂ¼®¼ö ¹× »ó¿µ°ü ¼ö °¡Á®¿À±â (from sangyg) 
+	  //2.ï¿½ï¿½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	  //2-1. ï¿½ï¿½ ï¿½Â¼ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ó¿µ°ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (from sangyg) 
 	  TotalSangygDTO total = theaterService.totalSangyg(theater_id);
 	  
 	  //3.
@@ -68,24 +68,24 @@ public class TheaterControllerImpl implements TheaterController{
 	  return theaterinform; 
 	  }
 
-	//»ó¿µ½Ã°£Ç¥ 
+	//ï¿½ó¿µ½Ã°ï¿½Ç¥ 
 	@Override
 	@RequestMapping("/theaterTimes.do")
 	public  @ResponseBody Map<String, Object> theaterTimes(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// 1.ÆÄ¶ó¹ÌÅÍ ¹Ş±â
-		System.out.println("theaterTimes controller ÁøÀÔ ¼º°ø");
+		// 1.ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ ï¿½Ş±ï¿½
+		System.out.println("theaterTimes controller ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		int theater_id = Integer.parseInt(request.getParameter("id"));
 		String day = request.getParameter("day");
 		
-		System.out.println("±ØÀå¹øÈ£ = "  + theater_id + "³¯Â¥ = " + day);
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½È£ = "  + theater_id + "ï¿½ï¿½Â¥ = " + day);
 		
 		
-		//2.ºñÁî´Ï½º ·ÎÁ÷¼öÇà
-		//2-1. »ó¿µ½Ã°£Ç¥Å×ÀÌºí¿¡¼­ ÇØ´ç ±ØÀå,³¯Â¥ÀÇ µ¥ÀÌÅÍµéÀ» °¡Á®¿Â´Ù.
+		//2.ï¿½ï¿½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		//2-1. ï¿½ó¿µ½Ã°ï¿½Ç¥ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½Â¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Íµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
 		List<TimesDTO> times = theaterService.getTimes(theater_id, day);
 		
 		
-		//2-2. ¿µÈ­ Á¤º¸¸¦ °¡Á®¿À´Âµ¥, »çÀü¿¡ ¿µÈ­¹øÈ£ Áßº¹ Á¦°ÅÇØ¾ßÇÑ´Ù.
+		//2-2. ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Âµï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ï¿½ï¿½È£ ï¿½ßºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ï¿½Ñ´ï¿½.
 		List<Integer> imsi = new ArrayList<Integer>();
 		for(int i = 0; i < times.size(); i++) {
 			imsi.add(times.get(i).getMovie_id());
@@ -97,7 +97,7 @@ public class TheaterControllerImpl implements TheaterController{
 		
 		List<MovieDTO> movieInform = theaterService.movieInform(movieList);
 
-		//2-3. »ó¿µ°ü º°·Î, »ó¿µ°ü Á¤º¸ °¡Á®¿À±â(Áßº¹ Á¦°Å)
+		//2-3. ï¿½ó¿µ°ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ó¿µ°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ßºï¿½ ï¿½ï¿½ï¿½ï¿½)
 		for(int i = 0; i < times.size(); i++) {
 			imsi.add(times.get(i).getSangyg_id());
 		}
@@ -114,6 +114,28 @@ public class TheaterControllerImpl implements TheaterController{
 		theaterTimes.put("sangygInform", sangygInform);
 		
 		return theaterTimes;
+	}
+	//íŒì—…ì°½ ë„ìš°ê¸°
+	@RequestMapping("/theaterpopup.do")
+	@Override
+	public ModelAndView popUp(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		List<String> locationList = theaterService.getLocation();
+		mv.addObject("locationList", locationList);
+		mv.setViewName("/theater/popup");
+		return mv;
+	}
+	//íŒì—…ì°½ì—ì„œ ì‚¬ìš©í•˜ëŠ” ì•„ì‘ìŠ¤(ê·¹ì¥ì •ë³´ ë°›ì•„ì˜´)
+	@RequestMapping("/theaterpopuploc.do")
+	@Override
+	public @ResponseBody Map<String, Object> ajxPopUp(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String theater_location = request.getParameter("location");
+		System.out.println(theater_location);
+		List<String> theList = theaterService.theNumber(theater_location);
+		System.out.println(theList);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("theList",theList);
+		return map;
 	}
 
 

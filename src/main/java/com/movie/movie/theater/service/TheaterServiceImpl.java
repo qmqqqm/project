@@ -31,7 +31,7 @@ public class TheaterServiceImpl implements TheaterService{
 		return location;
 	}
 	
-	//¿µÈ­°ü »ó¼¼
+	//ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½
 	@Override
 	public TotalSangygDTO totalSangyg(int theater_id) throws Exception {
 		TotalSangygDTO total = theaterDAO.getTotal(theater_id); 
@@ -46,17 +46,24 @@ public class TheaterServiceImpl implements TheaterService{
 
 	@Override
 	public List<MovieDTO> movieInform(List id_list) throws Exception {
-		System.out.println("movieInform serviceÁøÀÔ");
+		System.out.println("movieInform serviceï¿½ï¿½ï¿½ï¿½");
 		List<MovieDTO> movieList = theaterDAO.getMovie(id_list);
 		return movieList;
 	}
 
 	@Override
 	public List<SangygDTO> sangygInform(List sangygList, int theater_id) throws Exception {
-		System.out.println("sangygInform serviceÁøÀÔ");
+		System.out.println("sangygInform serviceï¿½ï¿½ï¿½ï¿½");
 		List<SangygDTO> sangygInform = theaterDAO.getSangyg(sangygList, theater_id);
 		return sangygInform;
 	
+	}
+	
+	//ìœ„ì¹˜ë¥¼ í†µí•´ ê·¹ìž¥ë²ˆí˜¸ ë°›ì•„ì˜¤ê¸°
+	@Override
+	public List<String> theNumber(String theater_location) throws Exception {
+		List<String> theList = theaterDAO.theNumber(theater_location);
+		return theList;
 	}
 
 }
