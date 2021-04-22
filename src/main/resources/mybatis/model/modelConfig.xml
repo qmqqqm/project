@@ -6,14 +6,11 @@
 	<!-- typeAliases
 A type alias is simply a shorter name for a Java type. It's only relevant to the XML configuration and simply exists to reduce redundant typing of fully qualified classnames.
 https://mybatis.org/mybatis-3/configuration.html#typeAliases-->
-	 <typeAliases>
-		<typeAlias type="java.util.HashMap" alias="hmap"/>
-		<typeAlias type="com.movie.movie.dto.UserDTO" alias="userDTO"/> 
-		<typeAlias type="com.movie.movie.dto.TicketBoardDTO" alias="ticketBoardDTO"/> 
-		<typeAlias type="com.movie.movie.dto.TicketDTO" alias="ticketDTO"/> 
-		</typeAliases>
-<!-- 		<typeAlias type="" alias=""/>
-		<typeAlias type="" alias=""/>
-		<typeAlias type="" alias=""/> -->
-<!-- 	</typeAliases> -->
+	<typeAliases>
+		<typeAlias type="com.movie.movie.theater.dto.TheaterDTO" alias="TheaterDTO"/>
+		<typeAlias type="com.movie.movie.theater.dto.TotalSangygDTO" alias="TotalSangygDTO"/>
+		<typeAlias type="com.movie.movie.theater.dto.TimesDTO" alias="TimesDTO"/>
+		<typeAlias type="com.movie.movie.theater.dto.MovieDTO" alias="MovieDTO"/>
+		<typeAlias type="com.movie.movie.theater.dto.SangygDTO" alias="SangygDTO"/>
+	</typeAliases>
 </configuration>	
