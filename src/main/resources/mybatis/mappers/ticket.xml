@@ -4,10 +4,23 @@
    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
 <mapper namespace="ticket">
-<select id="ticketForm" resultType="string">
-select movie_title from movie      
 
+<select id="ticketForm" resultType="ticketDTO">
+select movie_id, movie_title from movie   
 </select>
 
+<select id="location" resultType="ticketDTO">
+select distinct theater_location from theater
+</select>
+<select id="theater" resultType="ticketDTO">
+select theater_name from theater where theater_location='서울' 
+</select>
+
+<select id="nal" resultType="String">
+select times_time from times
+</select>
+<select id="ticketpeople" resultType="_int">
+select sangyg_seats from sangyg where sangyg_id=1 and theater_id=1
+</select>
 
 </mapper>	

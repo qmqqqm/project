@@ -16,6 +16,14 @@ float: left;
 border:1px solid black;
 margin:10px 1px;
 }
+.local{
+float: left;
+width:40%;
+}
+.localsub{
+width:55%;
+float: left;
+}
 .day{
 width:10%;
 height:500px;
@@ -100,15 +108,69 @@ float: left;
         
         <div class="movie">
         <div class="title">영화</div>
-        <c:forEach items="${movieList}" var="movie">
-        ${movie}<br/>
+        <c:forEach items="${movieList.movies}" var="movie">
+        
+        ${movie.movie_title}<br/>
         </c:forEach>
+        
         </div>
+        
         <div class="theaters">
-        <div class="title">극장</div>
-        </div>
+       <div class="title">지역</div>
+       <div class="local">
+       <c:forEach items="${movieList.location}" var="theaters">
+			 ${theaters.theater_location}<br>
+			</c:forEach>
+			 </div>
+			 <div class="localsub">
+			 	<c:forEach items="${movieList.theater}" var="theaters">
+				 ${theaters.theater_name}<br>
+			</c:forEach>
+			 </div>
+		</div>
+		
+	<%-- 내용 들어 가는 곳 --%>
+<%--	<div >
+		
+			
+	
+		 <div class="tab_container">
+			<div class="tab_content" id="tab1">
+				<h4>책소개</h4>
+				jstl의 함수 replace를 이용하여  br태그로 치환후 출력
+				<p>${fn:replace(goods.goods_intro,crcn,br) }</p>
+				<c:forEach var="image" items="${imageList }">
+					<img 
+						src="${contextPath}/download.do?goods_id=${goods.goods_id}&fileName=${image.fileName}">
+				</c:forEach>
+			</div>
+			<div class="tab_content" id="tab2">
+				<h4>저자소개</h4>
+				<p>
+				<div class="writer">저자 : ${goods.goods_writer}</div>
+				 <p>${fn:replace(goods.goods_writer_intro,crcn,br) }</p> 
+				
+			</div>
+			<div class="tab_content" id="tab3">
+				<h4>책목차</h4>
+				<p>${fn:replace(goods.goods_contents_order,crcn,br) }</p> 
+			</div>
+			<div class="tab_content" id="tab4">
+				<h4>출판사서평</h4>
+				 <p>${fn:replace(goods.goods_publisher_comment,crcn,br) }</p> 
+			</div>
+			<div class="tab_content" id="tab5">
+				<h4>추천사</h4>
+				<p>${fn:replace(goods_recommendation,crcn,br) }</p>
+			</div>
+		</div>
+	</div> 
+        </div>--%>
         <div class="day">
         <div class="title">날짜</div>
+        <c:forEach items="${movieList.nal}" var="theaters">
+				 ${theaters}<br>
+			</c:forEach>
         </div>
         <div class="time">
         <div class="title">시간</div>
@@ -140,7 +202,7 @@ float: left;
          		극장선택
         </div>
          <div class="bottombarpay">
-         		좌석선택 > 결제
+         	<a href="ticketPeople.do">좌석선택 > 결제 </a>
         </div>
         </div>
 	<!-- /Contaniner -->

@@ -24,12 +24,8 @@ span{
 <div id="cgvwrap">
     <div class="cgv-ad-wrap" id="cgv_main_ad">
         <div id="TopBarWrapper" class="sect-head-ad">
-            <div class="top_extend_ad_wrap">
-                <div class="adreduce" id="adReduce">                    
-                    <iframe src="http://ad.cgv.co.kr/NetInsight/html/CGV/CGV_201401/main@TopBar_EX" width="100%" height="80" title="" frameborder="0" scrolling="no" topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" name="TopBanner" id="TopBanner"></iframe>
-                </div> 
-                <div class="adextend" id="adExtend"></div>
-            </div><!-- //.top_extend_ad_wrap -->
+             <div class="top_extend_ad_wrap">
+             <img src="/movie/resources/images/main/0419_980x80.jpg"/>             
         </div>    
     </div> 
     
@@ -69,8 +65,7 @@ span{
                     
                 
 
-					<li><a href="mynb.do" class="mycgv required-login" data-url="/user/mycgv/" ><span>MY CGV</span></a></li>
-					<li><a href="./WEB-INF/views/main/user/vip-lounge/index.html" class="vip" ><span>VIP LOUNGE</span></a></li>
+					<li><a href="mynb.do" class="mycgv required-login" data-url="/user/mycgv/" ><span>나의 늘봄극장</span></a></li>
 					<li><a href="clubService.do" title="새창" class="club specialclub"  ><span>CLUB 서비스</span></a></li>
 					<!-- 2014.12.8 리뉴얼-->
 					<li><a href="./support.do" class="customer" ><span>고객센터</span></a></li>
@@ -82,7 +77,7 @@ span{
             <div class="im-wrap"> <!-- Important wrap -->
 				<h2><img src="/movie/resources/images/title/h2_cultureplex.png" alt="CULTUREPLEX" /></h2>
 				<div class="mainmenu">   
-				<span>영화</span> <span>극장</span> <a href="ticketForm.do"><span onclick="location='http://www.naver.com'">예매</span></a><span>이벤트&컬쳐</span>   
+				<span>영화</span> <span>극장</span> <a href="ticketForm.do"><span >예매</span></a><a href="giftShop.do"><span>기프트샵</span></a>   
 				</div>
 				<div class="find">
 					

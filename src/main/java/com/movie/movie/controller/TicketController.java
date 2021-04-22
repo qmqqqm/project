@@ -3,6 +3,7 @@ package com.movie.movie.controller;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,7 +24,7 @@ public class TicketController {
 	@RequestMapping("ticketForm.do")
 	public ModelAndView ticketForm(HttpServletRequest request, 
 			HttpServletResponse response,ModelAndView mv) throws Exception {
-			ArrayList  movieList=ticketService.ticketForm();
+			Map  movieList=ticketService.ticketForm();
 			mv.addObject("movieList",movieList);
 			mv.setViewName("ticketForm");
 		

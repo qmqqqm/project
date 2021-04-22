@@ -34,7 +34,7 @@
                 <button type="button">LET'S PLAY AT CGV!</button>
                 <a href="culture-event/event/index.html" class="item" >
                     <img src="/movie/resources/banner/main/mainbig_new_1.jpg" alt="LET'S PLAY AT CGV!" />
-                    <p class="main_banner_text2 type1"><br />즐겁고 재밌는 무언가를 찾고 있나요?<br /> CGV에서 같이 놀아요!</p>
+                    <p class="main_banner_text2 type1"><br />즐겁고 재밌는 무언가를 찾고 있나요?<br /> 늘봄극장 에서 같이 놀아요!</p>
                 </a>
             </div>
             
@@ -82,13 +82,15 @@
 </div>
 <h3><img src="/movie/resources/images/title/h3_movie_selection.gif" alt="MOVIE SELECTION" /></h3>
 <div class="cols-movie">
-	<div id="Selection_L" class="col-slider">
-		<!--2020.10.15 Adobe Flash 종료로 인한 광고태그에 태그 추가건(SR:3415857)-->
-        <iframe src="https://ad.cgv.co.kr/NetInsight/html/CGV/CGV_201401/main@Selection_L" width="733" height="388" title="" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" name="Movie_Selection_L" id="Movie_Selection_L" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen"></iframe>
+	 <div id="Selection_L" class="col-slider">
+	<video width="733"  height="388" controls="controls">
+  		<source src="/movie/resources/movie/84537_190059_1200_128_960_540.mp4"  />
+  </video>
 	</div>
 	<div id="Selection_R" class="col-ad">
-        <iframe src="about:blank" width="240" height="388" title="" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" name="Movie_Selection_R" id="Movie_Selection_R"></iframe>
-	</div>
+        <img src="/movie/resources/movie/0422_240x388.jpg"/>
+	</div> 
+
 </div>
 <h3><img src="/movie/resources/images/title/h3_event.gif" alt="EVENT" /></h3>
 <ul class="tab-menu">
@@ -286,28 +288,7 @@
 </script>
 
 <script type="text/javascript">
-    //<![CDATA[
-     //CGV 공지 팝업 주석처리
-    //function getCookie(name) {
-    //    var nameOfCookie = name + "=";
-    //    var x = 0;
-    //    while (x <= document.cookie.length) {
-    //        var y = (x + nameOfCookie.length);
-    //        if (document.cookie.substring(x, y) == nameOfCookie) {
-    //            if ((endOfCookie = document.cookie.indexOf(";", y)) == -1)
-    //                endOfCookie = document.cookie.length;
-    //            return unescape(document.cookie.substring(y, endOfCookie));
-    //        }
-    //        x = document.cookie.indexOf(" ", x) + 1;
-    //        if (x == 0)
-    //            break;
-    //    }
-    //    return "";
-    //}    
-    //if (getCookie("cgv_notice") != "done") {
-    //    var spcwin = window.open('/popup/1411_personal_popup_1107_v2.html', 'cgv_notice', "height=414,width=280,menubar=no,scrollbars=no,resizeable=no,toolbar=no,left=355,top=100")
-    //    spcwin.focus();        
-    //}       
+   
     (function ($) {
         $(function () {
 
