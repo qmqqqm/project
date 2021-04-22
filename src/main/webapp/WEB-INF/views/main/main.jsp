@@ -34,7 +34,7 @@
                 <button type="button">LET'S PLAY AT CGV!</button>
                 <a href="culture-event/event/index.html" class="item" >
                     <img src="/movie/resources/banner/main/mainbig_new_1.jpg" alt="LET'S PLAY AT CGV!" />
-                    <p class="main_banner_text2 type1"><br />즐겁고 재밌는 무언가를 찾고 있나요?<br /> CGV에서 같이 놀아요!</p>
+                    <p class="main_banner_text2 type1"><br />즐겁고 재밌는 무언가를 찾고 있나요?<br /> 늘봄극장 에서 같이 놀아요!</p>
                 </a>
             </div>
             
