@@ -33,6 +33,17 @@
 		<put-attribute name="body"  value="/WEB-INF/views/theater/theaters.jsp" />
 	</definition>
 	
+	<!--관리자-극장 추가  -->
+	<definition name="/theater/admin/createTheater"  extends="baseLayout">
+		<put-attribute name="title" value="관리자-극장" />
+		<put-attribute name="body"  value="/WEB-INF/views/theater/admin/createTheater.jsp" />
+	</definition>
+	
+	<!--관리자-극장 리스트  -->
+	<definition name="/theater/admin/theaterList"  extends="baseLayout">
+		<put-attribute name="title" value="관리자-극장" />
+		<put-attribute name="body"  value="/WEB-INF/views/theater/admin/theaterList.jsp" />
+	</definition>
 </tiles-definitions>
 
 

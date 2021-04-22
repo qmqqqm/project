@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<!-- 참고
+      <![CDATA[ 쿼리문 ]]>
+      쿼리문에 비교연산자(  > >= < <= )가 포함되어 있는 경우
+      문자열로 취급하기위해서   <![CDATA[     ]]> 안에 쿼리문을 작성한다
+ --> 
+ 
+<!-- member테이블 관련 DML작업을 하는 쿼리문 --> 
+<mapper namespace="adTheater">
+
+	<!--영화관 목록  -->
+	<select id="selectTheaterList" resultType="TheaterDTO">
+			SELECT 	theater_id,theater_name,theater_location,theater_address,theater_phone,theater_isshow
+			FROM 	theater
+	</select>
+
+	<!--영화관 지역명  목록  -->
+	<select id="selectlocationList" resultType="string">
+			select distinct theater_location from theater
+	</select>
+		
+	<!--영화관 생성  -->
+	<insert id="createTheater"  parameterType="TheaterDTO">
+		insert into theater(theater_id,theater_name,theater_location,theater_address,theater_phone,theater_isshow)
+		values(theater_seq.nextval,#{theater_name},#{theater_location},#{theater_address},#{theater_phone},'y')
+	</insert>
+	
+	<!--영화관 삭제-노출여부를 n으로 update  -->
+	<update id="deleteTheater"  parameterType="java.lang.Integer">
+		UPDATE theater
+		SET theater_isshow = 'n'
+		WHERE theater_id=#{theater_id}
+	</update>
+
+
+</mapper> 
