@@ -105,7 +105,8 @@ public class AdTheaterControllerImpl implements AdTheaterController{
 	//영화 수정하기
 	@Override
 	public ModelAndView modifyTheater(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// TODO Auto-generated method stub
+		//1. 파라미터
+		
 		return null;
 	}
 
