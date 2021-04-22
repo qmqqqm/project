@@ -33,21 +33,6 @@
 		<put-attribute name="body"  value="/WEB-INF/views/theater/theaters.jsp" />
 	</definition>
 	
-	
-	<!-- no tiles -->
-
-	<definition name="notile" template="/WEB-INF/views/common/no-layout.jsp">
-                  <put-attribute name="body" value=""/>
-       </definition>
-
-    
-	<!--팝업창 -->
-	<definition name="/theater/popup" extends="notile">
-		<put-attribute name="body" value="/WEB-INF/views/theater/popup.jsp"/>
-	</definition>
-	
-	
-	
 </tiles-definitions>
 
 
