@@ -82,13 +82,15 @@
 </div>
 <h3><img src="/movie/resources/images/title/h3_movie_selection.gif" alt="MOVIE SELECTION" /></h3>
 <div class="cols-movie">
-	<div id="Selection_L" class="col-slider">
-		<!--2020.10.15 Adobe Flash 종료로 인한 광고태그에 태그 추가건(SR:3415857)-->
-        <iframe src="https://ad.cgv.co.kr/NetInsight/html/CGV/CGV_201401/main@Selection_L" width="733" height="388" title="" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" name="Movie_Selection_L" id="Movie_Selection_L" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen"></iframe>
+	 <div id="Selection_L" class="col-slider">
+	<video width="733"  height="388" controls="controls">
+  		<source src="/movie/resources/movie/84537_190059_1200_128_960_540.mp4"  />
+  </video>
 	</div>
 	<div id="Selection_R" class="col-ad">
-        <iframe src="about:blank" width="240" height="388" title="" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" name="Movie_Selection_R" id="Movie_Selection_R"></iframe>
-	</div>
+        <img src="/movie/resources/movie/0422_240x388.jpg"/>
+	</div> 
+
 </div>
 <h3><img src="/movie/resources/images/title/h3_event.gif" alt="EVENT" /></h3>
 <ul class="tab-menu">
