@@ -25,6 +25,10 @@ width:5%;
 float: left;
 
 }
+.selectpeoplenum{
+width:50%;
+float: left;
+}
 .title_peo{
 display:inline-block;
 font-size: 13px;
@@ -37,6 +41,9 @@ width:65%;
 margin 0 auto;
 border:1px solid black;
 text-align: center;
+}
+.info{
+float: left;
 }
 .day{
 width:10%;
@@ -124,10 +131,14 @@ float: left;
         
         <div class="people">
         <div class="title">인원/ 좌석</div>
-        <div class="people">
+        
         <div class="selectpeople"><span class="title_peo" >일반</span> <br><span class="title_peo" >청소년</span> </div>
-        <div><span class="box">1</span><span class="box">2</span><span class="box">3</span><span class="box">4</span><span class="box">5</span><span class="box">6</span><span class="box">7</span><span class="box">8</span><br>
-        <span class="box">1</span><span class="box">2</span><span class="box">3</span><span class="box">4</span><span class="box">5</span><span class="box">6</span><span class="box">7</span><span class="box">8</span>
+        <div class="selectpeoplenum"><span class="box" onclick="count1(this)">1</span><span class="box" onclick="count1(this)">2</span><span class="box" onclick="count1(this)")>3</span><span class="box" onclick="count1(this)">4</span><span class="box" onclick="count1(this)">5</span><span class="box" onclick="count1(this)">6</span><span class="box" onclick="count1(this)">7</span><span class="box" onclick="count1(this)">8</span><br>
+        <span class="box" onclick="count(this)">1</span><span class="box" onclick="count(this)">2</span><span class="box" onclick="count(this)">3</span><span class="box" onclick="count(this)">4</span><span class="box" onclick="count(this)">5</span><span class="box" onclick="count(this)">6</span><span class="box" onclick="count(this)">7</span><span class="box" onclick="count(this)">8</span>
+        </div>
+        <div class="info">
+        좌석 : <span id="select"></span><br>
+        인원 : <span id="count"></span><br>
         </div>
         <div>
         
@@ -136,25 +147,66 @@ float: left;
         <script>
 		stat=${stats};
 		rows= stat/10;
+		selectstat="";
+		
 		
 		for(i=65;i<65+rows;i++){
 		
 			document.write("<span class='title_peo'>"+String.fromCharCode(i)+"</span>");
 			for(j=1;j<=10;j++){
-				document.write("<span class='box"+j+"' onclick='select(this)'>"+j+"</span>")
+				document.write("<span class='box"+j+"' onclick='select(this)' id='"+String.fromCharCode(i)+j+"'>"+j+"</span>")
 			}
 			document.write("<br>")
 		}
-		function select(num){
-		 var chk=1
-			 
-			if(chk==1){ 
-			num.style.background="red";
-		 	i++
+		function select(num){			 
+			if(num.style.background!="red"){
+				num.style.background="red";
+				stat=num.getAttribute('id');
+				
 			}else{
+				if(selectstat!=""){
+					str=selectstat.split(",");
+					for(i=0;i<str.length;i++){
+						document.getElementById(str[i]).style.background=""
+					}
+				}
 				num.style.background="";
-				i++
-			} 
+				selectstat="";
+				stat="";
+							
+			}
+			if(selectstat==""){					
+				selectstat=stat
+			}else{
+				selectstat=selectstat+","+stat;
+			}
+			
+			document.getElementById('select').innerText=selectstat;
+		}
+		function count(count){	
+			if(count.style.background!="red"){
+			count.style.background="red";
+			}else{
+				count.style.background="";
+			}
+			/* countnum=count.innerText;
+			document.getElementById('count').innerText=countnum;
+			total(); */
+		}
+		function count1(count){	
+			if(count.style.background!="red"){		
+			count.style.background="red";
+			}else{
+				count.style.background="";
+			}
+			
+			
+			/* countnum=count.innerText;
+			document.getElementById('count').innerText=countnum;
+			total(); */
+		}
+		function total(count){	
+			
 		}
 		//document.write("<span class='box"+i+"'>"+i+"</span>")
 		</script>
@@ -191,6 +243,7 @@ float: left;
          <div class="bottombarpay">
          		좌석선택 > 결제
         </div>
+        
         </div>
 	<!-- /Contaniner -->
 
