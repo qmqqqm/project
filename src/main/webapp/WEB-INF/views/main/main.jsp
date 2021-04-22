@@ -288,28 +288,7 @@
 </script>
 
 <script type="text/javascript">
-    //<![CDATA[
-     //CGV 공지 팝업 주석처리
-    //function getCookie(name) {
-    //    var nameOfCookie = name + "=";
-    //    var x = 0;
-    //    while (x <= document.cookie.length) {
-    //        var y = (x + nameOfCookie.length);
-    //        if (document.cookie.substring(x, y) == nameOfCookie) {
-    //            if ((endOfCookie = document.cookie.indexOf(";", y)) == -1)
-    //                endOfCookie = document.cookie.length;
-    //            return unescape(document.cookie.substring(y, endOfCookie));
-    //        }
-    //        x = document.cookie.indexOf(" ", x) + 1;
-    //        if (x == 0)
-    //            break;
-    //    }
-    //    return "";
-    //}    
-    //if (getCookie("cgv_notice") != "done") {
-    //    var spcwin = window.open('/popup/1411_personal_popup_1107_v2.html', 'cgv_notice', "height=414,width=280,menubar=no,scrollbars=no,resizeable=no,toolbar=no,left=355,top=100")
-    //    spcwin.focus();        
-    //}       
+   
     (function ($) {
         $(function () {
 
