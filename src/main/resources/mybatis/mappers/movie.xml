@@ -95,6 +95,20 @@
 		]]>
 	</insert>
 	
+	<!-- 페이징처리 -->
+	<select id="countReview" resultType="int">
+	SELECT COUNT(*) FROM review where movie_id=#{movie_id}
+</select>
+
+<!-- 페이징 처리 후 게시글 조회 -->
+<select id="selectReview" parameterType="Paging" resultType="Review">
+	SELECT *FROM (SELECT ROWNUM num, A.* 
+                         FROM review a
+                         where movie_id=#{movie_id}
+						ORDER BY review_id DESC)  
+                WHERE NUM BETWEEN #{start} AND #{end}
+</select>
+
 	
 </mapper> 
 
