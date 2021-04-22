@@ -47,8 +47,4 @@
    from sangyg
    where sangyg_id=#{sangyg_id} and theater_id=#{theater_id}
    </select>
-   
-   <select id="theNumber" parameterType="string" resultType="string">
-   select theater_name from theater where theater_location = #{theater_location}
-   </select>
 </mapper> 

@@ -21,8 +21,5 @@ public interface TheaterDAO {
 	public List<MovieDTO> getMovie(List id_list) throws Exception;
 
 	public List<SangygDTO> getSangyg(List sangygList, int theater_id) throws Exception;
-	
-	//위치를 통해 극장번호 받아오기
-	public List<String> theNumber(String theater_location)throws Exception;
 
 }
