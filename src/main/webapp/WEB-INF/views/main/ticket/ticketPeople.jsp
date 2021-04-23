@@ -151,6 +151,7 @@ float: left;
 		adcnt=0;
 		chcnt=0;
 		totalcnt=0;
+		str=new Array();
 		
 		
 		for(i=65;i<65+rows;i++){
@@ -162,30 +163,46 @@ float: left;
 			document.write("<br>")
 		}
 		//좌석선택
-		function select(num){			 
-			if(num.style.background!="red"){
-				num.style.background="red";
-				stat=num.getAttribute('id');
-				
-			}else{
-				if(selectstat!=""){
-					str=selectstat.split(",");
-					for(i=0;i<str.length;i++){
-						document.getElementById(str[i]).style.background=""
-					}
+		function select(num){	
+			if(totalcnt==0){
+				alert("인원을선택하세요")			 
+			}else if(totalcnt<str.length+1){
+				alert("선택한인원에 맞게 좌석을 선택하세요")	;
+				for(i=0;i<str.length;i++){
+					document.getElementById(str[i]).style.background=""
 				}
 				num.style.background="";
 				selectstat="";
 				stat="";
-							
-			}
-			if(selectstat==""){					
-				selectstat=stat
+				str="";
+				document.getElementById('select').innerText="";
 			}else{
-				selectstat=selectstat+","+stat;
+				
+				if(num.style.background!="red"){
+					num.style.background="red";
+					stat=num.getAttribute('id');
+					
+					}else{
+							if(selectstat!=""){
+								//str=selectstat.split(",");
+								for(i=0;i<str.length;i++){
+									document.getElementById(str[i]).style.background=""
+								}
+							}
+							num.style.background="";
+							selectstat="";
+							stat="";
+										
+					}
+					if(selectstat==""){					
+						selectstat=stat
+					}else{
+						selectstat=selectstat+","+stat;
+						str=selectstat.split(",");
+					}
+				
+				document.getElementById('select').innerText=selectstat;
 			}
-			
-			document.getElementById('select').innerText=selectstat;
 		}
 		//성인인원선택
 		function adcount(count){	
