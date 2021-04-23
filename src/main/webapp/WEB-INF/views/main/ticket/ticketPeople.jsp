@@ -92,13 +92,21 @@ text-align:center;
 float: left;
 }
 .bottombarpay{
-width:45%;
+width:25%;
 height:60px;
 margin : 20px 0;
 font-size:25px;
 font-weight:900;
 padding:0 10px;
 float: left;
+}
+.bottomcount{
+width:21%;
+height:60px;
+margin-right:0;
+
+
+float: right;
 }
 </style>
 
@@ -277,7 +285,7 @@ float: left;
          <div class="bottombarpay">
          		좌석선택 > 결제
         </div>
-        
+         <div class="bottomcount"><a href="#"><img src="/movie/resources/images/20210423_173910.png"/></a></div>
         </div>
 	<!-- /Contaniner -->
 

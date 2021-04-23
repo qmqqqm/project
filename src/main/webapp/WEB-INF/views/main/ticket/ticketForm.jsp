@@ -71,13 +71,21 @@ text-align:center;
 float: left;
 }
 .bottombarpay{
-width:45%;
+width:25%;
 height:60px;
 margin : 20px 0;
 font-size:25px;
 font-weight:900;
 padding:0 10px;
 float: left;
+}
+.bottomcount{
+width:21%;
+height:60px;
+margin-right:0;
+
+
+float: right;
 }
 </style>
 <div id="contaniner">
@@ -202,8 +210,9 @@ float: left;
          		극장선택
         </div>
          <div class="bottombarpay">
-         	<a href="ticketPeople.do">좌석선택 > 결제 </a>
+         	좌석선택 > 결제 
         </div>
+        <div class="bottomcount"><a href="ticketPeople.do"><img src="/movie/resources/images/20210423_170823.png"/></a></div>
         </div>
 	<!-- /Contaniner -->
 
