@@ -161,6 +161,7 @@ float: left;
 			}
 			document.write("<br>")
 		}
+		//좌석선택
 		function select(num){			 
 			if(num.style.background!="red"){
 				num.style.background="red";
@@ -186,6 +187,7 @@ float: left;
 			
 			document.getElementById('select').innerText=selectstat;
 		}
+		//성인인원선택
 		function adcount(count){	
 			if(adcnt==0){
 				adcnt=count.innerText;
@@ -202,6 +204,7 @@ float: left;
 			
 			total(); 
 		}
+		//청소년인원선택
 		function chcount(count){	
 			if(chcnt==0){
 				chcnt=count.innerText;
@@ -216,7 +219,7 @@ float: left;
 			
 			total(); 
 		}
-
+		//총선택한 인원
 		function total(count){	
 			
 			totalcnt=Number(adcnt)+Number(chcnt);
