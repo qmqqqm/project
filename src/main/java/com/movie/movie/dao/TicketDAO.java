@@ -30,5 +30,9 @@ public class TicketDAO {
 		ArrayList nal=(ArrayList)sqlSession.selectList("ticket.nal");
 		return nal;
 	}
+	public List theaterchoice(String theater_location) throws Exception {
+		List<TicketDTO> theaterchoice = sqlSession.selectList("ticket.theaterchoice", theater_location);
+		return theaterchoice;
+	}
 
 }

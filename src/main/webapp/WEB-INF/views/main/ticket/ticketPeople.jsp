@@ -108,6 +108,11 @@ margin-right:0;
 
 float: right;
 }
+.title_stat{
+display:inline-block;
+width:5%;
+margin:5px 5px;
+}
 </style>
 
 
@@ -164,7 +169,7 @@ float: right;
 		
 		for(i=65;i<65+rows;i++){
 		
-			document.write("<span class='title_peo'>"+String.fromCharCode(i)+"</span>");
+			document.write("<span class='title_stat'>"+String.fromCharCode(i)+"</span>");
 			for(j=1;j<=10;j++){
 				document.write("<span class='box' onclick='select(this)' id='"+String.fromCharCode(i)+j+"'>"+j+"</span>")
 			}

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<c:set var="contextPath"  value="${pageContext.request.contextPath}"/>
 <style>
 .movie{
 width:26%;
@@ -88,6 +89,126 @@ margin-right:0;
 float: right;
 }
 </style>
+ <script src="/webjars/jquery/2.2.1/jquery.min.js"></script> 
+<script>
+
+$(function(){ 
+	
+
+	/* 극장위치 선택  */
+	$(".location").on("click",function(){
+		$.ajax({
+        type:"POST",
+        url:"./theaterchoice.do",
+        data : {'name' : $(this).text()},
+        dataType : "json",
+        success: function(theater){
+        	$("#theater_name").empty();
+        	 for(var i=0;theater.theaterchoice.length;i++){                            
+                 var h = theater.theaterchoice[i].theater_name;
+                 var str = "<div class='theaterCho' ><span class='theaterTxt' onclick='selecttheater(this)'>"+h+"</span><input class='theaterCode' type='hidden' value='"+h+"'></div>"
+                 $("#theater_name").append(str);
+        	 }
+        },//success
+        error: function(xhr, status, error) {
+            alert("11111111");
+       	}//error  
+    	});//ajax
+	})//on
+
+		
+		//오늘 날짜
+		var today = new Date();   
+
+		var year = today.getFullYear(); // 년도
+		var month = today.getMonth() + 1;  // 월
+		var date = today.getDate();  // 날짜
+		var dayA = today.getDay();  // 요일
+		
+		var day1 = year + '-' + month + '-' + date;
+		
+		//20일 후 날짜
+		var oneMonthLater = new Date(today.setDate(today.getDate() + 20));	
+		
+		var year2 = oneMonthLater.getFullYear(); // 년도
+		var month2 = oneMonthLater.getMonth() + 1;  // 월
+		var date2 = oneMonthLater.getDate();  // 날짜
+		var dayB = oneMonthLater.getDay();  // 요일
+		
+		var day2 = year2 + '-' + month2 + '-' + date2;
+		
+			
+//	 	var res_day = [];
+		var dayTxt = ["일","월","화","수","목","금","토"];
+	 	var ss_day = new Date(day1);
+	   	var ee_day = new Date(day2);
+	   		var monthTxt = '';
+	  		while(ss_day.getTime() <= ee_day.getTime()){
+	  			var _mon_ 	= (ss_day.getMonth()+1);
+	  			
+	  			if(monthTxt  != _mon_){
+	  				monthTxt = _mon_;
+	  				var innerHtml = "<div><div><span>"+_mon_+"월</span>"+"</div></div>";
+	  				$(".reserve-date").append(innerHtml);
+	  			}
+	  			
+	  			_mon_ 		= _mon_ < 10 ? '0'+_mon_ : _mon_;
+	  			var _day_ 	= ss_day.getDate();
+	  			_day_ = _day_ < 10 ? '0'+_day_ : _day_;
+				var todayTxt = ss_day.getFullYear() + '-' + _mon_ + '-' +  _day_ + '-' + dayTxt[ss_day.getDay()];
+				var todayTxtList = todayTxt.split("-");
+				
+				var todayYearTxt = todayTxtList[0];
+				var todayMonthTxt = todayTxtList[1];
+				var todayDateTxt = todayTxtList[2];
+				var todayDayTxt = todayTxtList[3];
+				
+				var innerHtml2 = "<div>";
+				innerHtml2 += "<p class='dayCho' onclick='selectday(this)'"; 
+				innerHtml2 += "id='"+todayYearTxt+todayMonthTxt+todayDateTxt+"');"; 
+				innerHtml2 += ">"+todayDayTxt+" "+todayDateTxt+"</p>"; 
+				innerHtml2 += "</div>"; 
+				
+				$(".reserve-date").append(innerHtml2);
+				
+	   			ss_day.setDate(ss_day.getDate() + 1);
+	   	}
+	
+	function setDayInfo(day){
+		$('#dayInfo').val(day);
+	}
+	
+
+});//jqury
+var selectmoviename;
+var selecttheatername;
+var selectdayname;
+function selectmovie(movie){
+	var moviename="";
+	moviename=movie.innerText;
+	selectmoviename=moviename;
+	alert(selectmoviename);
+}
+function selecttheater(theater){
+	var theatername="";
+	theatername=theater.innerText;
+	selecttheatername=theatername;
+	alert(selecttheatername);
+}
+function selectday(day){
+	var dayname="";
+	dayname=day.getAttribute('id');
+	selectdayname=dayname;
+	alert(selectdayname);
+}
+
+function test(){
+	alert(selectmoviename);
+	alert(selecttheatername);
+	alert(selectdayname);
+}
+
+	</script>
 <div id="contaniner">
 
         <!-- LineMap -->
@@ -113,72 +234,47 @@ float: right;
 
 		<!-- Contents Area -->
 		<div id="contents" style="height:1px;padding:0;"></div>
-        
+       <p onclick="test() "> 변수설정테스트</p>
         <div class="movie">
         <div class="title">영화</div>
         <c:forEach items="${movieList.movies}" var="movie">
         
-        ${movie.movie_title}<br/>
+       <span onclick="selectmovie(this)"> ${movie.movie_title}</span><br/>
         </c:forEach>
-        
+       
         </div>
         
         <div class="theaters">
        <div class="title">지역</div>
        <div class="local">
-       <c:forEach items="${movieList.location}" var="theaters">
-			 ${theaters.theater_location}<br>
+       <c:forEach items="${movieList.location}" var="theaters" varStatus="status">
+			 <span class="location">${theaters.theater_location}</span><br>
+			 
 			</c:forEach>
 			 </div>
-			 <div class="localsub">
-			 	<c:forEach items="${movieList.theater}" var="theaters">
-				 ${theaters.theater_name}<br>
-			</c:forEach>
-			 </div>
-		</div>
 		
-	<%-- 내용 들어 가는 곳 --%>
-<%--	<div >
-		
+			  <c:if test="${theaterchoice==null}">
+				 <div id="theater_name">
+					 	<c:forEach items="${movieList.theater}" var="theaters" varStatus="status"  >
+						<span onclick="selecttheater(this)"> ${theaters.theater_name}</span><br>
+						
+						</c:forEach>
+				 </div> 
+			 </c:if>
+			  <c:if test="${theaterchoice!=null}">
+			 <div id="theater_name"></div>
+			 </c:if>
 			
-	
-		 <div class="tab_container">
-			<div class="tab_content" id="tab1">
-				<h4>책소개</h4>
-				jstl의 함수 replace를 이용하여  br태그로 치환후 출력
-				<p>${fn:replace(goods.goods_intro,crcn,br) }</p>
-				<c:forEach var="image" items="${imageList }">
-					<img 
-						src="${contextPath}/download.do?goods_id=${goods.goods_id}&fileName=${image.fileName}">
-				</c:forEach>
-			</div>
-			<div class="tab_content" id="tab2">
-				<h4>저자소개</h4>
-				<p>
-				<div class="writer">저자 : ${goods.goods_writer}</div>
-				 <p>${fn:replace(goods.goods_writer_intro,crcn,br) }</p> 
-				
-			</div>
-			<div class="tab_content" id="tab3">
-				<h4>책목차</h4>
-				<p>${fn:replace(goods.goods_contents_order,crcn,br) }</p> 
-			</div>
-			<div class="tab_content" id="tab4">
-				<h4>출판사서평</h4>
-				 <p>${fn:replace(goods.goods_publisher_comment,crcn,br) }</p> 
-			</div>
-			<div class="tab_content" id="tab5">
-				<h4>추천사</h4>
-				<p>${fn:replace(goods_recommendation,crcn,br) }</p>
-			</div>
+			 
 		</div>
-	</div> 
-        </div>--%>
+		
+	
         <div class="day">
-        <div class="title">날짜</div>
-        <c:forEach items="${movieList.nal}" var="theaters">
-				 ${theaters}<br>
-			</c:forEach>
+        
+        	<div class="title" id="nal">날짜</div>
+        	<span>2021년</span>
+        	<div class="reserve-date" >
+        	</div>
         </div>
         <div class="time">
         <div class="title">시간</div>
@@ -189,24 +285,7 @@ float: right;
         	영화선택
         </div>
          <div class="bottombarselect">
-         <!-- <table>
-         <tr>
-         <td>극장</td>
-         <td></td>
-         </tr>
-         <tr>
-         <td>일시</td>
-         <td></td>
-         </tr>
-         <tr>
-         <td>상영관</td>
-         <td></td>
-         </tr>
-         <tr>
-         <td>인원</td>
-         <td></td>
-         </tr>
-         </table> -->
+         
          		극장선택
         </div>
          <div class="bottombarpay">

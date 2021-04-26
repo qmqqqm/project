@@ -22,5 +22,10 @@ public class TicketService {
 		movieList.put("nal",ticketDAO.nal());
 		return movieList;
 	}
+	public List theaterchoice(String theater_location)
+			throws Exception {
+		List<TicketDTO> theaterchoice = ticketDAO.theaterchoice(theater_location);
+		return theaterchoice;
+	}
 
 }
