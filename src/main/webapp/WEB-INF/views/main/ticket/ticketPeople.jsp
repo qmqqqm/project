@@ -290,7 +290,7 @@ margin:5px 5px;
          <div class="bottombarpay">
          		좌석선택 > 결제
         </div>
-         <div class="bottomcount"><a href="#"><img src="/movie/resources/images/20210423_173910.png"/></a></div>
+         <div class="bottomcount"><a href="ticketpayment.do"><img src="/movie/resources/images/20210423_173910.png"/></a></div>
         </div>
 	<!-- /Contaniner -->
 
