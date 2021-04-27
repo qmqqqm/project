@@ -164,12 +164,12 @@ margin:5px 5px;
 		adcnt=0;
 		chcnt=0;
 		totalcnt=0;
-		str=new Array();
-		// price=Number(str.length)*12000; 
+		str=[];
+		
 		
 		
 		for(i=65;i<65+rows;i++){
-		
+			
 			document.write("<span class='title_stat'>"+String.fromCharCode(i)+"</span>");
 			for(j=1;j<=10;j++){
 				document.write("<span class='box' onclick='select(this)' id='"+String.fromCharCode(i)+j+"'>"+j+"</span>")
@@ -177,10 +177,13 @@ margin:5px 5px;
 			document.write("<br>")
 		}
 		//좌석선택
-		function select(num){	
+		function select(num){			
+			
+			
 			if(totalcnt==0){
 				alert("인원을선택하세요")			 
 			}else if(totalcnt<str.length+1){
+				
 				alert("선택한인원에 맞게 좌석을 선택하세요")	;
 				for(i=0;i<str.length;i++){
 					document.getElementById(str[i]).style.background=""
@@ -188,7 +191,9 @@ margin:5px 5px;
 				num.style.background="";
 				selectstat="";
 				stat="";
-				str="";
+				str=[];
+				chk=0;
+				price=0;
 				document.getElementById('select').innerText="";
 			}else{
 				
@@ -206,34 +211,49 @@ margin:5px 5px;
 							num.style.background="";
 							selectstat="";
 							stat="";
-										
+							str=[];	
+							chk=0;
+							price=0;
 					}
 					if(selectstat==""){					
-						selectstat=stat
+						selectstat=stat;
+						str[0]=selectstat;
+						
 					}else{
 						selectstat=selectstat+","+stat;
 						str=selectstat.split(",");
-					}
-				
-				document.getElementById('select').innerText=selectstat;
-				alert(price);
-				/* document.getElementById('bottombarpay').remove();
-				str="<div id='bottombarpay'> 일반석 "+selectstat+"<br/>"+"금액 : "+price+" </div>";
-				$('#selectstat').append(str); */
-			}
+						
+					}//else
+					
+					
+			}//else
+			chk=str.length;		
+			document.getElementById('select').innerText=selectstat;
+		
+			bottom(chk,str)
+		 
+		}//select(num)
+		
+		function bottom(chk,str){
+			document.getElementById('bottombarpay').remove();
+			str="<div id='bottombarpay'> 일반석 "+selectstat+"<br/>"+"금액 : "+(12000*chk)+" </div>";
+			$('#selectstat').append(str); 
+			str=str;
+			
 		}
 		//성인인원선택
 		function adcount(count){	
 			if(adcnt==0){
 				adcnt=count.innerText;
 				count.style.background="red";
-			}else{			
-				
-			
+			}else{		  
+					if(count.style.background!="red"){
 					document.getElementById("ad"+adcnt).style.background="";
 					count.style.background="red";
-					adcnt=count.innerText;
-				
+					adcnt=count.innerText;		}else{
+						count.style.background="";
+						adcnt=0;
+					}		
 			}	
 		
 			
@@ -245,10 +265,13 @@ margin:5px 5px;
 				chcnt=count.innerText;
 				count.style.background="red";
 			}else{				
-			
+				if(count.style.background!="red"){
 					document.getElementById("ch"+chcnt).style.background="";
 					count.style.background="red";
-					chcnt=count.innerText;
+					chcnt=count.innerText;}else{
+						count.style.background="";
+						chcnt=0;
+					}
 				}	
 		
 			
@@ -260,30 +283,17 @@ margin:5px 5px;
 			totalcnt=Number(adcnt)+Number(chcnt);
 			document.getElementById('count').innerText=totalcnt;
 		}
-		//document.write("<span class='box"+i+"'>"+i+"</span>")
+		/* function formsub(){
+			str="<form id='gopay'><input type='text' name='pay'>";
+			str+="";
+			$("#gopay").submit;
+		} */
 		</script>
         </div>
         </div>
         </div>
         
-<!--         <div class="theaters">
-       <div class="title">지역</div>
-       <div class="local">
-
-			 </div>
-			 <div class="localsub">
-	
-			 </div>
-		</div>
-		
-
-        <div class="day">
-  
-        </div>
-        <div class="time">
-        <div class="title">시간</div>
-        </div>
-	</div> -->
+				<div id="formsub"></div>
         <div class="bottombar">
         <div class="bottombarmovie">
         	영화선택
@@ -297,7 +307,7 @@ margin:5px 5px;
          		좌석선택 > 결제
   		</div>
         </div>
-         <div class="bottomcount"><a href="ticketpayment.do"><img src="/movie/resources/images/20210423_173910.png"/></a></div>
+         <div class="bottomcount"><a href="ticketpayment.do"><img onclick="formsub()" src="/movie/resources/images/20210423_173910.png"/></a></div>
         </div>
 	<!-- /Contaniner -->
 
