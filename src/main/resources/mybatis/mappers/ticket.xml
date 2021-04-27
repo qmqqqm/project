@@ -22,5 +22,8 @@ select times_time from times
 <select id="ticketpeople" resultType="_int">
 select sangyg_seats from sangyg where sangyg_id=1 and theater_id=1
 </select>
-
+	<!--  극장선택 아작스 -->
+	<select id="theaterchoice" parameterType="string" resultType="ticketDTO">
+		select * from theater where theater_location= #{theater_location}
+	</select>
 </mapper>	

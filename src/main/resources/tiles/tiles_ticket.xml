@@ -14,4 +14,8 @@
 		<put-attribute name="ticketPeople" value="인원선택" />
 		<put-attribute name="body"  value="/WEB-INF/views/main/ticket/ticketPeople.jsp" />
 	</definition>
+	<definition name="ticketpayment" extends="baseLayout">
+		<put-attribute name="ticketpayment" value="결제" />
+		<put-attribute name="body"  value="/WEB-INF/views/main/ticket/ticketPayment.jsp" />
+	</definition>
 </tiles-definitions>

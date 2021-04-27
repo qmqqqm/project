@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.movie.movie.dto.TicketDTO;
@@ -30,4 +32,18 @@ public class TicketController {
 		
 		return mv;
 	}
+	/* 극장선택 아작스 */
+	@RequestMapping("theaterchoice.do")	
+	public @ResponseBody Map<String, Object> theaterchoice(HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		String theater_location = request.getParameter("name");
+		System.out.println("theater_location"+theater_location);
+		List<TicketDTO> theaterchoice = ticketService.theaterchoice(theater_location);
+		Map<String, Object> choice = new HashMap<String, Object>();
+		choice.put("theaterchoice", theaterchoice);
+		System.out.println(theaterchoice);
+		return choice;
+	}
+
+	
 }
