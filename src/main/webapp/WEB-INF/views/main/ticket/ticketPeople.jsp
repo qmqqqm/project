@@ -165,6 +165,7 @@ margin:5px 5px;
 		chcnt=0;
 		totalcnt=0;
 		str=new Array();
+		// price=Number(str.length)*12000; 
 		
 		
 		for(i=65;i<65+rows;i++){
@@ -215,6 +216,10 @@ margin:5px 5px;
 					}
 				
 				document.getElementById('select').innerText=selectstat;
+				alert(price);
+				/* document.getElementById('bottombarpay').remove();
+				str="<div id='bottombarpay'> 일반석 "+selectstat+"<br/>"+"금액 : "+price+" </div>";
+				$('#selectstat').append(str); */
 			}
 		}
 		//성인인원선택
@@ -287,8 +292,10 @@ margin:5px 5px;
         
          		극장선택
         </div>
-         <div class="bottombarpay">
+         <div class="bottombarpay" id="selectstat" >
+         <div id="bottombarpay">
          		좌석선택 > 결제
+  		</div>
         </div>
          <div class="bottomcount"><a href="ticketpayment.do"><img src="/movie/resources/images/20210423_173910.png"/></a></div>
         </div>
