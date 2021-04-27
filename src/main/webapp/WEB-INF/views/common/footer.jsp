@@ -6,9 +6,7 @@
 		<!-- footer_area (s) -->
 		
 
-    <div id="BottomWrapper" class="sect-ad">
-        <iframe src="https://ad.cgv.co.kr/NetInsight/html/CGV/CGV_201401/main@Bottom" width="100%" height="240" title="" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" name="Bottom" id="Bottom"></iframe>
-	</div>
+
 	<div class="foot">
 		<div class="sect-smuse">
 			<h2>특별관 리스트</h2>

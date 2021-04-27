@@ -97,16 +97,19 @@ float: right;
 </style>
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
-<c:set var="pay" value="pay()"/> 
 <script>
+
 function payment(){
+
+result=(document.getElementById('pay').innerText);
+kind=$('input[name="pay"]:checked').attr('id');
 IMP.init('imp88822222'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
 IMP.request_pay({
     pg : 'html5_inicis',
-    pay_method : 'card',
+    pay_method : kind,
     merchant_uid : 'merchant_' + new Date().getTime(),
     name : '주문명:결제테스트',
-    amount :${pay},
+    amount:result	,
     buyer_email : 'iamport@siot.do',
     buyer_name : '구매자이름',
     buyer_tel : '010-1234-5678',
@@ -127,15 +130,18 @@ IMP.request_pay({
     alert(msg);
 });
 }
-function pay(){	
-	var pay=document.getElementById('pay').innerText;
-	return pay;
+
+function aa(){	
+	var pricevalue=0;
+	pricevalue=document.getElementById('pay').innerText;
+	result=Integer.parseInt(pricevalue);
+	payment();
 	}
 
 </script>
 
 <div id="contaniner">
-
+${aa}
         <!-- LineMap -->
         <div id="navigation_line" class="linemap-wrap">
             <div class="sect-linemap">
@@ -184,7 +190,7 @@ function pay(){
         <div class="payment">
        <div class="paylap">
         <div class="paytitle">결제하실금액</div>
-        <div class="pay" id="pay">16000원</div>
+        <div class="pay" ><span id="pay">16000</span> 원</div>
         </div>
         <div class="paylap">
         <div class="paytitle">할인내역</div>
@@ -201,24 +207,7 @@ function pay(){
         </div>
         </div>
         
-<!--         <div class="theaters">
-       <div class="title">지역</div>
-       <div class="local">
 
-			 </div>
-			 <div class="localsub">
-	
-			 </div>
-		</div>
-		
-
-        <div class="day">
-  
-        </div>
-        <div class="time">
-        <div class="title">시간</div>
-        </div>
-	</div> -->
         <div class="bottombar">
         <div class="bottombarmovie">
         	영화선택
