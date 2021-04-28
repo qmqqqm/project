@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+    <%@ taglib prefix="fmt"  uri="http://java.sun.com/jsp/jstl/fmt"%>
 <div id="contaniner" class=""><!-- 벽돌 배경이미지 사용 시 class="bg-bricks" 적용 / 배경이미지가 없을 경우 class 삭제  -->
 
         <!-- LineMap -->
@@ -65,7 +66,8 @@
 				</select>
 				<label for="searchtext" class="hidden">검색어 입력</label>
 				<input id="searchtext" type="text" class="c_input" title="검색어 입력" placeholder="검색어를 입력해 주세요" style="width:185px;" value="" />
-				<button type="button" class="round inblack" title="검색하기" id="btn_search"><span>검색하기</span></button>
+				<button type="button" class="round inblack" title="검색하기" id="btn_search">검색하기</button>
+				<a href="ticketBoardWriteForm.do"><button type="button" class="round inblack" title="문의하기" id="write">문의하기</button></a>
 			</div>
 			
 			
@@ -84,6 +86,7 @@
 					<th scope="col">번호</th>
           <th scope="col">구분</th>
 					<th scope="col" class="tit">제목</th>
+					<th scope="col" class="writer">작성자</th>
 					<th scope="col">등록일</th>
 					<th scope="col">조회수</th>
 					</tr>
@@ -94,8 +97,9 @@
 						    <td>${list.ticketBoard_id}</td>
                 <td>${list.ticketBoard_group}</td>
 						    <td class="txt"><a href="ticketBoardDetail.do?ticketBoard_id=${list.ticketBoard_id}">${list.ticketBoard_title}</a></td>
-						    <td>${list.ticketBoard_regDate}</td>
-						    <td class="num">${list.ticketBoard_content}</td>
+						    <td>${list.member_Id}</td>
+						    <td><fmt:formatDate value="${list.ticketBoard_regDate}" pattern="yyyy.MM.dd" /></td>
+						    <td class="num">${list.ticketBoard_readcount}</td>
 					    </tr>                
 					    </c:forEach>
                     

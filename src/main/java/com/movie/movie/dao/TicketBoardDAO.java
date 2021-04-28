@@ -19,5 +19,17 @@ public class TicketBoardDAO {
 		TicketBoardDTO ticketDetail=sqlSession.selectOne("ticketBoard.ticketBoardDetail",ticketBoard_id);
 		return ticketDetail;
 	}
+	public void ticketBoardWrite(TicketBoardDTO ticketBoardDTO) {
+		sqlSession.insert("ticketBoard.ticketBoardWrite",ticketBoardDTO);
+		
+	}
+	public void ticketBoardMod(TicketBoardDTO ticketBoardDTO) {
+		sqlSession.update("ticketBoard.ticketBoardMod",ticketBoardDTO);
+		
+	}
+	public void ticketBoardDelete(int ticketBoard_id) {
+		sqlSession.update("ticketBoard.ticketBoardDelete",ticketBoard_id);
+		
+	}
 
 }

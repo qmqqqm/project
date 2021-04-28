@@ -5,21 +5,21 @@
 
 <tiles-definitions>
 	<definition name="loginForm"  extends="baseLayout">
-		<put-attribute name="login" value="회원로그인" />
+		<put-attribute name="title" value="회원로그인" />
 		<put-attribute name="body"  value="/WEB-INF/views/main/user/login/loginForm.jsp" />
 	</definition>
 	
 	<definition name="join"  extends="baseLayout">
-		<put-attribute name="join" value="회원가입" />
+		<put-attribute name="title" value="회원가입" />
 		<put-attribute name="body"  value="/WEB-INF/views/main/user/join/join.jsp" />
 	</definition>
 	
 	<definition name="mynb"  extends="baseLayout">
-		<put-attribute name="mynb" value="나의 늘봄" />
+		<put-attribute name="title" value="나의 늘봄" />
 		<put-attribute name="body"  value="/WEB-INF/views/main/user/mycgv/mynb.jsp" />
 	</definition>
 	<definition name="clubService"  extends="baseLayout">
-		<put-attribute name="clubService" value="클럽서비스" />
+		<put-attribute name="title" value="클럽서비스" />
 		<put-attribute name="body"  value="/WEB-INF/views/main/user/memberShip/clubService.jsp" />
 	</definition>
 </tiles-definitions>

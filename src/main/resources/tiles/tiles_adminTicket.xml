@@ -6,7 +6,7 @@
 <tiles-definitions>
 	
 	<definition name="adminTicketForm" extends="baseLayout">
-		<put-attribute name="ticketpayment" value="결제" />
+		<put-attribute name="title" value="결제" />
 		<put-attribute name="body"  value="/WEB-INF/views/main/admin/ticket/adminTicketForm.jsp" />
 	</definition>
 </tiles-definitions>
