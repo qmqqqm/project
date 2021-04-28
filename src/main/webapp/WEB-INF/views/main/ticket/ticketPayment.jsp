@@ -138,6 +138,9 @@ function aa(){
 	payment();
 	}
 
+function paychange(kind){
+	document.getElementById("paykind").innerText=$(kind).val();
+}
 </script>
 
 <div id="contaniner">
@@ -175,10 +178,10 @@ ${aa}
         <div class="content">포인트및 기타결제수단</div>
         <div class="title">STEP 4.최종결제수단</div>
         <div class="content">
-        <input type="radio" name="pay" id="card">신용카드        
-        <input type="radio" name="pay" id="trans">실시간계좌이체
-        <input type="radio" name="pay" id="vbank">가상계좌
-        <input type="radio" name="pay" id="phone">휴대폰결제
+        <input type="radio" name="pay" id="card" onchange="paychange(this)" value="신용카드">신용카드        
+        <input type="radio" name="pay" id="trans" onchange="paychange(this)" value="실시간계좌이체">실시간계좌이체
+        <input type="radio" name="pay" id="vbank" onchange="paychange(this)" value="가상계좌">가상계좌
+        <input type="radio" name="pay" id="phone" onchange="paychange(this)" value="휴대폰결제">휴대폰결제
        
         
         </div>
@@ -190,7 +193,7 @@ ${aa}
         <div class="payment">
        <div class="paylap">
         <div class="paytitle">결제하실금액</div>
-        <div class="pay" ><span id="pay">16000</span> 원</div>
+        <div class="pay" ><span id="pay">${price}</span> 원</div>
         </div>
         <div class="paylap">
         <div class="paytitle">할인내역</div>
@@ -199,9 +202,9 @@ ${aa}
 		</div>
 		<div class="paylap">
         <div class="paytitle">결제내역</div>
-        <div class="paytitle"><span>신용카드</span><span  >16000원</span></div>
+        <div class="paytitle"><span id="paykind">신용카드</span><br/><span  >${price}원</span></div>
         <div class="paytitle">남은결제금액</div>
-        <div class="pay">16000원</div>
+        <div class="pay">${price}원</div>
         </div>
         
         </div>
@@ -217,7 +220,8 @@ ${aa}
          		극장선택
         </div>
          <div class="bottombarpay">
-         		좌석선택 > 결제
+         		일반석<br/>
+         		${seat}
         </div>
          <div class="bottomcount"><img onclick="payment()" src="/movie/resources/images/20210426_164923.png"/></a></div>
         </div>

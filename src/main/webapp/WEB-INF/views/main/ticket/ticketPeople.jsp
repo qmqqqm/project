@@ -165,6 +165,7 @@ margin:5px 5px;
 		chcnt=0;
 		totalcnt=0;
 		str=[];
+		price=0;
 		
 		
 		
@@ -236,6 +237,7 @@ margin:5px 5px;
 		
 		function bottom(chk,str){
 			document.getElementById('bottombarpay').remove();
+			price=12000*chk;
 			str="<div id='bottombarpay'> 일반석 "+selectstat+"<br/>"+"금액 : "+(12000*chk)+" </div>";
 			$('#selectstat').append(str); 
 			str=str;
@@ -283,11 +285,11 @@ margin:5px 5px;
 			totalcnt=Number(adcnt)+Number(chcnt);
 			document.getElementById('count').innerText=totalcnt;
 		}
-		/* function formsub(){
-			str="<form id='gopay'><input type='text' name='pay'>";
-			str+="";
-			$("#gopay").submit;
-		} */
+		 function formsub(){
+			 document.getElementById('price').value=price;
+			 document.getElementById('seat').value=selectstat;
+			$("#priceform").submit();
+		} 
 		</script>
         </div>
         </div>
@@ -307,7 +309,11 @@ margin:5px 5px;
          		좌석선택 > 결제
   		</div>
         </div>
-         <div class="bottomcount"><a href="ticketpayment.do"><img onclick="formsub()" src="/movie/resources/images/20210423_173910.png"/></a></div>
+        <form id="priceform" action="./ticketpayment.do" >
+        <input type="hidden" name="price" id="price" value="11">
+        <input type="hidden" name="seat" id="seat" value="22">
+        </form>
+         <div class="bottomcount"><!-- <a href="ticketpayment.do"> --><img onclick="formsub()" src="/movie/resources/images/20210423_173910.png"/><!-- </a> --></div>
         </div>
 	<!-- /Contaniner -->
 
