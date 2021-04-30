@@ -22,7 +22,9 @@ import com.movie.movie.service.TicketService;
 @Controller
 public class TicketController {
 	@Autowired
-	TicketService ticketService;
+	private TicketDTO ticketDTO;
+	@Autowired
+	private TicketService ticketService;
 	@RequestMapping("ticketForm.do")
 	public ModelAndView ticketForm(HttpServletRequest request, 
 			HttpServletResponse response,ModelAndView mv) throws Exception {
@@ -37,11 +39,38 @@ public class TicketController {
 	public @ResponseBody Map<String, Object> theaterchoice(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		String theater_location = request.getParameter("name");
-		System.out.println("theater_location"+theater_location);
+		
 		List<TicketDTO> theaterchoice = ticketService.theaterchoice(theater_location);
+		
 		Map<String, Object> choice = new HashMap<String, Object>();
 		choice.put("theaterchoice", theaterchoice);
 		System.out.println(theaterchoice);
+		return choice;
+	}
+
+	/* 사용자 선택한값 처리 아작스 */
+	@RequestMapping("userSelect.do")
+	public @ResponseBody Map<String, Object> userSelect(HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		String movieid =request.getParameter("selectmovieid");
+		if(movieid!=null){
+			int movie_id=Integer.parseInt(movieid);
+			ticketDTO.setMovie_id(movie_id);
+			}		
+		String theaterid = request.getParameter("selecttheaterid");
+		if(theaterid!=null){
+			int theater_id=Integer.parseInt(theaterid);			
+			ticketDTO.setTheater_id(theater_id);
+			}	
+		String times_time = request.getParameter("selectdayname");	
+		System.out.println("times_time"+times_time);
+		
+		
+		ticketDTO.setTimes_time(times_time);
+		
+		System.out.println("theater"+ticketDTO);
+		Map<String, Object> choice = ticketService.userSelect(ticketDTO);
+			
 		return choice;
 	}
 

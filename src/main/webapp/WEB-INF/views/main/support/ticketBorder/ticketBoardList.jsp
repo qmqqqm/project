@@ -67,7 +67,9 @@
 				<label for="searchtext" class="hidden">검색어 입력</label>
 				<input id="searchtext" type="text" class="c_input" title="검색어 입력" placeholder="검색어를 입력해 주세요" style="width:185px;" value="" />
 				<button type="button" class="round inblack" title="검색하기" id="btn_search">검색하기</button>
+				<c:if test="${user}!=null">
 				<a href="ticketBoardWriteForm.do"><button type="button" class="round inblack" title="문의하기" id="write">문의하기</button></a>
+			</c:if>
 			</div>
 			
 			

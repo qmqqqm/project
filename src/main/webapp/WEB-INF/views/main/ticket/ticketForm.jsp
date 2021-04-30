@@ -65,10 +65,11 @@ float: left;
 width:25%;
 height:60px;
 border-right: 1px solid white;
-margin : 20px 0;
-font-size:25px;
+margin:7px 0;
+padding-left:10px;
+font-size:15px;
 font-weight:900;
-text-align:center;
+text-align:left;
 float: left;
 }
 .bottombarpay{
@@ -106,7 +107,8 @@ $(function(){
         	$("#theater_name").empty();
         	 for(var i=0;theater.theaterchoice.length;i++){                            
                  var h = theater.theaterchoice[i].theater_name;
-                 var str = "<div class='theaterCho' ><span class='theaterTxt' onclick='selecttheater(this)'>"+h+"</span><input class='theaterCode' type='hidden' value='"+h+"'></div>"
+                 var k= theater.theaterchoice[i].theater_id;
+                 var str = "<span onclick='selecttheater(this)' id='theater_"+k+"'> "+h+"</span><br>"
                  $("#theater_name").append(str);
         	 }
         },//success
@@ -174,38 +176,161 @@ $(function(){
 	   			ss_day.setDate(ss_day.getDate() + 1);
 	   	}
 	
-	function setDayInfo(day){
-		$('#dayInfo').val(day);
-	}
+
 	
 
 });//jqury
+
+
+// 선택한 영화이름 담는 전역변수
 var selectmoviename;
+//선택한 극장이름 담는 전역변수
 var selecttheatername;
+//선택한 날자 담는 전역변수
 var selectdayname;
+//선택한 영화 아이디 담는 전역변수
+var selectmovieid;
+//선택한 극장 아이디 담는 전역변수
+var selecttheaterid;
+// 유져가 선택한 상영관이름
+var selectsangname;
+//유져가 선택한 상영관 아이디
+var selectsangid;
+//유져가 선택한 시간
+var selecttime;
+
+//극장 css처리용 div id담는 전역변수 
+var theaterid;
+//날짜 css처리용
+var dayname;
+
+//유저가 영화클릭시실행
 function selectmovie(movie){
 	var moviename="";
+	var movieid=0;
 	moviename=movie.innerText;
-	selectmoviename=moviename;
-	alert(selectmoviename);
+	movieid=movie.getAttribute('id');
+	if(selectmovieid==null){
+		movie.style.color="red";
+		selectmovieid=movieid;	
+	}else{
+		document.getElementById(selectmovieid).style.color="";
+		selectmovieid=movieid;
+		movie.style.color="red";	
+	}
+	selectmoviename=moviename;	
+	userSelect();
+	 document.getElementById('bottombarmovie').innerText=selectmoviename;
 }
+//유저가 극장클릭시실행
 function selecttheater(theater){
-	var theatername="";
-	theatername=theater.innerText;
-	selecttheatername=theatername;
-	alert(selecttheatername);
+	var theatername="";//극장명 담을 임시변수
+	
+	theatername=theater.innerText; // html 극장명 변수에 담기
+	if(selecttheaterid==null){ //유져가 선택한 극장 아이디가 없으면
+		theater.style.color="red"; //선택한 극장 글자를 빨간색으로 변경
+		theaterid=theater.getAttribute('id'); //유져가 선택한 극장명 아이디값을 임시 아이디 저장소에 저장
+		id=theaterid.split('_'); // 디비 아이디 추출릉위해 theater_id 로 태그 아이디 지정 하여 스플릿
+		selecttheaterid=id[1]; // 뒷에값이 디비 아이디이므로 뒤엤값 유져가 선택한 id값저장소에 저장
+	}else{
+		document.getElementById(theaterid).style.color=""; //이미 유져가 선택한 변수에 아이디가 저장된경우이므로 태그 아이디 저장소에있는 값을가져와 글짜색 해제
+		theaterid=theater.getAttribute('id'); //유져 선택한 태그 아이디 변수에 저장
+		id=theaterid.split('_'); //디비 아이디추출위해 불리
+		selecttheaterid=id[1]; // 디비아이디 추출후 유져 선택변수에 저장
+		theater.style.color="red"; // 유져 선택한 태그 글씨색 빨간색으로 변경
+	}
+	
+	selecttheatername=theatername;	
+	document.getElementById('selectmovie').innerText=selecttheatername;
+	userSelect();
 }
-function selectday(day){
-	var dayname="";
-	dayname=day.getAttribute('id');
-	selectdayname=dayname;
-	alert(selectdayname);
+//유저가 날짜 클릭시실행
+function selectday(day){	
+	
+	if(selectdayname==null){
+		day.style.color="red";
+		dayname=day.getAttribute('id');
+		selectdayname=dayname;	
+	}else{
+		document.getElementById(dayname).style.color="";
+		
+		dayname=day.getAttribute('id');
+		selectdayname=dayname;	
+		day.style.color="red";
+	}
+	document.getElementById('seletedate').innerText=dayname;
+	userSelect(); //아작스 함수 호출
+}
+function selectsangyg(sangygname,sangygid){
+	alert(sangygname+"   /   "+sangygid);
+	var name;
+	var id;
+	name=document.getElementById('selectsangyg').innerText=sangygname.innerText;
+	id=sangygid;
+	selectsangname=name;
+	selectsangid=id;
+}
+function selecttime(time){
+	var usertime;
+	usertime=document.getElementById('selecttime').innerText=time.innerText;
+	selecttime=usertime;
 }
 
-function test(){
+/* function test(){
 	alert(selectmoviename);
 	alert(selecttheatername);
 	alert(selectdayname);
+} */
+//유져가 클릭한 값들처리를 위한 아작스
+function userSelect(){
+	$.ajax({
+        type:"POST",
+        url:"./userSelect.do",
+        // 전역변수에 유저가 선택한 값 파라미터 전달
+        data : {'selectmovieid' : selectmovieid,'selecttheaterid':selecttheaterid,'selectdayname':selectdayname},
+        dataType : "json",
+        success: function(theater){
+        	//확인용
+        	//alert(theater.theaterchoice);
+        	// $("#movie_name").empty();
+        	//$("#theater_name").empty();
+        	//$("#day_name").empty();
+        	$("#sangyg_name").empty(); //상영관 태그 다시 뿌려주기위해 엠프티
+        //	$(".reserve-date").empty();
+        	 for(var i=0;theater.theaterchoice.length;i++){
+        		 		 var theatername=theater.theaterchoice[i].theater_name;//디비에서 가져온 극장명
+        		 		 var theaterid=theater.theaterchoice[i].theater_id;//디비에서 가져온 극장아이디
+        		 		 var moviename=theater.theaterchoice[i].movie_title;//디비에서 가져온 영화명
+        		 		 var movieid=theater.theaterchoice[i].movie_id;//디비에서 가져온 영화 아이디
+        		 		 var dayname=theater.theaterchoice[i].times_time;//디비에서 가져온 시간
+        		 		 var sangygname=theater.theaterchoice[i].sangyg_name; //디비에서 가져온 상영관이름       		 		 
+        		 		 var sangygid=theater.theaterchoice[i].sangyg_id;// 디비에서 가져온 상영관 아이디        		 		 
+                 
+                
+                //가져온 시간 데이터을 태그아이디와 마추고 시간 부분 짤라 뿌려주기위한 작업
+                day=dayname.substring(0,10);//가져온 시간 데이터중 날짜 부분만 짤르기
+                imsi=day.split("-") // 날자중-없에기위해 -단위로짤라 배열에 저장
+                dayid=imsi[0]+imsi[1]+imsi[2];//날자 저장한 배열 탸그아이디 형식에따라 재조합
+                document.getElementById(dayid).style.background="blue"; //가져온 날자태그 아이디 백그라운드 변경 
+                 //상영관 div 에 가져온 데이터 뿌려주기위한 태그를 변수에 저장              
+                 
+                 document.getElementById(movieid).style.background="blue"; //가져온 영화아이디로 태그아이디 찾아 백그라운드 변경
+                 document.getElementById('theater_'+theaterid).style.background="blue"; //가져온 극장아이디로 태그아이디 찾아 백그라운드 변경
+                 var strsangygname = "<span class='theaterTxt' onclick='selectsangyg(this,"+sangygid+")'>"+sangygname+"</span><input class='theaterCode' type='hidden' value='"+sangygname+"'><br/>"
+                 var strdaytime = "<span onclick='selecttime(this)' >"+dayname.substring(10,16)+"</span><input class='theaterCode' type='hidden' value='"+dayname+"'><br/>"
+                                
+                 //상영관 div에 데이터 뿌려주는 태그 추가
+                 $("#sangyg_name").append(strsangygname);
+                 $("#sangyg_name").append(strdaytime);
+                 
+                 
+        	 } 
+        },//success
+        error: function(xhr, status, error) {
+            alert("11111111");
+       	}//error  
+    	});//ajax
+	
 }
 
 	</script>
@@ -237,10 +362,13 @@ function test(){
        <p onclick="test() "> 변수설정테스트</p>
         <div class="movie">
         <div class="title">영화</div>
+        <div id="movie_name">
         <c:forEach items="${movieList.movies}" var="movie">
         
-       <span onclick="selectmovie(this)"> ${movie.movie_title}</span><br/>
+       <span onclick="selectmovie(this)" id="${movie.movie_id}"> ${movie.movie_title}</span><br/>
+       
         </c:forEach>
+        </div>
        
         </div>
         
@@ -248,19 +376,19 @@ function test(){
        <div class="title">지역</div>
        <div class="local">
        <c:forEach items="${movieList.location}" var="theaters" varStatus="status">
-			 <span class="location">${theaters.theater_location}</span><br>
+			 <span class="location" >${theaters.theater_location}</span><br>
 			 
 			</c:forEach>
 			 </div>
 		
-			  <c:if test="${theaterchoice==null}">
+		  		<c:if test="${theaterchoice==null}">
 				 <div id="theater_name">
 					 	<c:forEach items="${movieList.theater}" var="theaters" varStatus="status"  >
-						<span onclick="selecttheater(this)"> ${theaters.theater_name}</span><br>
+						<span onclick="selecttheater(this)" id="theater_${theaters.theater_id}"> ${theaters.theater_name}</span><br>
 						
 						</c:forEach>
 				 </div> 
-			 </c:if>
+			 		</c:if>
 			  <c:if test="${theaterchoice!=null}">
 			 <div id="theater_name"></div>
 			 </c:if>
@@ -273,20 +401,37 @@ function test(){
         
         	<div class="title" id="nal">날짜</div>
         	<span>2021년</span>
+        	<div id=day_name">
         	<div class="reserve-date" >
+        	</div>
         	</div>
         </div>
         <div class="time">
         <div class="title">시간</div>
+        <div id="sangyg_name">
         </div>
-	</div>
+        </div>
+				</div>
+				<form id="selectcomp" action="ticketPeople.do">
+				<input type="hidden" id="" name="" value=""/>
+				<input type="hidden" id="" name="" value=""/>
+				<input type="hidden" id="" name="" value=""/>
+				<input type="hidden" id="" name="" value=""/>
+				<input type="hidden" id="" name="" value=""/>
+				<input type="hidden" id="" name="" value=""/>
+				<input type="hidden" id="" name="" value=""/>
+				</form>
         <div class="bottombar">
-        <div class="bottombarmovie">
+        <div class="bottombarmovie" id="bottombarmovie">
         	영화선택
         </div>
-         <div class="bottombarselect">
-         
-         		극장선택
+         <div class="bottombarselect" id="bottombarselect">
+                 
+         		극장선택 : <span id="selectmovie"></span> <br>
+         		날짜선택 : <span id="seletedate"></span> <br>
+         		상영관선택 : <span id="selectsangyg"></span> <br>
+         		시간선택 : <span id="selecttime"></span> <br>
+         	
         </div>
          <div class="bottombarpay">
          	좌석선택 > 결제 

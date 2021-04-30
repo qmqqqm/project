@@ -34,5 +34,10 @@ public class TicketDAO {
 		List<TicketDTO> theaterchoice = sqlSession.selectList("ticket.theaterchoice", theater_location);
 		return theaterchoice;
 	}
+	public List<TicketDTO> userSelect(TicketDTO ticketDTO) {
+		List<TicketDTO> theaterchoice = sqlSession.selectList("ticket.userSelect",ticketDTO);
+		System.out.println("userSelectdao"+theaterchoice);
+		return theaterchoice;
+	}
 
 }

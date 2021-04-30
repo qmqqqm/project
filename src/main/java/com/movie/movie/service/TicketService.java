@@ -27,5 +27,11 @@ public class TicketService {
 		List<TicketDTO> theaterchoice = ticketDAO.theaterchoice(theater_location);
 		return theaterchoice;
 	}
+	public Map<String, Object> userSelect(TicketDTO ticketDTO) {
+		List<TicketDTO> theaterchoice = ticketDAO.userSelect(ticketDTO);
+		Map<String, Object> choice=new HashMap<String, Object>();
+		choice.put("theaterchoice", theaterchoice);
+		return choice;
+	}
 
 }

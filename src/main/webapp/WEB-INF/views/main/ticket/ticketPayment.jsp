@@ -140,7 +140,7 @@ function aa(){
 
 function paychange(kind){
 	document.getElementById("paykind").innerText=$(kind).val();
-}
+	}
 </script>
 
 <div id="contaniner">
@@ -178,6 +178,7 @@ ${aa}
         <div class="content">포인트및 기타결제수단</div>
         <div class="title">STEP 4.최종결제수단</div>
         <div class="content">
+        
         <input type="radio" name="pay" id="card" onchange="paychange(this)" value="신용카드">신용카드        
         <input type="radio" name="pay" id="trans" onchange="paychange(this)" value="실시간계좌이체">실시간계좌이체
         <input type="radio" name="pay" id="vbank" onchange="paychange(this)" value="가상계좌">가상계좌
@@ -205,6 +206,16 @@ ${aa}
         <div class="paytitle"><span id="paykind">신용카드</span><br/><span  >${price}원</span></div>
         <div class="paytitle">남은결제금액</div>
         <div class="pay">${price}원</div>
+        <%-- <form id="ticketComplete" action="./ticketComplete.do">
+        <input type="hidden" name="" value=""/>
+        <input type="hidden" name="" value=""/>
+        <input type="hidden" name="" value=""/>
+        <input type="hidden" name="" value=""/>
+        <input type="hidden" name="" value=""/>
+        <input type="hidden" name="seat" value="${seat}"/>
+        <input type="hidden" name="price" value="${price}"/>
+        <div><input type="submit" value="테스트 결제"/> </div>
+        </form> --%>
         </div>
         
         </div>

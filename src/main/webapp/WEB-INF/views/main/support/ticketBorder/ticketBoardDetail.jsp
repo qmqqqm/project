@@ -72,9 +72,15 @@
 					<p><textarea rows="20" cols="100" readonly="readonly">${ticketDetail.ticketBoard_content}</textarea> </p>
 				</div>
 				<div class="customer_btn"><a href="./ticketBoardList.do"><button type="button" class="round inblack" id="btn_list">목록으로</button></a>
+				<c:if test="${user.member_userid==ticketDetail.member_Id}">
 				<a href="./ticketBoardModForm.do?ticketBoard_id=${ticketDetail.ticketBoard_id}"><button type="button" class="round inblack" id="btn_list">수정하기</button></a>
 				<a href="./ticketBoardDelete.do?ticketBoard_id=${ticketDetail.ticketBoard_id}"><button type="button" class="round inblack" id="btn_list">삭제</button></a></div>
-				
+				</c:if>
+				<c:if test="${admin!=null}">
+				<a href="./ticketBoardModForm.do?ticketBoard_id=${ticketDetail.ticketBoard_id}"><button type="button" class="round inblack" id="btn_list">수정하기</button></a>
+				<a href="./ticketBoardDelete.do?ticketBoard_id=${ticketDetail.ticketBoard_id}"><button type="button" class="round inblack" id="btn_list">삭제</button></a></div>
+				</c:if>
+				</div>
 				<!-- 이전글,다음글 (e) -->
 			</div>
 		</div>

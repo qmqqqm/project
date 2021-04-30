@@ -13,7 +13,7 @@ select movie_id, movie_title from movie
 select distinct theater_location from theater
 </select>
 <select id="theater" resultType="ticketDTO">
-select theater_name from theater where theater_location='서울' 
+select theater_name,theater_id from theater where theater_location='서울' 
 </select>
 
 <select id="nal" resultType="String">
@@ -25,5 +25,23 @@ select sangyg_seats from sangyg where sangyg_id=1 and theater_id=1
 	<!--  극장선택 아작스 -->
 	<select id="theaterchoice" parameterType="string" resultType="ticketDTO">
 		select * from theater where theater_location= #{theater_location}
+	</select>
+	<!--아작스용 유저선택-->
+	<select id="userSelect" parameterType="ticketDTO" resultType="ticketDTO">
+			
+			select * from ticket_view 
+			<trim prefix="where" prefixOverrides="and">
+				<if test="movie_id!=null">
+				and movie_id=#{movie_id}
+				</if>
+				<if test="theater_id!=null">
+				and theater_id=#{theater_id}
+				</if>
+				<if test="times_time!=null">
+				 and times_time like TO_DATE(#{times_time},'YYYYMMDD')
+				</if>
+				</trim>
+				
+				
 	</select>
 </mapper>	
