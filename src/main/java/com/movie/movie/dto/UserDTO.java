@@ -15,6 +15,7 @@ public class UserDTO {
 	private int member_tel  ; 
 	private int member_admin  ;
 	private String member_isShow  ;
+
 	
 	public UserDTO() {}
 

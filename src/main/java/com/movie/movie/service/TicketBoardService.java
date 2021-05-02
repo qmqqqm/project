@@ -20,5 +20,27 @@ public class TicketBoardService {
 		TicketBoardDTO ticketDetail=ticketBoardDAO.ticketBoardDetail(ticketBoard_id);
 		return ticketDetail;
 	}
+	public void ticketBoardWrite(TicketBoardDTO ticketBoardDTO) {
+		ticketBoardDAO.ticketBoardWrite(ticketBoardDTO);
+		
+	}
+	public void ticketBoardMod(TicketBoardDTO ticketBoardDTO) {
+		ticketBoardDAO.ticketBoardMod(ticketBoardDTO);
+		
+	}
+	public void ticketBoardDelete(int ticketBoard_id) {
+		ticketBoardDAO.ticketBoardDelete(ticketBoard_id);
+		
+	}
+	public List<TicketBoardDTO> ticketboardfindtit(String searchtext) {
+		List<TicketBoardDTO> ticketList=ticketBoardDAO.ticketboardfindtit(searchtext);
+		return ticketList;
+		
+	}
+	public List<TicketBoardDTO> ticketboardfindcon(String searchtext) {
+		List<TicketBoardDTO> ticketList=ticketBoardDAO.ticketboardfindcon(searchtext);
+		return ticketList;
+		
+	}
 
 }

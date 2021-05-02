@@ -89,7 +89,7 @@
 	
 	 -->
 	<select id="login" parameterType="userDTO" resultType="userDTO">
-		SELECT 	member_id,member_Name,member_jumin ,member_userid ,member_email ,member_tel  
+		SELECT 	member_id,member_Name,member_jumin ,member_userid ,member_email ,member_tel,member_admin  
 		FROM 		MEMBER
 		WHERE		member_isshow = 'Y'
 						AND member_userid=#{member_userid} AND  member_pwd = #{member_pwd}

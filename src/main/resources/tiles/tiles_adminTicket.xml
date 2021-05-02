@@ -6,7 +6,15 @@
 <tiles-definitions>
 	
 	<definition name="adminTicketForm" extends="baseLayout">
-		<put-attribute name="ticketpayment" value="결제" />
+		<put-attribute name="title" value="결제" />
 		<put-attribute name="body"  value="/WEB-INF/views/main/admin/ticket/adminTicketForm.jsp" />
+	</definition>
+	<definition name="adminTicketReplForm" extends="baseLayout">
+		<put-attribute name="title" value="답변달기" />
+		<put-attribute name="body"  value="/WEB-INF/views/main/admin/ticket/adminTicketReplForm.jsp" />
+	</definition>
+		<definition name="adminpayForm" extends="baseLayout">
+		<put-attribute name="title" value="매출관리" />
+		<put-attribute name="body"  value="/WEB-INF/views/main/admin/ticket/adminpayForm.jsp" />
 	</definition>
 </tiles-definitions>

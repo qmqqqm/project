@@ -23,7 +23,7 @@ public class MainController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/main.do")
-	public String home(Locale locale, Model model) {
+	public String home() {
 		//logger.info("Welcome home! The client locale is {}.", locale);
 		
 		/*

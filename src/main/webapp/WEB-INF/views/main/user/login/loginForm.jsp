@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <<style>
+
+</style>
 <!-- Contaniner -->
 	<div id="contaniner" class=""><!-- 벽돌 배경이미지 사용 시 class="bg-bricks" 적용 / 배경이미지가 없을 경우 class 삭제  -->
 
@@ -63,7 +66,7 @@
                 <div class="save-id"> <input type="checkbox" id="loginSet"  /><label for="save_id">아이디 저장</label></div>
 
               
-                <button type="submit" id="submit" title="로그인"><span>로그인</span></button>
+                <button type="submit" id="submit" title="로그인">로그인</button>
                 <div class="login-option">
                     <a href="find-account.html">아이디 찾기</a>
                     <a href="find-pw5366.html?act=pw">비밀번호 찾기</a>

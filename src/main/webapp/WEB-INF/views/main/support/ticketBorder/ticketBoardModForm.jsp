@@ -58,31 +58,27 @@
 				<h2 class="tit">예매문의</h2>
 				<p class="stit">늘봄극장 예매(예매,취소,상영시간)관련 게시판 입니다</p>
 			</div>
-			
+			<form action="./ticketBoardMod.do">
 			<div class="board_view_area">
 				<ul class="top_title_faq">
-					<li class="title">제목 : ${ticketDetail.ticketBoard_title}</li><br/>
+					<li class="title">제목 : <input type="text" name="ticketBoard_title" value="${ticketDetail.ticketBoard_title}" ></li><br/><br/>
 					<li class="user_id">작성자 : ${ticketDetail.member_Id}</li>
 					<li class="stit_area">
 						<span>등록일<em class="regist_day"><fmt:formatDate value="${ticketDetail.ticketBoard_regDate}" pattern="yyyy.MM.dd" /></em></span>
 						<span class="check_tit_area">조회수<em class="check_num">${ticketDetail.ticketBoard_readcount}</em></span>
 					</li>
 				</ul>
+				<input type="hidden" name="ticketBoard_id" value="${ticketDetail.ticketBoard_id}">
 				<div class="view_area">
-					<p><textarea rows="20" cols="100" readonly="readonly">${ticketDetail.ticketBoard_content}</textarea> </p>
+					<p><textarea rows="20" cols="100" name="ticketBoard_content">${ticketDetail.ticketBoard_content}</textarea> </p>
 				</div>
 				<div class="customer_btn"><a href="./ticketBoardList.do"><button type="button" class="round inblack" id="btn_list">목록으로</button></a>
-				<c:if test="${user.member_userid==ticketDetail.member_Id}">
-				<a href="./ticketBoardModForm.do?ticketBoard_id=${ticketDetail.ticketBoard_id}"><button type="button" class="round inblack" id="btn_list">수정하기</button></a>
-				<a href="./ticketBoardDelete.do?ticketBoard_id=${ticketDetail.ticketBoard_id}"><button type="button" class="round inblack" id="btn_list">삭제</button></a></div>
-				</c:if>
-				<c:if test="${admin!=null}">		
-				<a href="./adminTicketReplForm.do?ticketBoard_id=${ticketDetail.ticketBoard_id}"><button type="button" class="round inblack" id="btn_list">답변달기</button></a></div>
-				</c:if>
-				</div>
+				<input type="submit" class="round inblack"  value="저장하기"></button></a></div>
+				
+				</form>
 				<!-- 이전글,다음글 (e) -->
 			</div>
 		</div>
 	</div>
 	<!-- //Contents End -->
-	  
+</div>			  

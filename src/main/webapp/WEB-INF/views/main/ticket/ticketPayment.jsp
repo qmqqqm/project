@@ -71,10 +71,11 @@ float: left;
 width:25%;
 height:60px;
 border-right: 1px solid white;
-margin : 20px 0;
-font-size:25px;
+margin:7px 0;
+padding-left:10px;
+font-size:15px;
 font-weight:900;
-text-align:center;
+text-align:left;
 float: left;
 }
 .bottombarpay{
@@ -138,6 +139,9 @@ function aa(){
 	payment();
 	}
 
+function paychange(kind){
+	document.getElementById("paykind").innerText=$(kind).val();
+	}
 </script>
 
 <div id="contaniner">
@@ -175,10 +179,11 @@ ${aa}
         <div class="content">포인트및 기타결제수단</div>
         <div class="title">STEP 4.최종결제수단</div>
         <div class="content">
-        <input type="radio" name="pay" id="card">신용카드        
-        <input type="radio" name="pay" id="trans">실시간계좌이체
-        <input type="radio" name="pay" id="vbank">가상계좌
-        <input type="radio" name="pay" id="phone">휴대폰결제
+        
+        <input type="radio" name="pay" id="card" onchange="paychange(this)" value="신용카드">신용카드        
+        <input type="radio" name="pay" id="trans" onchange="paychange(this)" value="실시간계좌이체">실시간계좌이체
+        <input type="radio" name="pay" id="vbank" onchange="paychange(this)" value="가상계좌">가상계좌
+        <input type="radio" name="pay" id="phone" onchange="paychange(this)" value="휴대폰결제">휴대폰결제
        
         
         </div>
@@ -190,7 +195,7 @@ ${aa}
         <div class="payment">
        <div class="paylap">
         <div class="paytitle">결제하실금액</div>
-        <div class="pay" ><span id="pay">16000</span> 원</div>
+        <div class="pay" ><span id="pay">${price}</span> 원</div>
         </div>
         <div class="paylap">
         <div class="paytitle">할인내역</div>
@@ -199,9 +204,24 @@ ${aa}
 		</div>
 		<div class="paylap">
         <div class="paytitle">결제내역</div>
-        <div class="paytitle"><span>신용카드</span><span  >16000원</span></div>
+        <div class="paytitle"><span id="paykind">신용카드</span><br/><span  >${price}원</span></div>
         <div class="paytitle">남은결제금액</div>
-        <div class="pay">16000원</div>
+        <div class="pay">${price}원</div>
+       
+        <form id="ticketComplete" action="./ticketComplete.do" method="post">
+				<input type="hidden" id="movie_id" name="movie_id" value="${movie_id}"/>
+				<input type="hidden" id="movie_title" name="movie_title" value="${movie_title}"/>
+				<input type="hidden" id="theater_id" name="theater_id" value="${theater_id}"/>
+				<input type="hidden" id="theater_name" name="theater_name" value="${theater_name}"/>
+				<input type="hidden" id="sangyg_id" name="sangyg_id" value="${sangyg_id}"/>
+				<input type="hidden" id="sangyg_name" name="sangyg_name" value="${sangyg_name}"/>
+				<input type="hidden" id="ticket_date" name="ticket_date" value="${ticket_date}"/>
+				<input type="hidden" id="times_time" name="times_time" value="${times_time}"/>
+				<input type="hidden" name="price" id="price" value="${price}">
+        <input type="hidden" name="seat" id="seat" value="${seat}">
+				<input type="hidden" name="ticket_quantity" id="ticket_quantity" value="${ticket_quantity}">			
+        <div><input type="submit" value="테스트 결제"/> </div>
+        </form> 
         </div>
         
         </div>
@@ -210,14 +230,17 @@ ${aa}
 
         <div class="bottombar">
         <div class="bottombarmovie">
-        	영화선택
+        	${movie_title}
         </div>
          <div class="bottombarselect">
-        
-         		극장선택
+        		극장선택 : <span id="selectmovie">${theater_name}</span> <br>
+         		날짜선택 : <span id="seletedate">${ticket_date}</span> <br>
+         		상영관선택 : <span id="selectsangyg">${sangyg_name}</span> <br>
+         		시간선택 : <span id="selecttime">${times_time}</span> <br>
         </div>
          <div class="bottombarpay">
-         		좌석선택 > 결제
+         		일반석<br/>
+         		${seat}
         </div>
          <div class="bottomcount"><img onclick="payment()" src="/movie/resources/images/20210426_164923.png"/></a></div>
         </div>

@@ -2,64 +2,86 @@ package com.movie.movie.dto;
 
 import java.util.Date;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class TicketDTO {
-	private int TICKET_id;
+	private int ticket_id;
 	private String member_userid;
+	private int member_id;
+	
+
+
 	private int movie_id;
 	private String movie_title;
 	private int theater_id;
 	private String theater_name;
 	private String theater_location;
-	private Date times_time;
-	private Date TICKET_DATE;
-	private Date TICKET_TIME;
-	private int TICKET_PRICE;
-	private int TICKET_QUANTITY;  //수량
+	private String times_time;
+	private String ticket_date;
+	private String ticket_time;
+	private int ticket_price;
+	private int ticket_quantity;  //수량
 	private int sangyg_id;
 	private String sangyg_name;
-	private String TICKET_isshow;
-	private int TICKET_SEATS; //예약한 좌석번호
+	private String ticket_isshow;
+	private String ticket_seats; //예약한 좌석번호
+	private String endDate;
+	private String startDate;
 	
 	
+	
+	
+
+
 	public TicketDTO() {}
 
 
-	public TicketDTO(int tICKET_id, String member_userid, int movie_id, String movie_title, int theater_id,
-			String theater_name, String theater_location, Date tICKET_DATE, Date tICKET_TIME, int tICKET_PRICE,
-			int tICKET_QUANTITY, int sangyg_id, String sangyg_name, String tICKET_isshow, int tICKET_SEATS) {
+	public TicketDTO(int ticket_id, String member_userid, int movie_id, String movie_title, int theater_id,
+			String theater_name, String theater_location, String times_time, String ticket_date, String ticket_time,
+			int ticket_price, int ticket_quantity, int sangyg_id, String sangyg_name, String ticket_isshow,
+			String ticket_seats) {
 		super();
-		TICKET_id = tICKET_id;
+		this.ticket_id = ticket_id;
 		this.member_userid = member_userid;
 		this.movie_id = movie_id;
 		this.movie_title = movie_title;
 		this.theater_id = theater_id;
 		this.theater_name = theater_name;
 		this.theater_location = theater_location;
-		TICKET_DATE = tICKET_DATE;
-		TICKET_TIME = tICKET_TIME;
-		TICKET_PRICE = tICKET_PRICE;
-		TICKET_QUANTITY = tICKET_QUANTITY;
+		this.times_time = times_time;
+		this.ticket_date = ticket_date;
+		this.ticket_time = ticket_time;
+		this.ticket_price = ticket_price;
+		this.ticket_quantity = ticket_quantity;
 		this.sangyg_id = sangyg_id;
 		this.sangyg_name = sangyg_name;
-		TICKET_isshow = tICKET_isshow;
-		TICKET_SEATS = tICKET_SEATS;
+		this.ticket_isshow = ticket_isshow;
+		this.ticket_seats = ticket_seats;
 	}
 
 
-	public int getTICKET_id() {
-		return TICKET_id;
+	public int getTicket_id() {
+		return ticket_id;
 	}
 
 
-	public void setTICKET_id(int tICKET_id) {
-		TICKET_id = tICKET_id;
+	public void setTicket_id(int ticket_id) {
+		this.ticket_id = ticket_id;
 	}
 
 
 	public String getMember_userid() {
 		return member_userid;
 	}
+	public int getMember_id() {
+		return member_id;
+	}
 
+
+	public void setMember_id(int member_id) {
+		this.member_id = member_id;
+	}
 
 	public void setMember_userid(String member_userid) {
 		this.member_userid = member_userid;
@@ -116,43 +138,53 @@ public class TicketDTO {
 	}
 
 
-	public Date getTICKET_DATE() {
-		return TICKET_DATE;
+	public String getTimes_time() {
+		return times_time;
 	}
 
 
-	public void setTICKET_DATE(Date tICKET_DATE) {
-		TICKET_DATE = tICKET_DATE;
+	public void setTimes_time(String times_time2) {
+		this.times_time = times_time2;
 	}
 
 
-	public Date getTICKET_TIME() {
-		return TICKET_TIME;
+	public String getTicket_date() {
+		return ticket_date;
 	}
 
 
-	public void setTICKET_TIME(Date tICKET_TIME) {
-		TICKET_TIME = tICKET_TIME;
+	public void setTicket_date(String ticket_date) {
+		this.ticket_date = ticket_date;
 	}
 
 
-	public int getTICKET_PRICE() {
-		return TICKET_PRICE;
+	public String getTicket_time() {
+		return ticket_time;
 	}
 
 
-	public void setTICKET_PRICE(int tICKET_PRICE) {
-		TICKET_PRICE = tICKET_PRICE;
+	public void setTicket_time(String ticket_time) {
+		this.ticket_time = ticket_time;
 	}
 
 
-	public int getTICKET_QUANTITY() {
-		return TICKET_QUANTITY;
+	public int getTicket_price() {
+		return ticket_price;
 	}
 
 
-	public void setTICKET_QUANTITY(int tICKET_QUANTITY) {
-		TICKET_QUANTITY = tICKET_QUANTITY;
+	public void setTicket_price(int ticket_price) {
+		this.ticket_price = ticket_price;
+	}
+
+
+	public int getTicket_quantity() {
+		return ticket_quantity;
+	}
+
+
+	public void setTicket_quantity(int ticket_quantity) {
+		this.ticket_quantity = ticket_quantity;
 	}
 
 
@@ -176,35 +208,53 @@ public class TicketDTO {
 	}
 
 
-	public String getTICKET_isshow() {
-		return TICKET_isshow;
+	public String getTicket_isshow() {
+		return ticket_isshow;
 	}
 
 
-	public void setTICKET_isshow(String tICKET_isshow) {
-		TICKET_isshow = tICKET_isshow;
+	public void setTicket_isshow(String ticket_isshow) {
+		this.ticket_isshow = ticket_isshow;
 	}
 
 
-	public int getTICKET_SEATS() {
-		return TICKET_SEATS;
+	public String getTicket_seats() {
+		return ticket_seats;
 	}
 
 
-	public void setTICKET_SEATS(int tICKET_SEATS) {
-		TICKET_SEATS = tICKET_SEATS;
+	public void setTicket_seats(String ticket_seats) {
+		this.ticket_seats = ticket_seats;
+	}
+	public String getEndDate() {
+		return endDate;
 	}
 
+
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
+	}
+
+
+	public String getStartDate() {
+		return startDate;
+	}
+
+
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
+	}
 
 	@Override
 	public String toString() {
-		return "TicketDTO [TICKET_id=" + TICKET_id + ", member_userid=" + member_userid + ", movie_id=" + movie_id
+		return "TicketDTO [ticket_id=" + ticket_id + ", member_userid=" + member_userid + ", movie_id=" + movie_id
 				+ ", movie_title=" + movie_title + ", theater_id=" + theater_id + ", theater_name=" + theater_name
-				+ ", theater_location=" + theater_location + ", TICKET_DATE=" + TICKET_DATE + ", TICKET_TIME="
-				+ TICKET_TIME + ", TICKET_PRICE=" + TICKET_PRICE + ", TICKET_QUANTITY=" + TICKET_QUANTITY
-				+ ", sangyg_id=" + sangyg_id + ", sangyg_name=" + sangyg_name + ", TICKET_isshow=" + TICKET_isshow
-				+ ", TICKET_SEATS=" + TICKET_SEATS + "]";
+				+ ", theater_location=" + theater_location + ", times_time=" + times_time + ", ticket_date="
+				+ ticket_date + ", ticket_time=" + ticket_time + ", ticket_price=" + ticket_price + ", ticket_quantity="
+				+ ticket_quantity + ", sangyg_id=" + sangyg_id + ", sangyg_name=" + sangyg_name + ", ticket_isshow="
+				+ ticket_isshow + ", ticket_seats=" + ticket_seats + "]";
 	}
-	
+
+
 	
 }

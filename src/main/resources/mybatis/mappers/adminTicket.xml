@@ -11,84 +11,49 @@
  
 <!-- member테이블 관련 DML작업을 하는 쿼리문 --> 
 <mapper namespace="adminTicket">
-
-	<!--개인회원정보 조회 
-			컨트롤러에서 		HashMap<String,Object> memberMap = new HashMap<String,Object>();
-		memberMap.put("mno", mno);
-		memberMap.put("id", id); 로 받았다
-	
-	       다양한 type의  data의 개수가 1개	 => DTO이용	-->
-	<!-- <select id="memberDetail" 
-				  parameterType="hmap"
-				  resultType="MemberDTO">	
-		SELECT 	mno,id,pwd,name,email,joindate,isshow 
-		FROM 		MEMBER
-		WHERE		isshow = 'Y'
-						AND mno=#{mno} AND  id = #{id}
-	</select>			 
-
-	회원수 조회 
-	  실행하는 쿼리문의 결과가 2개이상이면 DTO 또는 Map으로                resultType을 지정한다
-	  실행하는 쿼리문의 결과가 1개이면      기본형(primitive type->Wrapper)로 resultType을 지정한다
-	  
-	    실행하는 쿼리문에 파라미터가 2개이상이면 DTO 또는 Map으로 parameterType을 지정한다
-		실행하는 쿼리문에 파라미터가 1개이면      기본형(primitive type)로 parameterType을 지정한다
-		#{변수명} -> DAO의 함수에서 호출(하면서 넘겨주는 )매개변수명
-		
-		There are many built-in type aliases for common Java types. They are all case insensitive, note the special handling of primitives due to the overloaded names.
-		https://mybatis.org/mybatis-3/configuration.html#typeAliases
-		여기에서는 원칙적으로 resultType="java.lang.Integer"라고 작성해야하지만
-		mybatis에서 내장된 alias를 이용하여 resultType="int" 작성하였다
-	
-	<select id="memberCount" resultType="int">
-		SELECT COUNT(*) as cnt
-		FROM   MEMBER	
-		WHERE	 isshow = 'Y'
+<resultMap type="ticketDTO"  id="ticketResult">
+		<result    property="ticket_id" 			column="ticket_id"/>
+		<result    property="member_id" 		column="member_id"/>
+		<result    property="theater_id" 			column="theater_id"/>
+		<result    property="sangyg_id" 			column="sangyg_id"/>
+		<result    property="ticket_date" 			column="ticket_date"/>
+		<result    property="ticket_time" 			column="ticket_time"/>
+		<result    property="ticket_price" 			column="ticket_price"/>
+		<result    property="ticket_quantity" 			column="ticket_quantity"/>
+		<result    property="ticket_seats" 			column="ticket_seats"/>
+		<result    property="ticket_isshow" 			column="ticket_isshow"/>		
+	</resultMap>
+	<select id="reserve" resultMap="ticketResult">
+		select TICKET_id,MEMBER_ID,theater_id,sangyg_id,TICKET_DATE,TICKET_TIME,TICKET_PRICE,TICKET_QUANTITY,TICKET_SEATS,TICKET_isshow from TICKET where TICKET_isshow='Y'
 	</select>
-
-	회원삭제 
-	실행하는 쿼리문에 파라미터가 2개이상이면 DTO 또는 Map으로 parameterType을 지정한다
-		실행하는 쿼리문에 파라미터가 1개이면      기본형(primitive type)로 parameterType을 지정한다
-		#{변수명} -> DAO의 함수에서 호출(하면서 넘겨주는 )매개변수명
-	
-	<update id="deleteMember" parameterType="string">
-		UPDATE 	MEMBER
-		SET			isshow = 'N'
-		WHERE		id	   = #{id}
+	<insert id="adminTicketReplWrite" parameterType="ticketBoardDTO">
+		insert into TICKETBOARD values(#{ticketBoard_id},#{member_Id},#{ticketBoard_group},#{ticketBoard_title},sysdate,sysdate,0,#{ticketBoard_content},'Y')
+	</insert>
+	<update id="ticketcancle" parameterType="string">
+	update TICKET set TICKET_isshow='N' where TICKET_id=#{TICKET_id}
 	</update>
-
-	회원가입처리 -Map사용
-		실행하는 쿼리문에 파라미터가 2개이상이면 DTO 또는 Map으로 parameterType을 지정한다
-		실행하는 쿼리문에 파라미터가 1개이면      기본형(primitive type)로 parameterType을 지정한다
-	
-	<insert id="joinMemberMap"  parameterType="hMap">
-		insert into member(mno, id, pwd, name, email, joinDate, isShow)
-		values(seq_mno.nextval, #{id}, #{pwd}, #{name}, #{email}, SYSDATE, 'Y')
-	</insert>
-
-
-	회원가입처리 -DTO사용
-		실행하는 쿼리문에 파라미터가 2개이상이면 DTO 또는 Map으로 parameterType을 지정한다
-		실행하는 쿼리문에 파라미터가 1개이면      기본형(primitive type)로 parameterType을 지정한다
-	
-	<insert id="joinMember"  parameterType="MemberDTO">
-		insert into member(mno, id, pwd, name, email, joinDate, isShow)
-		values(seq_mno.nextval, #{id}, #{pwd}, #{name}, #{email}, SYSDATE, 'Y')
-	</insert>
-
-	회원목록조회 
-			 다양한 type의  data의 개수가 여러개   => collection, DTO이용
-	
-	<select id="getMemberList" resultType="MemberDTO">
-		<![CDATA[ 
-			SELECT 	mno,id,pwd,name,email,joindate,isshow 
-			FROM 		MEMBER
-			WHERE		isshow = 'Y'
+		<select id="adminpayForm" resultType="string">
+		<![CDATA[
+		select sum(TICKET_PRICE) from TICKET where TICKET_isshow='Y' and TICKET_DATE<sysdate
 		]]>
 	</select>
-	
-	 -->
-
+	<select id="adminpayFormlist" resultMap="ticketResult">
+	<![CDATA[
+	select TICKET_id,TICKET_DATE,TICKET_PRICE from TICKET where TICKET_isshow='Y' and TICKET_DATE<sysdate
+	]]>
+		
+	</select>
+	<select id="admindatepay" parameterType="ticketDTO" resultType="string">
+		<![CDATA[
+		select sum(TICKET_PRICE) from TICKET where TICKET_isshow='Y'  and TICKET_DATE between #{startDate} and #{endDate}
+		]]>
+	</select>
+	<select id="admindatepaylist" parameterType="ticketDTO" resultMap="ticketResult">
+	<![CDATA[
+	select TICKET_id,TICKET_DATE,TICKET_PRICE from TICKET where TICKET_isshow='Y' and TICKET_DATE<sysdate and TICKET_DATE between #{startDate} and #{endDate}
+	]]>
+		
+	</select>
 </mapper> 
 
 

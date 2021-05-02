@@ -14,6 +14,7 @@ public class UserService {
 	public UserDTO login(UserDTO userDTO)throws DataAccessException {
 		System.out.println(userDTO);
 		UserDTO user=userDAO.login(userDTO);
+		
 		return user;
 	}
 	

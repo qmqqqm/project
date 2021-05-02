@@ -61,28 +61,28 @@
 			
 			<div class="board_view_area">
 				<ul class="top_title_faq">
-					<li class="title">제목 : ${ticketDetail.ticketBoard_title}</li><br/>
-					<li class="user_id">작성자 : ${ticketDetail.member_Id}</li>
+					<li class="title">${ticketDetail.ticketBoard_title}</li>
 					<li class="stit_area">
-						<span>등록일<em class="regist_day"><fmt:formatDate value="${ticketDetail.ticketBoard_regDate}" pattern="yyyy.MM.dd" /></em></span>
-						<span class="check_tit_area">조회수<em class="check_num">${ticketDetail.ticketBoard_readcount}</em></span>
+					<form action="ticketBoardWrite.do">
+					<span>문의내용 : <input name="title" type="text"></span><br/>
+						<span>작성자 : <input name="userid" type="text" value="${user.member_userid}" readonly="readonly" ></span>
+					
+						<span >구분 : <select name="kind" >
+						<option>예약변경</option>
+						<option>예약취소</option>					
+						<option>기타문의</option>					
+						
+						</select></span>
 					</li>
 				</ul>
 				<div class="view_area">
-					<p><textarea rows="20" cols="100" readonly="readonly">${ticketDetail.ticketBoard_content}</textarea> </p>
+					<p><textarea name="content" rows="20" cols="80">${ticketDetail.ticketBoard_content}</textarea> </p>
 				</div>
-				<div class="customer_btn"><a href="./ticketBoardList.do"><button type="button" class="round inblack" id="btn_list">목록으로</button></a>
-				<c:if test="${user.member_userid==ticketDetail.member_Id}">
-				<a href="./ticketBoardModForm.do?ticketBoard_id=${ticketDetail.ticketBoard_id}"><button type="button" class="round inblack" id="btn_list">수정하기</button></a>
-				<a href="./ticketBoardDelete.do?ticketBoard_id=${ticketDetail.ticketBoard_id}"><button type="button" class="round inblack" id="btn_list">삭제</button></a></div>
-				</c:if>
-				<c:if test="${admin!=null}">		
-				<a href="./adminTicketReplForm.do?ticketBoard_id=${ticketDetail.ticketBoard_id}"><button type="button" class="round inblack" id="btn_list">답변달기</button></a></div>
-				</c:if>
-				</div>
-				<!-- 이전글,다음글 (e) -->
+				
+				<div class="customer_btn"><input type="submit" class="round inblack" id="write" value="문의하기"></button></a></div>
+				</form>
 			</div>
 		</div>
 	</div>
 	<!-- //Contents End -->
-	  
+</div>			  

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 @Component("ticketBoardDTO")
 public class TicketBoardDTO {
 	
-private int ticketBoard_id;
+private Double ticketBoard_id;
 private String member_Id; 
 private String ticketBoard_group;
 private String ticketBoard_title;
@@ -15,11 +15,12 @@ private Date ticketBoard_modiDate;
 private int ticketBoard_readcount;
 private String ticketBoard_content;
 
+
 public TicketBoardDTO() {}
 
 
 
-public TicketBoardDTO(int ticketBoard_id, String member_Id, String ticketBoard_group, String ticketBoard_title,
+public TicketBoardDTO(Double ticketBoard_id, String member_Id, String ticketBoard_group, String ticketBoard_title,
 		Date ticketBoard_regDate, Date ticketBoard_modiDate, int ticketBoard_readcount, String ticketBoard_content) {
 	super();
 	this.ticketBoard_id = ticketBoard_id;
@@ -34,11 +35,11 @@ public TicketBoardDTO(int ticketBoard_id, String member_Id, String ticketBoard_g
 
 
 
-public int getTicketBoard_id() {
+public Double getTicketBoard_id() {
 	return ticketBoard_id;
 }
 
-public void setTicketBoard_id(int ticketBoard_id) {
+public void setTicketBoard_id(Double ticketBoard_id) {
 	this.ticketBoard_id = ticketBoard_id;
 }
 
