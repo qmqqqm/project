@@ -5,6 +5,7 @@
  
 <mapper namespace="ticket">
 
+
 <select id="ticketForm" resultType="ticketDTO">
 select movie_id, movie_title from movie   
 </select>
@@ -19,8 +20,8 @@ select theater_name,theater_id from theater where theater_location='서울'
 <select id="nal" resultType="String">
 select times_time from times
 </select>
-<select id="ticketpeople" resultType="_int">
-select sangyg_seats from sangyg where sangyg_id=1 and theater_id=1
+<select id="ticketpeople" parameterType="ticketDTO" resultType="_int">
+select sangyg_seats from sangyg where sangyg_id=#{sangyg_id} and theater_id=#{theater_id}
 </select>
 	<!--  극장선택 아작스 -->
 	<select id="theaterchoice" parameterType="string" resultType="ticketDTO">
@@ -44,4 +45,12 @@ select sangyg_seats from sangyg where sangyg_id=1 and theater_id=1
 				
 				
 	</select>
+	<insert id="ticketComplete" parameterType="ticketDTO">
+	insert into TICKET(TICKET_id, movie_id,MEMBER_ID, theater_id, TICKET_DATE, TICKET_TIME, TICKET_PRICE, TICKET_QUANTITY, sangyg_id, TICKET_isshow,TICKET_SEATS) 
+    values(TICKET_seq.nextval,#{movie_id},#{member_id},#{theater_id},TO_DATE(#{ticket_date},'YYYYMMDD') ,TO_DATE(#{ticket_time},'HH24:MI'), #{ticket_price},#{ticket_quantity},#{sangyg_id},'Y',#{ticket_seats})
+	</insert>
+	<select id="selectseat" parameterType="ticketDTO" resultType="string">
+	select TICKET_SEATS from TICKET where movie_id=#{movie_id} and sangyg_id=#{sangyg_id} and TICKET_DATE=TO_DATE(#{ticket_date},'YYYYMMDD') and TICKET_TIME=TO_DATE(#{ticket_time},'HH24:MI')
+	</select>
+
 </mapper>	

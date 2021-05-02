@@ -71,10 +71,11 @@ float: left;
 width:25%;
 height:60px;
 border-right: 1px solid white;
-margin : 20px 0;
-font-size:25px;
+margin:7px 0;
+padding-left:10px;
+font-size:15px;
 font-weight:900;
-text-align:center;
+text-align:left;
 float: left;
 }
 .bottombarpay{
@@ -206,16 +207,21 @@ ${aa}
         <div class="paytitle"><span id="paykind">신용카드</span><br/><span  >${price}원</span></div>
         <div class="paytitle">남은결제금액</div>
         <div class="pay">${price}원</div>
-        <%-- <form id="ticketComplete" action="./ticketComplete.do">
-        <input type="hidden" name="" value=""/>
-        <input type="hidden" name="" value=""/>
-        <input type="hidden" name="" value=""/>
-        <input type="hidden" name="" value=""/>
-        <input type="hidden" name="" value=""/>
-        <input type="hidden" name="seat" value="${seat}"/>
-        <input type="hidden" name="price" value="${price}"/>
+       
+        <form id="ticketComplete" action="./ticketComplete.do" method="post">
+				<input type="hidden" id="movie_id" name="movie_id" value="${movie_id}"/>
+				<input type="hidden" id="movie_title" name="movie_title" value="${movie_title}"/>
+				<input type="hidden" id="theater_id" name="theater_id" value="${theater_id}"/>
+				<input type="hidden" id="theater_name" name="theater_name" value="${theater_name}"/>
+				<input type="hidden" id="sangyg_id" name="sangyg_id" value="${sangyg_id}"/>
+				<input type="hidden" id="sangyg_name" name="sangyg_name" value="${sangyg_name}"/>
+				<input type="hidden" id="ticket_date" name="ticket_date" value="${ticket_date}"/>
+				<input type="hidden" id="times_time" name="times_time" value="${times_time}"/>
+				<input type="hidden" name="price" id="price" value="${price}">
+        <input type="hidden" name="seat" id="seat" value="${seat}">
+				<input type="hidden" name="ticket_quantity" id="ticket_quantity" value="${ticket_quantity}">			
         <div><input type="submit" value="테스트 결제"/> </div>
-        </form> --%>
+        </form> 
         </div>
         
         </div>
@@ -224,11 +230,13 @@ ${aa}
 
         <div class="bottombar">
         <div class="bottombarmovie">
-        	영화선택
+        	${movie_title}
         </div>
          <div class="bottombarselect">
-        
-         		극장선택
+        		극장선택 : <span id="selectmovie">${theater_name}</span> <br>
+         		날짜선택 : <span id="seletedate">${ticket_date}</span> <br>
+         		상영관선택 : <span id="selectsangyg">${sangyg_name}</span> <br>
+         		시간선택 : <span id="selecttime">${times_time}</span> <br>
         </div>
          <div class="bottombarpay">
          		일반석<br/>

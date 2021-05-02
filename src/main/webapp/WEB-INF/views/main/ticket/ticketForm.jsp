@@ -104,12 +104,12 @@ $(function(){
         data : {'name' : $(this).text()},
         dataType : "json",
         success: function(theater){
-        	$("#theater_name").empty();
+        	$("#theaterform").empty();
         	 for(var i=0;theater.theaterchoice.length;i++){                            
                  var h = theater.theaterchoice[i].theater_name;
                  var k= theater.theaterchoice[i].theater_id;
                  var str = "<span onclick='selecttheater(this)' id='theater_"+k+"'> "+h+"</span><br>"
-                 $("#theater_name").append(str);
+                 $("#theaterform").append(str);
         	 }
         },//success
         error: function(xhr, status, error) {
@@ -204,7 +204,7 @@ var theaterid;
 //날짜 css처리용
 var dayname;
 
-//유저가 영화클릭시실행
+//유저가 영화선택시 실행
 function selectmovie(movie){
 	var moviename="";
 	var movieid=0;
@@ -221,6 +221,10 @@ function selectmovie(movie){
 	selectmoviename=moviename;	
 	userSelect();
 	 document.getElementById('bottombarmovie').innerText=selectmoviename;
+	//유져가 선택한 영화명과 아이디 전송폼에 입력
+	 document.getElementById('movie_id').value=selectmovieid;
+	 document.getElementById('movie_title').value=selectmoviename;
+	 
 }
 //유저가 극장클릭시실행
 function selecttheater(theater){
@@ -242,9 +246,14 @@ function selecttheater(theater){
 	
 	selecttheatername=theatername;	
 	document.getElementById('selectmovie').innerText=selecttheatername;
+	//유져가 선택한 극장명과 아이디 전송폼에 입력
+	document.getElementById('theater_id').value=selecttheaterid;		
+	document.getElementById('theater_name').value=selecttheatername;
+	
+	 
 	userSelect();
 }
-//유저가 날짜 클릭시실행
+//유저가 날짜 선택시 실행
 function selectday(day){	
 	
 	if(selectdayname==null){
@@ -259,28 +268,52 @@ function selectday(day){
 		day.style.color="red";
 	}
 	document.getElementById('seletedate').innerText=dayname;
+	//유져가 선택한 날짜 전송폼에 입력
+	document.getElementById('ticket_date').value=dayname;		
 	userSelect(); //아작스 함수 호출
 }
+//유져가 상영관 선택시 실행
 function selectsangyg(sangygname,sangygid){
-	alert(sangygname+"   /   "+sangygid);
+	
 	var name;
 	var id;
 	name=document.getElementById('selectsangyg').innerText=sangygname.innerText;
 	id=sangygid;
 	selectsangname=name;
 	selectsangid=id;
+	/* if(selectsangname==null){
+		sangygname.style.color="red";
+		
+		selectsangname=sangname.innerText;;	
+	}else{
+		document.getElementById(selectsangyg).style.color="";
+		
+		dayname=day.getAttribute('id');
+		selectdayname=dayname;	
+		day.style.color="red";
+	} */
+	//유져가 선택한 상영관과 사영관 아이디 전송폼에 입력
+	document.getElementById('sangyg_id').value=selectsangid;		
+	document.getElementById('sangyg_name').value=selectsangname;
+		
 }
+//유져가 시간 선택시 실행
 function selecttime(time){
 	var usertime;
 	usertime=document.getElementById('selecttime').innerText=time.innerText;
 	selecttime=usertime;
+	//유져가 선택한 시간 전송폼에 입력
+	document.getElementById('times_time').value=selecttime;
+	
+}
+function submit(){
+	if(selectmoviename==null || selecttheatername==null || selectdayname==null ||selectsangname==null|| selecttime==null){
+		alert("영화 극장 날짜 상영관 상영시간을 모두 선택하세요");
+	}else{
+		document.getElementById('selectcomp').submit();
+	}
 }
 
-/* function test(){
-	alert(selectmoviename);
-	alert(selecttheatername);
-	alert(selectdayname);
-} */
 //유져가 클릭한 값들처리를 위한 아작스
 function userSelect(){
 	$.ajax({
@@ -295,7 +328,7 @@ function userSelect(){
         	// $("#movie_name").empty();
         	//$("#theater_name").empty();
         	//$("#day_name").empty();
-        	$("#sangyg_name").empty(); //상영관 태그 다시 뿌려주기위해 엠프티
+        	$("#sangygform").empty(); //상영관 태그 다시 뿌려주기위해 엠프티
         //	$(".reserve-date").empty();
         	 for(var i=0;theater.theaterchoice.length;i++){
         		 		 var theatername=theater.theaterchoice[i].theater_name;//디비에서 가져온 극장명
@@ -316,12 +349,12 @@ function userSelect(){
                  
                  document.getElementById(movieid).style.background="blue"; //가져온 영화아이디로 태그아이디 찾아 백그라운드 변경
                  document.getElementById('theater_'+theaterid).style.background="blue"; //가져온 극장아이디로 태그아이디 찾아 백그라운드 변경
-                 var strsangygname = "<span class='theaterTxt' onclick='selectsangyg(this,"+sangygid+")'>"+sangygname+"</span><input class='theaterCode' type='hidden' value='"+sangygname+"'><br/>"
-                 var strdaytime = "<span onclick='selecttime(this)' >"+dayname.substring(10,16)+"</span><input class='theaterCode' type='hidden' value='"+dayname+"'><br/>"
+                 var strsangygname = "<span class='theaterTxt' id='selectsangyg"+i+"' onclick='selectsangyg(this,"+sangygid+")'>"+sangygname+"</span><br/>";
+                 var strdaytime = "<span onclick='selecttime(this)' >"+dayname.substring(10,16)+"</span><br/>";
                                 
                  //상영관 div에 데이터 뿌려주는 태그 추가
-                 $("#sangyg_name").append(strsangygname);
-                 $("#sangyg_name").append(strdaytime);
+                 $("#sangygform").append(strsangygname);
+                 $("#sangygform").append(strdaytime);
                  
                  
         	 } 
@@ -382,7 +415,7 @@ function userSelect(){
 			 </div>
 		
 		  		<c:if test="${theaterchoice==null}">
-				 <div id="theater_name">
+				 <div id="theaterform">
 					 	<c:forEach items="${movieList.theater}" var="theaters" varStatus="status"  >
 						<span onclick="selecttheater(this)" id="theater_${theaters.theater_id}"> ${theaters.theater_name}</span><br>
 						
@@ -390,7 +423,7 @@ function userSelect(){
 				 </div> 
 			 		</c:if>
 			  <c:if test="${theaterchoice!=null}">
-			 <div id="theater_name"></div>
+			 <div id="theaterform"></div>
 			 </c:if>
 			
 			 
@@ -408,18 +441,19 @@ function userSelect(){
         </div>
         <div class="time">
         <div class="title">시간</div>
-        <div id="sangyg_name">
+        <div id="sangygform">
         </div>
         </div>
 				</div>
-				<form id="selectcomp" action="ticketPeople.do">
-				<input type="hidden" id="" name="" value=""/>
-				<input type="hidden" id="" name="" value=""/>
-				<input type="hidden" id="" name="" value=""/>
-				<input type="hidden" id="" name="" value=""/>
-				<input type="hidden" id="" name="" value=""/>
-				<input type="hidden" id="" name="" value=""/>
-				<input type="hidden" id="" name="" value=""/>
+				<form id="selectcomp" action="ticketPeople.do" method="post">
+				<input type="hidden" id="movie_id" name="movie_id" value=""/>
+				<input type="hidden" id="movie_title" name="movie_title" value=""/>
+				<input type="hidden" id="theater_id" name="theater_id" value=""/>
+				<input type="hidden" id="theater_name" name="theater_name" value=""/>
+				<input type="hidden" id="sangyg_id" name="sangyg_id" value=""/>
+				<input type="hidden" id="sangyg_name" name="sangyg_name" value=""/>
+				<input type="hidden" id="ticket_date" name="ticket_date" value=""/>
+				<input type="hidden" id="times_time" name="times_time" value=""/>
 				</form>
         <div class="bottombar">
         <div class="bottombarmovie" id="bottombarmovie">
@@ -436,7 +470,7 @@ function userSelect(){
          <div class="bottombarpay">
          	좌석선택 > 결제 
         </div>
-        <div class="bottomcount"><a href="ticketPeople.do"><img src="/movie/resources/images/20210423_170823.png"/></a></div>
+        <div class="bottomcount"><img onclick="submit()" src="/movie/resources/images/20210423_170823.png"/></div>
         </div>
 	<!-- /Contaniner -->
 

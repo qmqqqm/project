@@ -8,6 +8,10 @@ import org.springframework.stereotype.Component;
 public class TicketDTO {
 	private int ticket_id;
 	private String member_userid;
+	private int member_id;
+	
+
+
 	private int movie_id;
 	private String movie_title;
 	private int theater_id;
@@ -15,20 +19,26 @@ public class TicketDTO {
 	private String theater_location;
 	private String times_time;
 	private String ticket_date;
-	private Date ticket_time;
+	private String ticket_time;
 	private int ticket_price;
 	private int ticket_quantity;  //수량
 	private int sangyg_id;
 	private String sangyg_name;
 	private String ticket_isshow;
 	private String ticket_seats; //예약한 좌석번호
+	private String endDate;
+	private String startDate;
 	
 	
+	
+	
+
+
 	public TicketDTO() {}
 
 
 	public TicketDTO(int ticket_id, String member_userid, int movie_id, String movie_title, int theater_id,
-			String theater_name, String theater_location, String times_time, String ticket_date, Date ticket_time,
+			String theater_name, String theater_location, String times_time, String ticket_date, String ticket_time,
 			int ticket_price, int ticket_quantity, int sangyg_id, String sangyg_name, String ticket_isshow,
 			String ticket_seats) {
 		super();
@@ -64,7 +74,14 @@ public class TicketDTO {
 	public String getMember_userid() {
 		return member_userid;
 	}
+	public int getMember_id() {
+		return member_id;
+	}
 
+
+	public void setMember_id(int member_id) {
+		this.member_id = member_id;
+	}
 
 	public void setMember_userid(String member_userid) {
 		this.member_userid = member_userid;
@@ -141,12 +158,12 @@ public class TicketDTO {
 	}
 
 
-	public Date getTicket_time() {
+	public String getTicket_time() {
 		return ticket_time;
 	}
 
 
-	public void setTicket_time(Date ticket_time) {
+	public void setTicket_time(String ticket_time) {
 		this.ticket_time = ticket_time;
 	}
 
@@ -209,7 +226,24 @@ public class TicketDTO {
 	public void setTicket_seats(String ticket_seats) {
 		this.ticket_seats = ticket_seats;
 	}
+	public String getEndDate() {
+		return endDate;
+	}
 
+
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
+	}
+
+
+	public String getStartDate() {
+		return startDate;
+	}
+
+
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
+	}
 
 	@Override
 	public String toString() {

@@ -27,6 +27,18 @@
 	<update id="ticketBoardDelete" parameterType="_int">
 	update ticketBoard set ticketBoard_isshow='N' where ticketBoard_id=#{ticketBoard_id}
 	</update>
+		<select id="ticketboardfindtit" resultType="ticketBoardDTO" parameterType="string">
+		SELECT 	ticketBoard_id,member_Id,ticketBoard_group,ticketBoard_title,
+		ticketBoard_regDate,ticketBoard_modiDate,ticketBoard_readcount,ticketBoard_content 
+		FROM 		ticketBoard
+		WHERE		ticketBoard_isshow = 'Y' and 	ticketBoard_title like '%'||#{searchtext}||'%' order by ticketBoard_id desc					
+	</select>
+		<select id="ticketboardfindcon" resultType="ticketBoardDTO" parameterType="string">
+		SELECT 	ticketBoard_id,member_Id,ticketBoard_group,ticketBoard_title,
+		ticketBoard_regDate,ticketBoard_modiDate,ticketBoard_readcount,ticketBoard_content 
+		FROM 		ticketBoard
+		WHERE		ticketBoard_isshow = 'Y' and 	ticketBoard_content like '%'||#{searchtext}||'%' order by ticketBoard_id desc					
+	</select>
 </mapper> 
 
 

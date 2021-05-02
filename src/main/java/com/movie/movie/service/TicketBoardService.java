@@ -32,5 +32,15 @@ public class TicketBoardService {
 		ticketBoardDAO.ticketBoardDelete(ticketBoard_id);
 		
 	}
+	public List<TicketBoardDTO> ticketboardfindtit(String searchtext) {
+		List<TicketBoardDTO> ticketList=ticketBoardDAO.ticketboardfindtit(searchtext);
+		return ticketList;
+		
+	}
+	public List<TicketBoardDTO> ticketboardfindcon(String searchtext) {
+		List<TicketBoardDTO> ticketList=ticketBoardDAO.ticketboardfindcon(searchtext);
+		return ticketList;
+		
+	}
 
 }

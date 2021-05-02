@@ -13,6 +13,7 @@ public class TicketBoardDAO {
 	private SqlSession sqlSession;
 	public List<TicketBoardDTO> ticketBoardList() {
 		List<TicketBoardDTO> ticketList=sqlSession.selectList("ticketBoard.ticketBoardList");
+		System.out.println(ticketList);
 		return ticketList;
 	}
 	public TicketBoardDTO ticketBoardDetail(String ticketBoard_id) {
@@ -30,6 +31,16 @@ public class TicketBoardDAO {
 	public void ticketBoardDelete(int ticketBoard_id) {
 		sqlSession.update("ticketBoard.ticketBoardDelete",ticketBoard_id);
 		
+	}
+	public List<TicketBoardDTO> ticketboardfindtit(String searchtext) {
+		List<TicketBoardDTO> ticketList=sqlSession.selectList("ticketBoard.ticketboardfindtit",searchtext);
+		System.out.println(ticketList);
+		return ticketList;
+	}
+	public List<TicketBoardDTO> ticketboardfindcon(String searchtext) {
+		List<TicketBoardDTO> ticketList=sqlSession.selectList("ticketBoard.ticketboardfindcon",searchtext);
+		System.out.println(ticketList);
+		return ticketList;
 	}
 
 }

@@ -35,8 +35,15 @@ public class UserController {
 		System.out.println(userDTO);
 		UserDTO user=userService.login(userDTO);
 		System.out.println(user);
-		HttpSession session=request.getSession();
+		int ckeckAdmin=user.getMember_admin();
+		if(ckeckAdmin==99){
+			HttpSession session=request.getSession();	
+			session.setAttribute("admin",user);
+			response.sendRedirect("./adminTicketForm.do");
+		}else {	
+		HttpSession session=request.getSession();	
 		session.setAttribute("user",user);
+		}
 		return "main";
 	}
 	@RequestMapping(value = "/logout.do")

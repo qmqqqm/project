@@ -77,7 +77,7 @@ public class TicketBoardController {
 			HttpServletResponse response) throws Exception {
 				String ticketBoard_title=request.getParameter("ticketBoard_title");				
 				String ticketBoard_content=request.getParameter("ticketBoard_content");
-				int ticketBoard_id=Integer.parseInt(request.getParameter("ticketBoard_id"));
+				Double ticketBoard_id=Double.parseDouble(request.getParameter("ticketBoard_id"));
 				ticketBoardDTO.setTicketBoard_title(ticketBoard_title);	
 				ticketBoardDTO.setTicketBoard_id(ticketBoard_id);
 				ticketBoardDTO.setTicketBoard_content(ticketBoard_content);
@@ -94,5 +94,30 @@ public class TicketBoardController {
 				ticketBoardService.ticketBoardDelete(ticketBoard_id);
 				ModelAndView mv=new ModelAndView("redirect:ticketBoardList.do");
 				return mv;
-			}
+	}
+	@RequestMapping("ticketboardfind.do")
+	public ModelAndView ticketboardfind(HttpServletRequest request, 
+			HttpServletResponse response) throws Exception {
+		String searchfield=request.getParameter("selsearchfield");
+		String searchtext=request.getParameter("searchtext");
+		if(searchfield.equals("0")) {
+			List<TicketBoardDTO> ticketList=ticketBoardService.ticketboardfindtit(searchtext);
+			ModelAndView mv=new ModelAndView();
+			mv.addObject("ticketList",ticketList);
+			mv.setViewName("ticketBoardList");
+			
+			return mv;
+		}else {
+			List<TicketBoardDTO> ticketList=ticketBoardService.ticketboardfindcon(searchtext);
+			ModelAndView mv=new ModelAndView();
+			mv.addObject("ticketList",ticketList);
+			mv.setViewName("ticketBoardList");
+			
+			return mv;
+			}	
+		
+		
+	}
+	
+	
 }

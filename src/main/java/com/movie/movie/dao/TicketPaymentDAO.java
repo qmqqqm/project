@@ -10,7 +10,7 @@ public class TicketPaymentDAO {
 	@Autowired
 	private SqlSession sqlSession;
 	public void ticketComplete(TicketDTO ticketDTO) {
-		sqlSession.insert("",ticketDTO);
+		sqlSession.insert("ticket.ticketComplete",ticketDTO);
 		
 	}
 

@@ -59,14 +59,16 @@
 				<p class="stit">늘봄극장 예매(예매,취소,상영시간)관련 게시판 입니다</p>
 			</div>
 			<div class="search_area">
+			<form action="ticketboardfind.do">
 				<legend><label for="c_select">검색</label></legend>
 				<select name="selsearchfield" id="selsearchfield" class="c_select" style="width:100px;">
 					<option selected="selected" value="0">제목</option>
 					<option value="1">내용</option>
 				</select>
 				<label for="searchtext" class="hidden">검색어 입력</label>
-				<input id="searchtext" type="text" class="c_input" title="검색어 입력" placeholder="검색어를 입력해 주세요" style="width:185px;" value="" />
-				<button type="button" class="round inblack" title="검색하기" id="btn_search">검색하기</button>
+				<input id="searchtext" name="searchtext" type="text" class="c_input" title="검색어 입력" placeholder="검색어를 입력해 주세요" style="width:185px;" value="" />
+				<input type="submit" class="round inblack" value="검색하기" />
+				</form>
 				<c:if test="${user}!=null">
 				<a href="ticketBoardWriteForm.do"><button type="button" class="round inblack" title="문의하기" id="write">문의하기</button></a>
 			</c:if>
@@ -96,7 +98,14 @@
 				<tbody>
               <c:forEach  var="list"  items="${ticketList}">
 					    <tr class="first">
-						    <td>${list.ticketBoard_id}</td>
+					    <c:if test="${list.member_Id ne('admin')}">
+						    <fmt:parseNumber var= "boardNo" integerOnly= "true" value= "${list.ticketBoard_id} "/>
+								<td>${boardNo}</td>
+
+						   </c:if> 
+						    <c:if test="${list.member_Id eq('admin')}">
+						    <td></td>
+						    </c:if>
                 <td>${list.ticketBoard_group}</td>
 						    <td class="txt"><a href="ticketBoardDetail.do?ticketBoard_id=${list.ticketBoard_id}">${list.ticketBoard_title}</a></td>
 						    <td>${list.member_Id}</td>

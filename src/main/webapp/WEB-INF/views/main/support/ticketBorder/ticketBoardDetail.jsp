@@ -76,9 +76,8 @@
 				<a href="./ticketBoardModForm.do?ticketBoard_id=${ticketDetail.ticketBoard_id}"><button type="button" class="round inblack" id="btn_list">수정하기</button></a>
 				<a href="./ticketBoardDelete.do?ticketBoard_id=${ticketDetail.ticketBoard_id}"><button type="button" class="round inblack" id="btn_list">삭제</button></a></div>
 				</c:if>
-				<c:if test="${admin!=null}">
-				<a href="./ticketBoardModForm.do?ticketBoard_id=${ticketDetail.ticketBoard_id}"><button type="button" class="round inblack" id="btn_list">수정하기</button></a>
-				<a href="./ticketBoardDelete.do?ticketBoard_id=${ticketDetail.ticketBoard_id}"><button type="button" class="round inblack" id="btn_list">삭제</button></a></div>
+				<c:if test="${admin!=null}">		
+				<a href="./adminTicketReplForm.do?ticketBoard_id=${ticketDetail.ticketBoard_id}"><button type="button" class="round inblack" id="btn_list">답변달기</button></a></div>
 				</c:if>
 				</div>
 				<!-- 이전글,다음글 (e) -->
@@ -86,4 +85,4 @@
 		</div>
 	</div>
 	<!-- //Contents End -->
-</div>			  
+	  

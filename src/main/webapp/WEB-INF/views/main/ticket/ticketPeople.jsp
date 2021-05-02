@@ -85,10 +85,11 @@ float: left;
 width:25%;
 height:60px;
 border-right: 1px solid white;
-margin : 20px 0;
-font-size:25px;
+margin:7px 0;
+padding-left:10px;
+font-size:15px;
 font-weight:900;
-text-align:center;
+text-align:left;
 float: left;
 }
 .bottombarpay{
@@ -113,6 +114,11 @@ display:inline-block;
 width:5%;
 margin:5px 5px;
 }
+.seatform{
+margin:0 auto;
+padding-left: 20%;
+}
+
 </style>
 
 
@@ -156,6 +162,8 @@ margin:5px 5px;
         <div>
         
         <span class="screen">SCREEN</span><br>
+        
+    <div class="seatform">    
        <!--  상영관 시트수를 받아 좌석 출력  -->
         <script>
 		stat=${stats};
@@ -166,9 +174,9 @@ margin:5px 5px;
 		totalcnt=0;
 		str=[];
 		price=0;
-		
-		
-		
+		// noseat=${selectseat};
+		//strseat=noseat.split(","); */
+		// alert(${selectseat}); 
 		for(i=65;i<65+rows;i++){
 			
 			document.write("<span class='title_stat'>"+String.fromCharCode(i)+"</span>");
@@ -177,6 +185,22 @@ margin:5px 5px;
 			}
 			document.write("<br>")
 		}
+		</script>
+		</div>
+		
+		
+		<script>
+		//예약좌석받아 css작업
+		noseat='${selectseat}';
+		re=noseat.replace("[","");
+		rere=re.replace("]","");
+		strseat=rere.split(",");	
+		
+		for(k=0;k<strseat.length;k++){
+			document.getElementById(strseat[k]).style.background=blue;	
+			alert("111");//for문집입불가
+		}  
+		
 		//좌석선택
 		function select(num){			
 			
@@ -285,36 +309,62 @@ margin:5px 5px;
 			totalcnt=Number(adcnt)+Number(chcnt);
 			document.getElementById('count').innerText=totalcnt;
 		}
+		//결제페이지로 이동
 		 function formsub(){
+			 if(totalcnt==str.length){
 			 document.getElementById('price').value=price;
 			 document.getElementById('seat').value=selectstat;
+			 document.getElementById('ticket_quantity').value=totalcnt;
 			$("#priceform").submit();
+			 }else if(totalcnt==0||totalcnt==null||str.length==0||str.length==null){
+				 alert("인원과좌석을 선택하세요");
+			 }else{
+				 alert("인원수에 맞게 좌석을 선택하세요");
+			 }
 		} 
 		</script>
+		
         </div>
         </div>
         </div>
         
 				<div id="formsub"></div>
         <div class="bottombar">
+        <form id="priceform" action="ticketpayment.do" method="post">
+				<input type="hidden" id="movie_id" name="movie_id" value="${movie_id}"/>
+				<input type="hidden" id="movie_title" name="movie_title" value="${movie_title}"/>
+				<input type="hidden" id="theater_id" name="theater_id" value="${theater_id}"/>
+				<input type="hidden" id="theater_name" name="theater_name" value="${theater_name}"/>
+				<input type="hidden" id="sangyg_id" name="sangyg_id" value="${sangyg_id}"/>
+				<input type="hidden" id="sangyg_name" name="sangyg_name" value="${sangyg_name}"/>
+				<input type="hidden" id="ticket_date" name="ticket_date" value="${ticket_date}"/>
+				<input type="hidden" id="times_time" name="times_time" value="${times_time}"/>
+				<input type="hidden" name="price" id="price" value="">
+        <input type="hidden" name="seat" id="seat" value="">
+        <input type="hidden" name="ticket_quantity" id="ticket_quantity" value="">
+				</form>
         <div class="bottombarmovie">
-        	영화선택
+        	${movie_title}
         </div>
          <div class="bottombarselect">
-        
-         		극장선택
+        		극장선택 : <span id="selectmovie">${theater_name}</span> <br>
+         		날짜선택 : <span id="seletedate">${ticket_date}</span> <br>
+         		상영관선택 : <span id="selectsangyg">${sangyg_name}</span> <br>
+         		시간선택 : <span id="selecttime">${times_time}</span> <br>
         </div>
          <div class="bottombarpay" id="selectstat" >
          <div id="bottombarpay">
          		좌석선택 > 결제
   		</div>
         </div>
-        <form id="priceform" action="./ticketpayment.do" >
-        <input type="hidden" name="price" id="price" value="11">
-        <input type="hidden" name="seat" id="seat" value="22">
-        </form>
-         <div class="bottomcount"><!-- <a href="ticketpayment.do"> --><img onclick="formsub()" src="/movie/resources/images/20210423_173910.png"/><!-- </a> --></div>
+       
+         <div class="bottomcount"><img onclick="formsub()" src="/movie/resources/images/20210423_173910.png"/><!-- </a> --></div>
         </div>
+        
+		
+		<%-- <c:forEach items="${selectseat}" var="noseat"> --%>
+		
+		<%-- </c:forEach> --%>
 	<!-- /Contaniner -->
 
 
